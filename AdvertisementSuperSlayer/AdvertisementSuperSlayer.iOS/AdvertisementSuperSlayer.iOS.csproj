@@ -61,6 +61,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helpers\AudioService.cs" />
+    <Compile Include="Helpers\DbPathHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -121,6 +122,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <Version>2.2.6</Version>
+    </PackageReference>
     <PackageReference Include="SkiaSharp">
       <Version>1.68.0</Version>
     </PackageReference>
