@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
+using System.Linq;
 
 using AdvertisementSuperSlayer.Helpers;
 
@@ -16,7 +17,6 @@ namespace AdvertisementSuperSlayer.Games.Snake
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            
         }
 
         

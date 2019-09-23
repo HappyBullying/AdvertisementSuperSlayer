@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AdvertisementSuperSlayer.DbModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdvertisementSuperSlayer.Data
 {
@@ -15,5 +16,7 @@ namespace AdvertisementSuperSlayer.Data
         {
             optionsBuilder.UseSqlite("Filename=" + _dbPath);
         }
+
+        public DbSet<FirstTime> FirstTime { get; set; }
     }
 }
