@@ -10,7 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\extra_open.png" />
+    <None Remove="Images\closed.png" />
+    <None Remove="Images\open.png" />
+    <None Remove="Images\openb.png" />
     <None Remove="Resources\almost closed.svg" />
     <None Remove="Resources\closed.svg" />
     <None Remove="Resources\extra open.svg" />
@@ -18,7 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\extra_open.png" />
+    <EmbeddedResource Include="Images\closed.png" />
+    <EmbeddedResource Include="Images\open.png" />
+    <EmbeddedResource Include="Images\openb.png" />
     <EmbeddedResource Include="Resources\almost closed.svg" />
     <EmbeddedResource Include="Resources\closed.svg" />
     <EmbeddedResource Include="Resources\extra open.svg" />

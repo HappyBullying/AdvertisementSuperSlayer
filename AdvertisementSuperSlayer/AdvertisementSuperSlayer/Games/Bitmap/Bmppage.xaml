@@ -10,5 +10,6 @@
         <skia:SKCanvasView x:Name="canvasView"
                            VerticalOptions="FillAndExpand"
                            PaintSurface="OnCanvasViewPaintSurface" />
+        
     </ContentPage.Content>
 </ContentPage>

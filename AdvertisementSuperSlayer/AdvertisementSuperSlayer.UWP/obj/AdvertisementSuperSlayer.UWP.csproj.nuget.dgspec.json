@@ -1,25 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.UWP\\AdvertisementSuperSlayer.UWP.csproj": {}
+    "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.UWP\\AdvertisementSuperSlayer.UWP.csproj": {}
   },
   "projects": {
-    "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.UWP\\AdvertisementSuperSlayer.UWP.csproj": {
+    "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.UWP\\AdvertisementSuperSlayer.UWP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.UWP\\AdvertisementSuperSlayer.UWP.csproj",
+        "projectUniqueName": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.UWP\\AdvertisementSuperSlayer.UWP.csproj",
         "projectName": "AdvertisementSuperSlayer.UWP",
-        "projectPath": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.UWP\\AdvertisementSuperSlayer.UWP.csproj",
-        "packagesPath": "C:\\Users\\aldui\\.nuget\\packages\\",
-        "outputPath": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.UWP\\obj\\",
+        "projectPath": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.UWP\\AdvertisementSuperSlayer.UWP.csproj",
+        "packagesPath": "C:\\Users\\Rinat\\.nuget\\packages\\",
+        "outputPath": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.UWP\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "D:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\aldui\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rinat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -33,8 +33,8 @@
         "frameworks": {
           "uap10.0.16299": {
             "projectReferences": {
-              "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj": {
-                "projectPath": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj"
+              "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj": {
+                "projectPath": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj"
               }
             }
           }
@@ -103,21 +103,21 @@
         }
       }
     },
-    "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj": {
+    "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
+        "projectUniqueName": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
         "projectName": "AdvertisementSuperSlayer",
-        "projectPath": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
-        "packagesPath": "C:\\Users\\aldui\\.nuget\\packages\\",
-        "outputPath": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\obj\\",
+        "projectPath": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
+        "packagesPath": "C:\\Users\\Rinat\\.nuget\\packages\\",
+        "outputPath": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "D:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\aldui\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rinat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

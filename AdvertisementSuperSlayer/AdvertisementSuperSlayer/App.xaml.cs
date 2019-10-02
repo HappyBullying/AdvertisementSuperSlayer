@@ -10,7 +10,7 @@ namespace AdvertisementSuperSlayer
         {
             InitializeComponent();
 
-            MainPage = new Games.Bitmap.Bmppage(); //SvgTest.SVGPage(); //new Games.Snake.SnakePage(); //new MainPage();
+            MainPage = new Games.Snake.SnakePage(); //new Games.Bitmap.Bmppage(); //SvgTest.SVGPage();  //new MainPage();
         }
 
         protected override void OnStart()

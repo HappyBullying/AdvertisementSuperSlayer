@@ -16,12 +16,15 @@ namespace AdvertisementSuperSlayer.Games.Snake
     {
         List<Point> points;
         string direction = "right";
+        SKBitmap open = BitmapExtensions.LoadBitmapResource(typeof(SnakePage), "AdvertisementSuperSlayer.Images.openb.png");
+       
         public SnakePage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             SKCanvasView canvasView = new SKCanvasView();
             canvasView.PaintSurface += OnCanvasViewPaintSurface;
+
 
             SwipeGestureRecognizer up = new SwipeGestureRecognizer();
             up.Direction = SwipeDirection.Up;
@@ -67,12 +70,18 @@ namespace AdvertisementSuperSlayer.Games.Snake
             points.Add(new Point(10, 90));
             points.Add(new Point(50, 90));
             points.Add(new Point(90, 90));
+            points.Add(new Point(90, 90));
+            points.Add(new Point(90, 90));
+            points.Add(new Point(90, 90));
+            points.Add(new Point(90, 90));
+            points.Add(new Point(90, 90));
 
 
-            Device.StartTimer(TimeSpan.FromMilliseconds(200), ()=>{
+            Device.StartTimer(TimeSpan.FromMilliseconds(80), ()=>{
                 if (direction == "up")
                 {
                     points.Insert(0, new Point(points[0].X, points[0].Y - 40));
+                    
                     points.RemoveAt(points.Count - 1);
                     canvasView.InvalidateSurface();
                     return true;
@@ -112,13 +121,13 @@ namespace AdvertisementSuperSlayer.Games.Snake
             {
                 Style = SKPaintStyle.Stroke,
                 Color = SKColors.Purple,
-                StrokeWidth = 15,
+                StrokeWidth = 10,
                 StrokeCap = SKStrokeCap.Round,
                 IsAntialias = true
             };
 
-            int maxW = e.Info.Width - 150;
-            int maxH = e.Info.Height - 100;
+            int maxW = e.Info.Width;
+            int maxH = e.Info.Height;
 
             SKStrokeJoin strokeJoin = SKStrokeJoin.Round;
             SKPath path = new SKPath();
@@ -129,9 +138,44 @@ namespace AdvertisementSuperSlayer.Games.Snake
                 path.LineTo(new SKPoint((float)points[i].X, (float)points[i].Y));
             }
 
-
+            
             thick.StrokeJoin = strokeJoin;
             canvas.DrawPath(path, thick);
+
+            SKImageInfo sKImageInfo = new SKImageInfo(125, 190);
+            //open = open.Resize(sKImageInfo, SKFilterQuality.High);
+            if (direction == "up")
+            {
+                canvas.Translate((float)points[0].X, ((float)points[0].Y) );
+                canvas.Scale(0.2f);
+                canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
+                //canvas.Scale(5f);
+                return;
+            }
+            if (direction == "down")
+            {
+                canvas.Translate((float)points[0].X, (float)(points[0].Y));
+                canvas.Scale(0.2f);
+                canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
+                //canvas.Scale(5f);
+                return;
+            }
+            if (direction == "left")
+            {
+                canvas.Translate((float)(points[0].X), (float)points[0].Y);
+                canvas.Scale(0.2f);
+                canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
+                //canvas.Scale(5f);
+                return;
+            }
+            if (direction == "right")
+            {
+                canvas.Translate((float)(points[0].X), (float)points[0].Y);
+                canvas.Scale(0.2f);
+                canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
+                //canvas.Scale(5f);
+                return;
+            }
         }
 
     }

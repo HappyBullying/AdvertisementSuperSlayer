@@ -12,7 +12,6 @@ E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlaye
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\XamlC.stamp
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.dll
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.pdb
-E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.csprojAssemblyReference.cache
 C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Debug\netstandard2.0\AdvertisementSuperSlayer.deps.json
 C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Debug\netstandard2.0\AdvertisementSuperSlayer.dll
 C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Debug\netstandard2.0\AdvertisementSuperSlayer.pdb
@@ -29,3 +28,5 @@ C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuper
 C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\XamlC.stamp
 C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.dll
 C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.pdb
+E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\Games\Bitmap\Bmppage.xaml.g.cs
+E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.csprojAssemblyReference.cache
