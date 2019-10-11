@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>D:\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>5CDEE6CEC384153B05A33B1D82EA5D390FC1F95655D1CD12A281C2A2042835B3</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>84229C8BA95D8070D62B2E8B0080673F8FAB836FD095B85624A5E37FCCA11E1A</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>fc3e39ea-0207-4d52-afc3-a167f658ae74_1.0.0.0_x86__ymcc9p57rck8c</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>fc3e39ea-0207-4d52-afc3-a167f658ae74_ymcc9p57rck8c!App</RegisteredUserModeAppID>
     <RegisteredPackageID>fc3e39ea-0207-4d52-afc3-a167f658ae74</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T23:30:06.944</Modified>
+      <Modified>2019-10-11T23:24:55.229</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\AdvertisementSuperSlayer.UWP.exe">
       <PackagePath>entrypoint\AdvertisementSuperSlayer.UWP.exe</PackagePath>
-      <Modified>2019-10-02T23:30:06.208</Modified>
+      <Modified>2019-10-11T23:24:54.353</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rinat\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.1.9\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -752,7 +752,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Debug\netstandard2.0\AdvertisementSuperSlayer.dll">
       <PackagePath>AdvertisementSuperSlayer.dll</PackagePath>
-      <Modified>2019-10-02T23:30:00.911</Modified>
+      <Modified>2019-10-11T23:24:22.782</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rinat\.nuget\packages\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
@@ -903,15 +903,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\AdvertisementSuperSlayer.UWP.xr.xml">
       <PackagePath>AdvertisementSuperSlayer.UWP.xr.xml</PackagePath>
-      <Modified>2019-10-02T17:24:14.620</Modified>
+      <Modified>2019-10-11T18:52:40.376</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-10-02T23:30:06.048</Modified>
+      <Modified>2019-10-11T23:19:24.934</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-10-02T23:30:06.048</Modified>
+      <Modified>2019-10-11T23:19:24.935</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -923,11 +923,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-10-02T23:27:20.577</Modified>
+      <Modified>2019-10-11T20:15:07.289</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\Core\AdvertisementSuperSlayer.UWP.exe">
       <PackagePath>AdvertisementSuperSlayer.UWP.exe</PackagePath>
-      <Modified>2019-10-02T23:30:06.941</Modified>
+      <Modified>2019-10-11T23:24:55.208</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

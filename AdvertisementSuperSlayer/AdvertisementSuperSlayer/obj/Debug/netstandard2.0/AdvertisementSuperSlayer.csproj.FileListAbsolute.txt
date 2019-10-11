@@ -17,6 +17,7 @@ C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuper
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Debug\netstandard2.0\AdvertisementSuperSlayer.deps.json
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Debug\netstandard2.0\AdvertisementSuperSlayer.dll
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Debug\netstandard2.0\AdvertisementSuperSlayer.pdb
+E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.csprojAssemblyReference.cache
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.Properties.Resources.resources
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.csproj.GenerateResource.cache
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\App.xaml.g.cs

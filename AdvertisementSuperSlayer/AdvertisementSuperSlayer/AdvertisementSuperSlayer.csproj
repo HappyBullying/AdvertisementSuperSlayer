@@ -10,9 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\closed.png" />
-    <None Remove="Images\open.png" />
-    <None Remove="Images\openb.png" />
+    <Compile Remove="Images\SVG\**" />
+    <EmbeddedResource Remove="Images\SVG\**" />
+    <None Remove="Images\SVG\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\almost_closed400x612.png" />
+    <None Remove="Images\closed400x612.png" />
+    <None Remove="Images\extra_open400x612.png" />
+    <None Remove="Images\open400x612.png" />
     <None Remove="Resources\almost closed.svg" />
     <None Remove="Resources\closed.svg" />
     <None Remove="Resources\extra open.svg" />
@@ -20,9 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\closed.png" />
-    <EmbeddedResource Include="Images\open.png" />
-    <EmbeddedResource Include="Images\openb.png" />
+    <EmbeddedResource Include="Images\almost_closed400x612.png" />
+    <EmbeddedResource Include="Images\closed400x612.png" />
+    <EmbeddedResource Include="Images\extra_open400x612.png" />
+    <EmbeddedResource Include="Images\open400x612.png" />
     <EmbeddedResource Include="Resources\almost closed.svg" />
     <EmbeddedResource Include="Resources\closed.svg" />
     <EmbeddedResource Include="Resources\extra open.svg" />
@@ -60,9 +68,5 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Images\SVG\" />
   </ItemGroup>
 </Project>
