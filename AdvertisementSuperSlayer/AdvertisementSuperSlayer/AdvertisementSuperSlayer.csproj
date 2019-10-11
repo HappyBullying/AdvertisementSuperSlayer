@@ -10,6 +10,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Media\Images\NegroidMale\q400x612\almost_closed400x612.png" />
+    <None Remove="Media\Images\NegroidMale\q400x612\closed400x612.png" />
+    <None Remove="Media\Images\NegroidMale\q400x612\extra_open400x612.png" />
+    <None Remove="Media\Images\NegroidMale\q400x612\open400x612.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Media\Images\NegroidMale\q400x612\almost_closed400x612.png" />
+    <EmbeddedResource Include="Media\Images\NegroidMale\q400x612\closed400x612.png" />
+    <EmbeddedResource Include="Media\Images\NegroidMale\q400x612\extra_open400x612.png" />
+    <EmbeddedResource Include="Media\Images\NegroidMale\q400x612\open400x612.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
     <PackageReference Include="SkiaSharp" Version="1.68.0" />
     <PackageReference Include="SkiaSharp.Views" Version="1.68.0" />
@@ -22,9 +36,5 @@
     <EmbeddedResource Update="Games\Snake\SnakePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Media\Images\NegroidGayMale\" />
   </ItemGroup>
 </Project>
