@@ -9,16 +9,17 @@ using AdvertisementSuperSlayer.Helpers;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Diagnostics;
 
 namespace AdvertisementSuperSlayer.Games.Snake
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SnakePage : ContentPage
     {
-        List<Point> points;
+        List<SnakePoint> points;
         string direction = "right";
-        //SKBitmap open = BitmapExtensions.LoadBitmapResource(typeof(SnakePage), "AdvertisementSuperSlayer.Images.openb.png");
-        private double dxdy = 5;
+        SKBitmap open = BitmapExtensions.LoadBitmapResource(typeof(SnakePage), "AdvertisementSuperSlayer.Images.open400x612.png");
+        private float dxdy = 50;
         public SnakePage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -65,340 +66,61 @@ namespace AdvertisementSuperSlayer.Games.Snake
             this.Content = canvasView;
             DependencyService.Get<IAudio>().SetupAudioFile("woo.mp3");
             DependencyService.Get<IAudio>().PlaySound();
-            points = new List<Point>();
-            points.Add(new Point(10, 10));
-            points.Add(new Point(10, 50));
-            points.Add(new Point(10, 90));
-            points.Add(new Point(50, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-            points.Add(new Point(90, 90));
-
-            Device.StartTimer(TimeSpan.FromMilliseconds(5), () =>
+            points = new List<SnakePoint>();
+            points.Add(new SnakePoint(10, 10));
+            points.Add(new SnakePoint(10, 50));
+            points.Add(new SnakePoint(10, 90));
+            points.Add(new SnakePoint(50, 90));
+            points.Add(new SnakePoint(90, 90));
+            points.Add(new SnakePoint(90, 90));
+            points.Add(new SnakePoint(90, 90));
+            points.Add(new SnakePoint(90, 90));
+            points.Add(new SnakePoint(90, 90));
+            points.Add(new SnakePoint(90, 90));
+            points.Add(new SnakePoint(90, 90));
+            points.Reverse();
+            Device.StartTimer(TimeSpan.FromMilliseconds(200), () =>
             {
+                for (int i = points.Count - 1; i > 0; i--)
+                {
+                    points[i].X = points[i - 1].X;
+                    points[i].Y = points[i - 1].Y;
+                }
                 if (direction == "up")
                 {
-                    points.Insert(0, new Point(points[0].X, points[0].Y - dxdy));
-                    points.RemoveAt(points.Count - 1);
+                    //points.Insert(0, new Point(points[0].X, points[0].Y - dxdy));
+                    //points.RemoveAt(points.Count - 1);
 
-                    //points[0] = new Point(points[0].X, points[0].Y - dxdy);
-                    //for (int i = 1; i < points.Count; i++)
-                    //{
-                    //    double dX = points[i - 1].X - points[i].X;
-                    //    double dY = points[i - 1].Y - points[i].Y;
 
-                    //    if (dX == 0)
-                    //    {
-                    //        if (dY > 0)
-                    //        {
-                    //            points[i] = new Point(points[i].X, points[i].Y + 50);
-                    //        }
-                    //        else
-                    //        {
-                    //            points[i] = new Point(points[i].X, points[i].Y - 50);
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        if (dX > 0)
-                    //        {
-                    //            points[i] = new Point(points[i].X + 50, points[i].Y);
-                    //        }
-                    //        else
-                    //        {
-                    //            points[i] = new Point(points[i].X - 50, points[i].Y);
-                    //        }
-                    //    }
-                    //}
-
+                    
+                    points[0].Y = points[0].Y - dxdy;
                     canvasView.InvalidateSurface();
                     return true;
                 }
                 if (direction == "down")
                 {
-                    points.Insert(0, new Point(points[0].X, points[0].Y + dxdy));
-                    points.RemoveAt(points.Count - 1);
+                    //points.Insert(0, new Point(points[0].X, points[0].Y + dxdy));
+                    //points.RemoveAt(points.Count - 1);
+                    points[0].Y = points[0].Y + dxdy;
 
-                    //points[0] = new Point(points[0].X, points[0].Y + dxdy);
-                    //for (int i = 1; i < points.Count; i++)
-                    //{
-                    //    double dX = points[i - 1].X - points[i].X;
-                    //    double dY = points[i - 1].Y - points[i].Y;
-
-                    //    if (dX == 0)
-                    //    {
-                    //        if (dY > 0)
-                    //        {
-                    //            points[i] = new Point(points[i].X, points[i].Y + 50);
-                    //        }
-                    //        else
-                    //        {
-                    //            points[i] = new Point(points[i].X, points[i].Y - 50);
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        if (dX > 0)
-                    //        {
-                    //            points[i] = new Point(points[i].X + 50, points[i].Y);
-                    //        }
-                    //        else
-                    //        {
-                    //            points[i] = new Point(points[i].X - 50, points[i].Y);
-                    //        }
-                    //    }
-                    //}
 
                     canvasView.InvalidateSurface();
                     return true;
                 }
                 if (direction == "left")
                 {
-                    points.Insert(0, new Point(points[0].X - dxdy, points[0].Y));
-                    points.RemoveAt(points.Count - 1);
-
-                    //points[0] = new Point(points[0].X - dxdy, points[0].Y);
-                    //for (int i = 1; i < points.Count; i++)
-                    //{
-                    //    double dX = points[i - 1].X - points[i].X;
-                    //    double dY = points[i - 1].Y - points[i].Y;
-
-                    //    if (dX == 0)
-                    //    {
-                    //        if (dY > 0)
-                    //        {
-                    //            points[i] = new Point(points[i].X, points[i].Y + 50);
-                    //        }
-                    //        else
-                    //        {
-                    //            points[i] = new Point(points[i].X, points[i].Y - 50);
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        if (dX > 0)
-                    //        {
-                    //            points[i] = new Point(points[i].X + 50, points[i].Y);
-                    //        }
-                    //        else
-                    //        {
-                    //            points[i] = new Point(points[i].X - 50, points[i].Y);
-                    //        }
-                    //    }
-                    //}
+                    //points.Insert(0, new Point(points[0].X - dxdy, points[0].Y));
+                    //points.RemoveAt(points.Count - 1);
+                    points[0]. X= points[0].X - dxdy;
 
                     canvasView.InvalidateSurface();
                     return true;
                 }
                 else
                 {
-                    points.Insert(0, new Point(points[0].X + dxdy, points[0].Y));
-                    points.RemoveAt(points.Count - 1);
-
-                    //points[0] = new Point(points[0].X + dxdy, points[0].Y);
-                    //for (int i = 1; i < points.Count; i++)
-                    //{
-                    //    double dX = points[i - 1].X - points[i].X;
-                    //    double dY = points[i - 1].Y - points[i].Y;
-
-                    //    if (dX == 0)
-                    //    {
-                    //        if (dY > 0)
-                    //        {
-                    //            points[i] = new Point(points[i].X, points[i].Y + 50);
-                    //        }
-                    //        else
-                    //        {
-                    //            points[i] = new Point(points[i].X, points[i].Y - 50);
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        if (dX > 0)
-                    //        {
-                    //            points[i] = new Point(points[i].X + 50, points[i].Y);
-                    //        }
-                    //        else
-                    //        {
-                    //            points[i] = new Point(points[i].X - dxdy, points[i].Y);
-                    //        }
-                    //    }
-                    //}
+                    //points.Insert(0, new Point(points[0].X + dxdy, points[0].Y));
+                    //points.RemoveAt(points.Count - 1);
+                    points[0].X = points[0].X + dxdy;
 
                     canvasView.InvalidateSurface();
                     return true;
@@ -430,60 +152,64 @@ namespace AdvertisementSuperSlayer.Games.Snake
 
             SKPaint thick = new SKPaint()
             {
-                Style = SKPaintStyle.Stroke,
+                Style = SKPaintStyle.StrokeAndFill,
                 Color = SKColors.Purple,
-                StrokeWidth = 10,
+                StrokeWidth = 5,
                 StrokeCap = SKStrokeCap.Round,
                 IsAntialias = true
             };
+            //canvas.DrawCircle(500, 500, 100, thick);
 
             int maxW = e.Info.Width;
             int maxH = e.Info.Height;
 
-            SKStrokeJoin strokeJoin = SKStrokeJoin.Round;
-            SKPath path = new SKPath();
-            path.MoveTo(new SKPoint((float)points[points.Count - 1].X, (float)points[points.Count - 1].Y));
+            //SKStrokeJoin strokeJoin = SKStrokeJoin.Round;
+            //SKPath path = new SKPath();
+            //path.MoveTo(new SKPoint((float)points[points.Count - 1].X, (float)points[points.Count - 1].Y));
 
-            for (int i = points.Count - 2; i > 0; i--)
+            foreach(SnakePoint pt in points)
             {
-                path.LineTo(new SKPoint((float)points[i].X, (float)points[i].Y));
+                canvas.DrawCircle(pt.X, pt.Y, 30, thick);
             }
 
 
-            thick.StrokeJoin = strokeJoin;
-            canvas.DrawPath(path, thick);
+            //thick.StrokeJoin = strokeJoin;
+            //canvas.DrawPath(path, thick);
 
-            SKImageInfo sKImageInfo = new SKImageInfo(125, 190);
-            //open = open.Resize(sKImageInfo, SKFilterQuality.High);
+            SKImageInfo sKImageInfo = new SKImageInfo(60, 82);
+            open = open.Resize(sKImageInfo, SKFilterQuality.High);
             if (direction == "up")
             {
-                canvas.Translate((float)points[0].X, ((float)points[0].Y));
-                canvas.Scale(0.2f);
+                //canvas.Translate((float)points[0].X, ((float)points[0].Y));
+                //canvas.Scale(0.2f);
                 //canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
+                canvas.DrawBitmap(open, points[0].X, points[0].Y, thick);
                 //canvas.Scale(5f);
                 return;
             }
             if (direction == "down")
             {
-                canvas.Translate((float)points[0].X, (float)(points[0].Y));
-                canvas.Scale(0.2f);
-                //canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
+                //canvas.Translate((float)points[0].X, (float)(points[0].Y));
+                //canvas.Scale(0.2f);
+                canvas.DrawBitmap(open, points[0].X, points[0].Y, thick);
                 //canvas.Scale(5f);
                 return;
             }
             if (direction == "left")
             {
-                canvas.Translate((float)(points[0].X), (float)points[0].Y);
-                canvas.Scale(0.2f);
+                //canvas.Translate((float)(points[0].X), (float)points[0].Y);
+                //canvas.Scale(0.2f);
                 //canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
+                canvas.DrawBitmap(open, points[0].X, points[0].Y, thick);
                 //canvas.Scale(5f);
                 return;
             }
             if (direction == "right")
             {
-                canvas.Translate((float)(points[0].X), (float)points[0].Y);
-                canvas.Scale(0.2f);
+                //canvas.Translate((float)(points[0].X), (float)points[0].Y);
+                //canvas.Scale(0.2f);
                 //canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
+                canvas.DrawBitmap(open, points[0].X, points[0].Y, thick);
                 //canvas.Scale(5f);
                 return;
             }
