@@ -20,10 +20,10 @@ namespace AdvertisementSuperSlayer.Games.Snake
             this._Delay = delay;
         }
 
-        public SKBitmap Closed;
-        public SKBitmap AClosed;
-        public SKBitmap Open;
-        public SKBitmap EOpen;
+        public readonly SKBitmap Closed;
+        public readonly SKBitmap AClosed;
+        public readonly SKBitmap Open;
+        public readonly SKBitmap EOpen;
         
         private Enum current;
         private SKBitmap current_img;
