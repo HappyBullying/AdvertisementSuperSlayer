@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj": {}
+    "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj": {}
   },
   "projects": {
-    "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj": {
+    "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
+        "projectUniqueName": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
         "projectName": "AdvertisementSuperSlayer",
-        "projectPath": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
-        "packagesPath": "C:\\Users\\Rinat\\.nuget\\packages\\",
-        "outputPath": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\obj\\",
+        "projectPath": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
+        "packagesPath": "C:\\Users\\aldui\\.nuget\\packages\\",
+        "outputPath": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Rinat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aldui\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
