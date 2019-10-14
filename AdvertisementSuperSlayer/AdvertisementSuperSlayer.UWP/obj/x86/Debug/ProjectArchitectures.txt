@@ -1,0 +1,1 @@
+E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\AdvertisementSuperSlayer.UWP.csproj;x86

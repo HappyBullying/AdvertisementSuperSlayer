@@ -19,7 +19,7 @@ namespace AdvertisementSuperSlayer.Games.Snake
         List<SnakePoint> points;
         string direction = "right";
         SKBitmap open = BitmapExtensions.LoadBitmapResource(typeof(SnakePage), "AdvertisementSuperSlayer.Images.open400x612.png");
-        private float dxdy = 50;
+        private float dxdy = 40;
         public SnakePage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -27,7 +27,7 @@ namespace AdvertisementSuperSlayer.Games.Snake
             SKCanvasView canvasView = new SKCanvasView();
             canvasView.WidthRequest = canvasView.Height;
             canvasView.PaintSurface += OnCanvasViewPaintSurface;
-
+            
 
             SwipeGestureRecognizer up = new SwipeGestureRecognizer();
             up.Direction = SwipeDirection.Up;
@@ -79,7 +79,7 @@ namespace AdvertisementSuperSlayer.Games.Snake
             points.Add(new SnakePoint(90, 90));
             points.Add(new SnakePoint(90, 90));
             points.Reverse();
-            Device.StartTimer(TimeSpan.FromMilliseconds(200), () =>
+            Device.StartTimer(TimeSpan.FromMilliseconds(150), () =>
             {
                 for (int i = points.Count - 1; i > 0; i--)
                 {
@@ -152,7 +152,8 @@ namespace AdvertisementSuperSlayer.Games.Snake
 
             SKPaint thick = new SKPaint()
             {
-                Style = SKPaintStyle.StrokeAndFill,
+                Style = SKPaintStyle.Fill,
+                
                 Color = SKColors.Purple,
                 StrokeWidth = 5,
                 StrokeCap = SKStrokeCap.Round,
@@ -183,7 +184,8 @@ namespace AdvertisementSuperSlayer.Games.Snake
                 //canvas.Translate((float)points[0].X, ((float)points[0].Y));
                 //canvas.Scale(0.2f);
                 //canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
-                canvas.DrawBitmap(open, points[0].X, points[0].Y, thick);
+                canvas.RotateDegrees(180, points[0].X, points[0].Y);
+                canvas.DrawBitmap(open, points[0].X - open.Width / 2, points[0].Y, thick);
                 //canvas.Scale(5f);
                 return;
             }
@@ -191,7 +193,8 @@ namespace AdvertisementSuperSlayer.Games.Snake
             {
                 //canvas.Translate((float)points[0].X, (float)(points[0].Y));
                 //canvas.Scale(0.2f);
-                canvas.DrawBitmap(open, points[0].X, points[0].Y, thick);
+                
+                canvas.DrawBitmap(open, points[0].X - open.Width / 2, points[0].Y, thick);
                 //canvas.Scale(5f);
                 return;
             }
@@ -200,7 +203,8 @@ namespace AdvertisementSuperSlayer.Games.Snake
                 //canvas.Translate((float)(points[0].X), (float)points[0].Y);
                 //canvas.Scale(0.2f);
                 //canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
-                canvas.DrawBitmap(open, points[0].X, points[0].Y, thick);
+                canvas.RotateDegrees(90, points[0].X, points[0].Y);
+                canvas.DrawBitmap(open, points[0].X - open.Width / 2, points[0].Y, thick);
                 //canvas.Scale(5f);
                 return;
             }
@@ -209,7 +213,9 @@ namespace AdvertisementSuperSlayer.Games.Snake
                 //canvas.Translate((float)(points[0].X), (float)points[0].Y);
                 //canvas.Scale(0.2f);
                 //canvas.DrawBitmap(open, e.Info.Rect, BitmapStretch.Uniform);
-                canvas.DrawBitmap(open, points[0].X, points[0].Y, thick);
+                
+                canvas.RotateDegrees(-90, points[0].X, points[0].Y);
+                canvas.DrawBitmap(open, points[0].X - open.Width / 2, points[0].Y, thick);
                 //canvas.Scale(5f);
                 return;
             }
