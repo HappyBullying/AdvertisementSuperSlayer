@@ -183,7 +183,10 @@ namespace AdvertisementSuperSlayer.Games.Snake
 
             foreach(SnakePoint pt in points)
             {
+                thick.Color = SKColors.Blue;
                 canvas.DrawCircle(pt.X, pt.Y, 30, thick);
+                thick.Color = SKColors.Yellow;
+                canvas.DrawCircle(pt.X, pt.Y, 20, thick);
             }
 
 
@@ -194,6 +197,7 @@ namespace AdvertisementSuperSlayer.Games.Snake
             SKImageInfo sKImageInfo = new SKImageInfo(120, 184);
             if (CheckEath(e))
             {
+                points.Add(new SnakePoint(points[points.Count - 1].X, points[points.Count - 1].Y));
                 pl.PlaySound();
                 AdvPoint = GenerateAdv(e);
                 currentAdv = adv.Next;
@@ -280,7 +284,7 @@ namespace AdvertisementSuperSlayer.Games.Snake
                 y = (int)(rnd.Next(e.Info.Height) * 0.8);
                 foreach (SnakePoint elem in this.points)
                 {
-                    double r = (Math.Pow(x - elem.X, 2) + Math.Pow(y - elem.Y, 2)) * 1.5;
+                    double r = (Math.Pow(x - elem.X, 2) + Math.Pow(y - elem.Y, 2)) * 1.9;
                     double R = elem.X * elem.X + elem.Y - elem.Y * elem.Y;
                     if (r > R)
                     {
