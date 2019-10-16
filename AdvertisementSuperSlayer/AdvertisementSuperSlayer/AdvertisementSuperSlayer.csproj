@@ -19,7 +19,10 @@
     <None Remove="Images\almost_closed400x612.png" />
     <None Remove="Images\closed400x612.png" />
     <None Remove="Images\extra_open400x612.png" />
+    <None Remove="Images\long_expan.png" />
+    <None Remove="Images\mops.png" />
     <None Remove="Images\open400x612.png" />
+    <None Remove="Images\tank.png" />
     <None Remove="Resources\almost closed.svg" />
     <None Remove="Resources\closed.svg" />
     <None Remove="Resources\extra open.svg" />
@@ -30,7 +33,10 @@
     <EmbeddedResource Include="Images\almost_closed400x612.png" />
     <EmbeddedResource Include="Images\closed400x612.png" />
     <EmbeddedResource Include="Images\extra_open400x612.png" />
+    <EmbeddedResource Include="Images\long_expan.png" />
+    <EmbeddedResource Include="Images\mops.png" />
     <EmbeddedResource Include="Images\open400x612.png" />
+    <EmbeddedResource Include="Images\tank.png" />
     <EmbeddedResource Include="Resources\almost closed.svg" />
     <EmbeddedResource Include="Resources\closed.svg" />
     <EmbeddedResource Include="Resources\extra open.svg" />

@@ -16,13 +16,20 @@ namespace AdvertisementSuperSlayer.Games.Snake
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SnakePage : ContentPage
     {
+        IAudio pl = DependencyService.Get<IAudio>();
+
         List<SnakePoint> points;
+        Random rnd;
+        Point AdvPoint;
+        SKBitmap currentAdv;
         string direction = "right";
         SKBitmap open = BitmapExtensions.LoadBitmapResource(typeof(SnakePage), "AdvertisementSuperSlayer.Images.open400x612.png");
         private float dxdy = 40;
         private SnakeHeadsCollection col = new SnakeHeadsCollection(1);
+        private Advertisement adv = new Advertisement();
         public SnakePage()
         {
+            rnd = new Random(DateTime.Now.Millisecond);
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             SKCanvasView canvasView = new SKCanvasView();
@@ -65,8 +72,7 @@ namespace AdvertisementSuperSlayer.Games.Snake
             canvasView.GestureRecognizers.Add(left);
             canvasView.GestureRecognizers.Add(right);
             this.Content = canvasView;
-            DependencyService.Get<IAudio>().SetupAudioFile("woo.mp3");
-            DependencyService.Get<IAudio>().PlaySound();
+            pl.SetupAudioFile("woo.mp3");
             points = new List<SnakePoint>();
             points.Add(new SnakePoint(10, 10));
             points.Add(new SnakePoint(10, 50));
@@ -80,7 +86,13 @@ namespace AdvertisementSuperSlayer.Games.Snake
             points.Add(new SnakePoint(90, 90));
             points.Add(new SnakePoint(90, 90));
             points.Reverse();
-            Device.StartTimer(TimeSpan.FromMilliseconds(200), () =>
+
+
+            currentAdv = adv.Next;
+            AdvPoint = new Point(600, 500);
+
+
+            Device.StartTimer(TimeSpan.FromMilliseconds(190), () =>
             {
                 for (int i = points.Count - 1; i > 0; i--)
                 {
@@ -177,8 +189,16 @@ namespace AdvertisementSuperSlayer.Games.Snake
 
             //thick.StrokeJoin = strokeJoin;
             //canvas.DrawPath(path, thick);
-
-            SKImageInfo sKImageInfo = new SKImageInfo(90, 123);
+            
+            
+            SKImageInfo sKImageInfo = new SKImageInfo(120, 184);
+            if (CheckEath(e))
+            {
+                pl.PlaySound();
+                AdvPoint = GenerateAdv(e);
+                currentAdv = adv.Next;
+            }
+            canvas.DrawBitmap(currentAdv, (int)(AdvPoint.X), (int)(AdvPoint.Y));
             var open = col.Next.Resize(sKImageInfo, SKFilterQuality.High);
             if (direction == "up")
             {
@@ -220,6 +240,57 @@ namespace AdvertisementSuperSlayer.Games.Snake
                 //canvas.Scale(5f);
                 return;
             }
+        }
+
+        private bool CheckEath(SKPaintSurfaceEventArgs e)
+        {
+            double r1 = Math.Sqrt(Math.Pow(this.AdvPoint.X, 2) + Math.Pow(this.AdvPoint.Y, 2));
+            double R = Math.Sqrt(Math.Pow(points[0].X, 2) + Math.Pow(points[0].Y, 2));
+            double r2 = Math.Sqrt(Math.Pow(AdvPoint.X + currentAdv.Width, 2) + Math.Pow(AdvPoint.Y + currentAdv.Height, 2));
+            double r3 = Math.Sqrt(Math.Pow(AdvPoint.X, 2) + Math.Pow(AdvPoint.Y + currentAdv.Height, 2));
+            double r4 = Math.Sqrt(Math.Pow(AdvPoint.X + currentAdv.Width, 2) + Math.Pow(AdvPoint.Y, 2));
+            if ((Math.Abs(r1 - R) < Height * 0.05))
+            {
+                return true;
+            }
+            if ((Math.Abs(r2 - R) < Height * 0.05))
+            {
+                return true;
+            }
+            if ((Math.Abs(r3 - R) < Height * 0.05))
+            {
+                return true;
+            }
+            if ((Math.Abs(r4 - R) < Height * 0.05))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private Point GenerateAdv(SKPaintSurfaceEventArgs e)
+        {
+            int x;
+            int y;
+            bool done = true;
+            do
+            {
+                x = (int)(rnd.Next(e.Info.Width) * 0.8);
+                y = (int)(rnd.Next(e.Info.Height) * 0.8);
+                foreach (SnakePoint elem in this.points)
+                {
+                    double r = (Math.Pow(x - elem.X, 2) + Math.Pow(y - elem.Y, 2)) * 1.5;
+                    double R = elem.X * elem.X + elem.Y - elem.Y * elem.Y;
+                    if (r > R)
+                    {
+                        done = false;
+                    }
+                }
+
+            } while (done);
+
+            return new Point(x, y);
         }
     }
 }
