@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{9FB77D26-0238-4B6A-B0B5-CE3E74104397}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AdvertisementSuperSlayer" expanded="True" selected="True">
+            <Node name="AdvertisementSuperSlayer" expanded="True">
+              <Node name="Games" expanded="True">
+                <Node name="Snake" expanded="True">
+                  <Node name="SnakePage.xaml" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="App.xaml" expanded="True" />
+            </Node>
+            <Node name="AdvertisementSuperSlayer.iOS" expanded="True">
+              <Node name="Helpers" expanded="True" />
+            </Node>
+            <Node name="AdvertisementSuperSlayer.macOS" expanded="True">
+              <Node name="Helpers" expanded="True" />
+              <Node name="Resources" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.AdvertisementSuperSlayer.macOS PreferredExecutionTarget="Test1" />
+  <MonoDevelop.Ide.ItemProperties.AdvertisementSuperSlayer.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

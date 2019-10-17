@@ -18,7 +18,6 @@ namespace AdvertisementSuperSlayer
             string dbPath = DependencyService.Get<IDbPath>().GetDatabasePath(DBFILENAME);
             AppDbContext = new Data.ApplicationDbContext(dbPath);
             AppDbContext.Database.EnsureCreated();
-
             MainPage = new Games.Snake.SnakePage(); //new MainPage();
         }
 
