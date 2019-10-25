@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AdvertisementSuperSlayer.Games.Pair.PairCards">
+    <ContentView SizeChanged="OnContentViewSizeChanged">
+        <Grid  >
+            <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="mg"></Image>
+            <!--<BoxView x:Name="BackgroundLayer1" BackgroundColor="{StaticResource Color800}" />-->
+            <Image x:Name="img1"></Image>
+            <!--<BoxView x:Name="BackgroundLayer3" BackgroundColor="{StaticResource Color600}" />-->
+            <!--<BoxView x:Name="BackgroundLayer4" BackgroundColor="{StaticResource Color500}" />-->
+            <StackLayout x:Name="stackLayout">
+                
+
+                <Button Text="Revers" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked" VerticalOptions="CenterAndExpand"></Button>
+                <Frame BorderColor="Brown">
+                    <AbsoluteLayout x:Name="absoluteLayout"/>
+                </Frame>
+                <Button HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="r" Opacity="0" ></Button>
+            </StackLayout>
+        </Grid>
+    </ContentView>
+    
+    
+    <ContentPage.Resources>
+        <Color x:Key="Color500">#2196F3</Color>
+        <Color x:Key="Color600">#1E88E5</Color>
+        <Color x:Key="Color700">#1976D2</Color>
+        <Color x:Key="Color800">#1565C0</Color>
+        <Color x:Key="Color900">#0D47A1</Color>
+    </ContentPage.Resources>
+</ContentPage>
