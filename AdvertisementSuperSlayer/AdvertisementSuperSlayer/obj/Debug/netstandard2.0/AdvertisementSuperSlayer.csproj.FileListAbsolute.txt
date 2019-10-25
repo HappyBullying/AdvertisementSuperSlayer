@@ -6,7 +6,6 @@ E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlaye
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.csproj.GenerateResource.cache
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\App.xaml.g.cs
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\Games\Bitmap\Bmppage.xaml.g.cs
-E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\Games\Pair\PairCards.xaml.g.cs
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\Games\Snake\SnakePage.xaml.g.cs
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\Games\SvgTest\SVGPage.xaml.g.cs
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
@@ -15,3 +14,4 @@ E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlaye
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\XamlC.stamp
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.dll
 E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\AdvertisementSuperSlayer.pdb
+E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Debug\netstandard2.0\Games\Pair\Views\PairCards.xaml.g.cs

@@ -30,13 +30,13 @@
     <AppXManifest Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-25T00:21:36.291</Modified>
+      <Modified>2019-10-25T22:05:33.951</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\AdvertisementSuperSlayer.UWP.exe">
       <PackagePath>entrypoint\AdvertisementSuperSlayer.UWP.exe</PackagePath>
-      <Modified>2019-10-25T00:21:35.474</Modified>
+      <Modified>2019-10-25T22:05:30.114</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rinat\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.1.9\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -752,7 +752,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Debug\netstandard2.0\AdvertisementSuperSlayer.dll">
       <PackagePath>AdvertisementSuperSlayer.dll</PackagePath>
-      <Modified>2019-10-25T00:21:29.761</Modified>
+      <Modified>2019-10-25T22:05:20.854</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rinat\.nuget\packages\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
@@ -761,157 +761,157 @@
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.283</Modified>
+      <Modified>2019-10-25T18:40:22.571</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\LargeTile.scale-200.png">
       <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.283</Modified>
+      <Modified>2019-10-25T18:40:22.571</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\LargeTile.scale-400.png">
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.284</Modified>
+      <Modified>2019-10-25T18:40:22.572</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.284</Modified>
+      <Modified>2019-10-25T18:40:22.573</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.285</Modified>
+      <Modified>2019-10-25T18:40:22.573</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.285</Modified>
+      <Modified>2019-10-25T18:40:22.573</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.285</Modified>
+      <Modified>2019-10-25T18:40:22.574</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.286</Modified>
+      <Modified>2019-10-25T18:40:22.574</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.287</Modified>
+      <Modified>2019-10-25T18:40:22.575</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.287</Modified>
+      <Modified>2019-10-25T18:40:22.576</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.287</Modified>
+      <Modified>2019-10-25T18:40:22.576</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.288</Modified>
+      <Modified>2019-10-25T18:40:22.576</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.288</Modified>
+      <Modified>2019-10-25T18:40:22.577</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.289</Modified>
+      <Modified>2019-10-25T18:40:22.577</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.289</Modified>
+      <Modified>2019-10-25T18:40:22.578</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.289</Modified>
+      <Modified>2019-10-25T18:40:22.578</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.290</Modified>
+      <Modified>2019-10-25T18:40:22.579</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.290</Modified>
+      <Modified>2019-10-25T18:40:22.579</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.291</Modified>
+      <Modified>2019-10-25T18:40:22.581</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.291</Modified>
+      <Modified>2019-10-25T18:40:22.581</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.291</Modified>
+      <Modified>2019-10-25T18:40:22.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.292</Modified>
+      <Modified>2019-10-25T18:40:22.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.292</Modified>
+      <Modified>2019-10-25T18:40:22.583</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.293</Modified>
+      <Modified>2019-10-25T18:40:22.583</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.293</Modified>
+      <Modified>2019-10-25T18:40:22.584</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.294</Modified>
+      <Modified>2019-10-25T18:40:22.584</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-02T17:23:07.294</Modified>
+      <Modified>2019-10-25T18:40:22.584</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Assets\woo.mp3">
       <PackagePath>Assets\woo.mp3</PackagePath>
-      <Modified>2019-10-02T17:23:07.294</Modified>
+      <Modified>2019-10-25T18:40:22.585</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2019-10-02T17:23:07.297</Modified>
+      <Modified>2019-10-25T18:40:22.588</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\AdvertisementSuperSlayer.UWP.xr.xml">
       <PackagePath>AdvertisementSuperSlayer.UWP.xr.xml</PackagePath>
-      <Modified>2019-10-18T00:20:54.652</Modified>
+      <Modified>2019-10-25T18:48:26.957</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-10-25T00:21:35.318</Modified>
+      <Modified>2019-10-25T22:05:29.948</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-10-25T00:21:35.318</Modified>
+      <Modified>2019-10-25T22:05:29.948</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -923,11 +923,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-10-18T14:32:29.864</Modified>
+      <Modified>2019-10-25T20:19:29.609</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\git\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer.UWP\bin\x86\Debug\Core\AdvertisementSuperSlayer.UWP.exe">
       <PackagePath>AdvertisementSuperSlayer.UWP.exe</PackagePath>
-      <Modified>2019-10-25T00:21:36.288</Modified>
+      <Modified>2019-10-25T22:05:33.935</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

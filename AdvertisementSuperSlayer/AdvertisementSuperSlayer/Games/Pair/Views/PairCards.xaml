@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AdvertisementSuperSlayer.Games.Pair.Views.PairCards">
+    <ContentView SizeChanged="OnContentViewSizeChanged">
+        <Grid  >
+            <Image x:Name="Aimg0" BackgroundColor="Transparent"/>
+            <Image x:Name="Aimg1" BackgroundColor="Transparent"/>
+            <Image x:Name="Aimg2" BackgroundColor="Transparent"/>
+            <Image x:Name="Aimg3" BackgroundColor="Transparent"/>
+            <Image x:Name="Aimg4" BackgroundColor="Transparent"/>
+            <StackLayout x:Name="stackLayout" Orientation="{Binding StOrientation, Mode = OneWay}" >
+                <AbsoluteLayout x:Name="absoluteLayout"/>
+            </StackLayout>
+        </Grid>
+    </ContentView>
+    
+    
+    <ContentPage.Resources>
+        <Color x:Key="Color500">#2196F3</Color>
+        <Color x:Key="Color600">#1E88E5</Color>
+        <Color x:Key="Color700">#1976D2</Color>
+        <Color x:Key="Color800">#1565C0</Color>
+        <Color x:Key="Color900">#0D47A1</Color>
+    </ContentPage.Resources>
+</ContentPage>

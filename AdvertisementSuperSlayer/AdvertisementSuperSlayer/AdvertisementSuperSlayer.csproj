@@ -25,10 +25,6 @@
     <None Remove="Images\open400x612.png" />
     <None Remove="Images\rot.png" />
     <None Remove="Images\tank.png" />
-    <None Remove="Resources\almost closed.svg" />
-    <None Remove="Resources\closed.svg" />
-    <None Remove="Resources\extra open.svg" />
-    <None Remove="Resources\open.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,10 +37,6 @@
     <EmbeddedResource Include="Images\open400x612.png" />
     <EmbeddedResource Include="Images\rot.png" />
     <EmbeddedResource Include="Images\tank.png" />
-    <EmbeddedResource Include="Resources\almost closed.svg" />
-    <EmbeddedResource Include="Resources\closed.svg" />
-    <EmbeddedResource Include="Resources\extra open.svg" />
-    <EmbeddedResource Include="Resources\open.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,7 +60,7 @@
     <EmbeddedResource Update="Games\Bitmap\Bmppage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Games\Pair\PairCards.xaml">
+    <EmbeddedResource Update="Games\Pair\Views\PairCards.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Games\Snake\SnakePage.xaml">
@@ -81,5 +73,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 </Project>
