@@ -12,7 +12,7 @@
             <Image x:Name="Aimg2" BackgroundColor="Transparent"/>
             <Image x:Name="Aimg3" BackgroundColor="Transparent"/>
             <Image x:Name="Aimg4" BackgroundColor="Transparent"/>
-            <StackLayout x:Name="stackLayout" Orientation="{Binding StOrientation, Mode = OneWay}" >
+            <StackLayout x:Name="stackLayout" Orientation="{Binding StOrientation, Mode = TwoWay}" >
                 <AbsoluteLayout x:Name="absoluteLayout"/>
             </StackLayout>
         </Grid>

@@ -11,8 +11,10 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
 {
     class PhotoHalfPairTile : ContentView
     {
+        public static readonly BindableProperty DegProperty = BindableProperty.Create("Deg", typeof(float), null);
+
         public SKBitmap TileBitmap { get; set; }
-        private readonly SKBitmap CoverBitmap;
+        public SKBitmap CoverBitmap;
         private SKCanvasView canvasView;
         public PhotoHalfPairTile() { }
         public PhotoHalfPairTile(int row, int col, string bitmapPath, SKBitmap cover)
@@ -31,6 +33,7 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
             this.CoverBitmap = cover.Resize(sK, SKFilterQuality.High);
             this.canvasView.PaintSurface += this.OnCanvasViewPaintSurface;
         }
+
 
         public void InvalidSurfaceState() { this.canvasView.InvalidateSurface(); }
 

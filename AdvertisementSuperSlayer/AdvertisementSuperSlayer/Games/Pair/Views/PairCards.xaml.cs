@@ -16,7 +16,7 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PairCards : ContentPage
     {
-
+        private PairViewModel bc;
         double WindowWidth { get; set; }
         double WindowHeight { get; set; }
 
@@ -25,36 +25,44 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
 
 
         double tileSize;
-        public static int NUM = 4;
         PhotoHalfPairTile[,] tiles = new PhotoHalfPairTile[NUM, NUM];
-        public PairCards()
+        public PairCards(int col, int row)
         {
             InitializeComponent();
-            BindingContext = new PairViewModel();
+            bc = new PairViewModel();
+            BindingContext = bc;
 
             
             img1.Source = ImageSource.FromResource("AdvertisementSuperSlayer.Images.tank.png");
             img1.Scale = 0.1;
 
             AnimateBackground();
-            for (int i = 0; i < NUM; i++)
-            {
-                for (int j = 0; j < NUM; j++)
-                {
-                    Assembly assembly = GetType().GetTypeInfo().Assembly;
-                    SKBitmap TileBitmap;
-                    using (Stream stream = assembly.GetManifestResourceStream("AdvertisementSuperSlayer.Images.rot.png"))
-                    {
-                        TileBitmap = SKBitmap.Decode(stream);
-                    }
 
-                    PhotoHalfPairTile tile = new PhotoHalfPairTile(i, j, "AdvertisementSuperSlayer.Images.rot.png", TileBitmap);
-                    tile.InvalidSurfaceState();
+
+            Assembly assembly = GetType().GetTypeInfo().Assembly;
+            SKBitmap TileBitmap;
+            string[] backs = { "rot.png" };
+            Stream stream = assembly.GetManifestResourceStream("AdvertisementSuperSlayer.Images." + backs[0]);
+            TileBitmap = SKBitmap.Decode(stream);
+
+
+            for (int i = 0; i < col; i++)
+            {
+                for (int j = 0; j < row; j++)
+                {
+                    
+                    PhotoHalfPairTile tile = new PhotoHalfPairTile();
+                    tile.CoverBitmap = TileBitmap;
+                    tile.Col = col;
+                    tile.Row = row;
                     tiles[i, j] = tile;
+                    tile.SetBinding(PhotoHalfPairTile.DegProperty, $"RotationDeg[{col}][{row}]", mode: BindingMode.TwoWay);
                     absoluteLayout.Children.Add(tile);
                 }
             }
         }
+
+
         void OnContentViewSizeChanged(object sender, EventArgs args)
         {
             ContentView contentView = (ContentView)sender;

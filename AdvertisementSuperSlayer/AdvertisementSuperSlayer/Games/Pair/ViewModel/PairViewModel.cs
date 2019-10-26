@@ -29,7 +29,7 @@ namespace AdvertisementSuperSlayer.Games.Pair.ViewModel
             }
         }
 
-
+        public double[][] RotationDeg;
 
         protected void OnPropertyChanged(string propertyName)
         {

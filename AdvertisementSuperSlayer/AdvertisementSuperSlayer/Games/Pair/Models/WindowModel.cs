@@ -12,6 +12,8 @@ namespace AdvertisementSuperSlayer.Games.Pair.Models
 
         public StackOrientation Orientation { get; set; }
         public List<PhotoHalfPairTile> Tiles { get; set; }
-        public Image[] AdvImages { get; set; }
+        
+
+
     }
 }
