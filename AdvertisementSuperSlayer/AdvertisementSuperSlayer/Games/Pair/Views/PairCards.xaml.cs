@@ -1,5 +1,4 @@
-﻿using AdvertisementSuperSlayer.Games.Pair.ViewModel;
-using SkiaSharp;
+﻿using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,48 +15,74 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PairCards : ContentPage
     {
-        private PairViewModel bc;
-        double WindowWidth { get; set; }
-        double WindowHeight { get; set; }
-
-
-
-
-
-        double tileSize;
-        PhotoHalfPairTile[,] tiles = new PhotoHalfPairTile[NUM, NUM];
-        public PairCards(int col, int row)
+        List<string> FrontfaceNames = new List<string>
+            {
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose",
+                "blue_nose" };
+        public PairCards(int row, int col)
         {
             InitializeComponent();
-            bc = new PairViewModel();
-            BindingContext = bc;
+            Rows = row;
+            Cols = col;
+            tiles = new PhotoHalfPairTile[row][];
+            _Busy = new BusyBehavior();
+            RightConfiguration += OnRightConfiguration;
+            WrongConfiguration += OnWrongConfiguration;
+            Init();
+            //AnimateBackground();
 
             
-            img1.Source = ImageSource.FromResource("AdvertisementSuperSlayer.Images.tank.png");
-            img1.Scale = 0.1;
-
-            AnimateBackground();
+        }
 
 
+        private void Init()
+        {
+            BackG.Source = ImageSource.FromResource(PathToImages + "zirki-yarkie-na-fon.png");
+            
+            Random rnd = new Random(DateTime.Now.Millisecond);
             Assembly assembly = GetType().GetTypeInfo().Assembly;
-            SKBitmap TileBitmap;
-            string[] backs = { "rot.png" };
-            Stream stream = assembly.GetManifestResourceStream("AdvertisementSuperSlayer.Images." + backs[0]);
+            string[] BackTilePics = { "rot" };
+            int backIndex = rnd.Next(BackTilePics.Length);
+            Stream stream = assembly.GetManifestResourceStream(PathToImages + BackTilePics[backIndex] + ".png");
             TileBitmap = SKBitmap.Decode(stream);
+            stream.Close();
+            stream = assembly.GetManifestResourceStream(PathToImages + "zel-galka.png");
+            OkBitmap = SKBitmap.Decode(stream).Resize(new SKImageInfo(250, 250), SKFilterQuality.High);
+            stream.Close();
 
-
-            for (int i = 0; i < col; i++)
+            for (int i = 0; i < Rows; i++)
             {
-                for (int j = 0; j < row; j++)
+                tiles[i] = new PhotoHalfPairTile[Cols];
+                for (int j = 0; j < Cols; j++)
                 {
-                    
-                    PhotoHalfPairTile tile = new PhotoHalfPairTile();
-                    tile.CoverBitmap = TileBitmap;
-                    tile.Col = col;
-                    tile.Row = row;
-                    tiles[i, j] = tile;
-                    tile.SetBinding(PhotoHalfPairTile.DegProperty, $"RotationDeg[{col}][{row}]", mode: BindingMode.TwoWay);
-                    absoluteLayout.Children.Add(tile);
+                    int elem = rnd.Next(FrontfaceNames.Count);
+                    string name = FrontfaceNames[elem];
+                    FrontfaceNames.RemoveAt(elem);
+                    stream = assembly.GetManifestResourceStream(PathToImages + name + ".png");
+                    SKBitmap front = SKBitmap.Decode(stream);
+                    tiles[i][j] = new PhotoHalfPairTile(TileBitmap, front);
+                    tiles[i][j].Row = i;
+                    tiles[i][j].Col = j;
+                    TapGestureRecognizer tgr = new TapGestureRecognizer();
+                    tgr.CommandParameter = tiles[i][j];
+                    tgr.Command = new Command<PhotoHalfPairTile>(ExecuteRotation, CanExecuteRotation);
+                    tiles[i][j].GestureRecognizers.Add(tgr);
+                    absoluteLayout.Children.Add(tiles[i][j]);
+                    stream.Close();
                 }
             }
         }
@@ -77,38 +102,26 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
                                                          StackOrientation.Horizontal;
 
             // Calculate tile size and position based on ContentView size.
-            tileSize = Math.Min(WindowWidth, WindowHeight) / NUM;
-            absoluteLayout.WidthRequest = NUM * tileSize;
-            absoluteLayout.HeightRequest = NUM * tileSize;
+            tileSize = Math.Min(WindowWidth, WindowHeight) / Math.Min(Rows, Cols);
+            absoluteLayout.WidthRequest = Cols * tileSize;
+            absoluteLayout.HeightRequest = Rows * tileSize;
 
             foreach (View view in absoluteLayout.Children)
             {
                 PhotoHalfPairTile tile = (PhotoHalfPairTile)view;
                 tile.InvalidSurfaceState();
                 // Set tile bounds.
-                AbsoluteLayout.SetLayoutBounds(tile, new Rectangle(tile.Col * tileSize,
-                                                                   tile.Row * tileSize,
-                                                                   tileSize,
-                                                                   tileSize));
+                AbsoluteLayout.SetLayoutBounds(tile, 
+                    new Rectangle(tile.Col * tileSize, tile.Row * tileSize, tileSize, tileSize));
             }
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Task.Run(()=>{
-                for (float i = 0; i < 180; i+= 3.0f)
-                {
-                    Task.Delay(17);
-                    tiles[0, 2].Rotate(i);
-                    tiles[3, 1].Rotate(i);
-                }
-            });
-        }
+
 
         private void AnimateBackground()
         {
             //AnimateBackgroundLayer1();
-            AnimateBackgroundLayer2();
+            //AnimateBackgroundLayer2();
             //AnimateBackgroundLayer3();
             //AnimateBackgroundLayer4();
         }
@@ -122,18 +135,18 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
         //    }
         //}
 
-        private async void AnimateBackgroundLayer2()
-        {
-            while (true)
-            {
-                await img1.TranslateTo((WindowWidth / 2.0) * 0.1, 0, 3000);
-                
-                //await img1.ScaleTo(0.8, 2750, Easing.SinOut);
-                await img1.TranslateTo(-(WindowWidth / 2.0) * 0.1, 0, 3000);
-                //await img1.ScaleTo(1, 2250, Easing.SinInOut);
-                
-            }
-        }
+        //private async void AnimateBackgroundLayer2()
+        //{
+        //    while (true)
+        //    {
+        //        await img1.TranslateTo((WindowWidth / 2.0) * 0.1, 0, 3000);
+
+        //        //await img1.ScaleTo(0.8, 2750, Easing.SinOut);
+        //        await img1.TranslateTo(-(WindowWidth / 2.0) * 0.1, 0, 3000);
+        //        //await img1.ScaleTo(1, 2250, Easing.SinInOut);
+
+        //    }
+        //}
 
         //private async void AnimateBackgroundLayer3()
         //{

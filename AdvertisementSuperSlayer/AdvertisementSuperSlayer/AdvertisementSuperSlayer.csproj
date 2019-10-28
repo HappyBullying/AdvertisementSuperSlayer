@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Images\6sImDJmIBsw.jpg" />
     <None Remove="Images\almost_closed400x612.png" />
+    <None Remove="Images\blue_nose.png" />
     <None Remove="Images\closed400x612.png" />
     <None Remove="Images\extra_open400x612.png" />
     <None Remove="Images\long_expan.png" />
@@ -25,11 +25,13 @@
     <None Remove="Images\open400x612.png" />
     <None Remove="Images\rot.png" />
     <None Remove="Images\tank.png" />
+    <None Remove="Images\zel-galka.png" />
+    <None Remove="Images\zirki-yarkie-na-fon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\6sImDJmIBsw.jpg" />
     <EmbeddedResource Include="Images\almost_closed400x612.png" />
+    <EmbeddedResource Include="Images\blue_nose.png" />
     <EmbeddedResource Include="Images\closed400x612.png" />
     <EmbeddedResource Include="Images\extra_open400x612.png" />
     <EmbeddedResource Include="Images\long_expan.png" />
@@ -37,6 +39,8 @@
     <EmbeddedResource Include="Images\open400x612.png" />
     <EmbeddedResource Include="Images\rot.png" />
     <EmbeddedResource Include="Images\tank.png" />
+    <EmbeddedResource Include="Images\zel-galka.png" />
+    <EmbeddedResource Include="Images\zirki-yarkie-na-fon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -64,9 +68,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Games\Snake\SnakePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Games\SvgTest\SVGPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">

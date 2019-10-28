@@ -59,45 +59,5 @@ namespace AdvertisementSuperSlayer.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
-        /// </summary>
-        public static byte[] almost_closed {
-            get {
-                object obj = ResourceManager.GetObject("almost_closed", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
-        /// </summary>
-        public static byte[] closed {
-            get {
-                object obj = ResourceManager.GetObject("closed", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
-        /// </summary>
-        public static byte[] extra_open {
-            get {
-                object obj = ResourceManager.GetObject("extra_open", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
-        /// </summary>
-        public static byte[] open {
-            get {
-                object obj = ResourceManager.GetObject("open", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

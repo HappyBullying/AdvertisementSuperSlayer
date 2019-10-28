@@ -11,37 +11,31 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
 {
     class PhotoHalfPairTile : ContentView
     {
-        public static readonly BindableProperty DegProperty = BindableProperty.Create("Deg", typeof(float), null);
-
-        public SKBitmap TileBitmap { get; set; }
-        public SKBitmap CoverBitmap;
+        private readonly SKBitmap TileBitmap;
+        private readonly SKBitmap FrontFaceBitmap;
+        private SKBitmap CurrentBitmap;
         private SKCanvasView canvasView;
-        public PhotoHalfPairTile() { }
-        public PhotoHalfPairTile(int row, int col, string bitmapPath, SKBitmap cover)
-        {   
-            Row = row;
-            Col = col;
-            Padding = new Thickness(5);
+        private bool IsTile = true;
+        public int Row { set; get; }
+        public int Col { set; get; }
+        public bool IsRotating { get; set; }
+        public string FrontBitmapName { get; set; }
+        public PhotoHalfPairTile(SKBitmap tile, SKBitmap frontface)
+        {
             canvasView = new SKCanvasView();
-            Content = this.canvasView;
-            Assembly assembly = GetType().GetTypeInfo().Assembly;
-            using (Stream stream = assembly.GetManifestResourceStream(bitmapPath))
-            {
-                this.TileBitmap = SKBitmap.Decode(stream);
-            }
-            SKImageInfo sK = new SKImageInfo(100, 100);
-            this.CoverBitmap = cover.Resize(sK, SKFilterQuality.High);
-            this.canvasView.PaintSurface += this.OnCanvasViewPaintSurface;
+            canvasView.PaintSurface += OnCanvasViewPaintSurface;
+            TileBitmap = tile;
+            SKImageInfo imageInfo = new SKImageInfo(250, 250);
+            FrontFaceBitmap = frontface.Resize(imageInfo, SKFilterQuality.High);
+            Content = canvasView;
+            CurrentBitmap = TileBitmap;
+            canvasView.InvalidateSurface();
+            IsRotating = false;
         }
 
 
         public void InvalidSurfaceState() { this.canvasView.InvalidateSurface(); }
 
-        public void Rotate(float deg)
-        {
-            _Deg = deg;
-            InvalidSurfaceState();
-        }
 
         private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
@@ -59,20 +53,23 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
             matrix44.PostConcat(SKMatrix44.CreateRotationDegrees(1, 0, 0, _Deg));
 
             SKMatrix44 perspectiveMatrix = SKMatrix44.CreateIdentity();
-            perspectiveMatrix[3, 2] = -1 / 2500f;
+            perspectiveMatrix[3, 2] = -1 / 5000f;
             matrix44.PostConcat(perspectiveMatrix);
 
             SKMatrix.PostConcat(ref matrix, matrix44.Matrix);
             SKMatrix.PostConcat(ref matrix, SKMatrix.MakeTranslation(xCenter, yCenter));
             canvas.SetMatrix(matrix);
-            float xBitmap = xCenter - CoverBitmap.Width / 2;
-            float yBitmap = yCenter - CoverBitmap.Height / 2;
-            canvas.DrawBitmap(CoverBitmap, xBitmap, yBitmap);
+            float xBitmap = xCenter - CurrentBitmap.Width / 2;
+            float yBitmap = yCenter - CurrentBitmap.Height / 2;
+            canvas.DrawBitmap(CurrentBitmap, xBitmap, yBitmap);
         }
 
-
-        public int Row { set; get; }
-        public int Col { set; get; }
+        
+        public void SetOk(SKBitmap ok)
+        {
+            CurrentBitmap = ok;
+            canvasView.InvalidateSurface();
+        }
 
         public float Deg
         {
@@ -82,8 +79,21 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
             }
             set
             {
-                this._Deg = value;
-                this.canvasView.InvalidateSurface();
+                if (value == 90.0f)
+                {
+                    if (IsTile)
+                    {
+                        IsTile = !IsTile;
+                        CurrentBitmap = FrontFaceBitmap;
+                    }
+                    else
+                    {
+                        IsTile = !IsTile;
+                        CurrentBitmap = TileBitmap;
+                    }
+                }
+                _Deg = value;
+                canvasView.InvalidateSurface();
             }
         }
         private float _Deg = 0;

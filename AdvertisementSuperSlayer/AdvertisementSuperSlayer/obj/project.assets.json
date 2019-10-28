@@ -474,6 +474,7 @@
         "lib/monoandroid81/Xamarin.Essentials.pdb",
         "lib/monoandroid81/Xamarin.Essentials.xml",
         "lib/monoandroid90/Xamarin.Essentials.dll",
+        "lib/monoandroid90/Xamarin.Essentials.dll.mdb",
         "lib/monoandroid90/Xamarin.Essentials.pdb",
         "lib/monoandroid90/Xamarin.Essentials.xml",
         "lib/netstandard1.0/Xamarin.Essentials.dll",
@@ -753,25 +754,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aldui\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\Rinat\\.nuget\\packages\\": {},
+    "D:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
+      "projectUniqueName": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
       "projectName": "AdvertisementSuperSlayer",
-      "projectPath": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
-      "packagesPath": "C:\\Users\\aldui\\.nuget\\packages\\",
-      "outputPath": "C:\\GitRepos\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\obj\\",
+      "projectPath": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer.csproj",
+      "packagesPath": "C:\\Users\\Rinat\\.nuget\\packages\\",
+      "outputPath": "E:\\git\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\AdvertisementSuperSlayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "D:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\aldui\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rinat\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
