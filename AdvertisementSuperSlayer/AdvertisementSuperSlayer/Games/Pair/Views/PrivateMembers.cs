@@ -138,6 +138,7 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
             });
             ////
             _Busy.Release();
+            await Navigation.PushAsync(new Browser.BrowserPage());
         }
 
 
