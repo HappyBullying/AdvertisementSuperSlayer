@@ -20,11 +20,21 @@
     <None Remove="Images\blue_nose.png" />
     <None Remove="Images\closed400x612.png" />
     <None Remove="Images\extra_open400x612.png" />
+    <None Remove="Images\fiol-galka.png" />
+    <None Remove="Images\Front\1.png" />
+    <None Remove="Images\Front\2.png" />
+    <None Remove="Images\Front\3.png" />
+    <None Remove="Images\Front\4.png" />
+    <None Remove="Images\Front\5.png" />
+    <None Remove="Images\Front\6.png" />
+    <None Remove="Images\Front\7.png" />
+    <None Remove="Images\Front\8.png" />
     <None Remove="Images\long_expan.png" />
     <None Remove="Images\mops.png" />
     <None Remove="Images\open400x612.png" />
     <None Remove="Images\rot.png" />
     <None Remove="Images\tank.png" />
+    <None Remove="Images\viol.png" />
     <None Remove="Images\zel-galka.png" />
     <None Remove="Images\zirki-yarkie-na-fon.png" />
   </ItemGroup>
@@ -34,11 +44,21 @@
     <EmbeddedResource Include="Images\blue_nose.png" />
     <EmbeddedResource Include="Images\closed400x612.png" />
     <EmbeddedResource Include="Images\extra_open400x612.png" />
+    <EmbeddedResource Include="Images\fiol-galka.png" />
+    <EmbeddedResource Include="Images\Front\1.png" />
+    <EmbeddedResource Include="Images\Front\2.png" />
+    <EmbeddedResource Include="Images\Front\3.png" />
+    <EmbeddedResource Include="Images\Front\4.png" />
+    <EmbeddedResource Include="Images\Front\5.png" />
+    <EmbeddedResource Include="Images\Front\6.png" />
+    <EmbeddedResource Include="Images\Front\7.png" />
+    <EmbeddedResource Include="Images\Front\8.png" />
     <EmbeddedResource Include="Images\long_expan.png" />
     <EmbeddedResource Include="Images\mops.png" />
     <EmbeddedResource Include="Images\open400x612.png" />
     <EmbeddedResource Include="Images\rot.png" />
     <EmbeddedResource Include="Images\tank.png" />
+    <EmbeddedResource Include="Images\viol.png" />
     <EmbeddedResource Include="Images\zel-galka.png" />
     <EmbeddedResource Include="Images\zirki-yarkie-na-fon.png" />
   </ItemGroup>

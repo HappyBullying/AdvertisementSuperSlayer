@@ -1,0 +1,16 @@
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Release\netstandard2.0\AdvertisementSuperSlayer.deps.json
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Release\netstandard2.0\AdvertisementSuperSlayer.dll
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\bin\Release\netstandard2.0\AdvertisementSuperSlayer.pdb
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\AdvertisementSuperSlayer.csprojAssemblyReference.cache
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\AdvertisementSuperSlayer.Properties.Resources.resources
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\AdvertisementSuperSlayer.csproj.GenerateResource.cache
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\App.xaml.g.cs
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\Games\Bitmap\Bmppage.xaml.g.cs
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\Games\Pair\Views\PairCards.xaml.g.cs
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\Games\Snake\SnakePage.xaml.g.cs
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\MainPage.xaml.g.cs
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\AdvertisementSuperSlayer.AssemblyInfoInputs.cache
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\AdvertisementSuperSlayer.AssemblyInfo.cs
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\XamlC.stamp
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\AdvertisementSuperSlayer.dll
+C:\GitRepos\AdvertisementSuperSlayer\AdvertisementSuperSlayer\AdvertisementSuperSlayer\obj\Release\netstandard2.0\AdvertisementSuperSlayer.pdb

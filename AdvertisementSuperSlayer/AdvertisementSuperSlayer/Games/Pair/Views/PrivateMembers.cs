@@ -18,6 +18,7 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
         private readonly string PathToImages = "AdvertisementSuperSlayer.Images.";
         private event EventHandler<ConfigEventArgs> RightConfiguration;
         private event EventHandler<ConfigEventArgs> WrongConfiguration;
+        private SKImageInfo ImInfo;
 
         private async void ExecuteRotation(PhotoHalfPairTile tmp)
         {
@@ -96,7 +97,7 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
             {
                 continue;
             }
-            await Task.Delay(40);
+            await Task.Delay(200);
             tiles[FRow][FCol].GestureRecognizers.Clear();
             tiles[SRow][SCol].GestureRecognizers.Clear();
             tiles[FRow][FCol].SetOk(OkBitmap);
@@ -117,6 +118,13 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
             {
                 tiles[FRow][FCol].IsRotating = true;
                 tiles[SRow][SCol].IsRotating = true;
+                await Task.Delay(1000);
+                while (tiles[FRow][FCol].Deg <= 90 - degreeStep)
+                {
+                    await Task.Delay(delayMicrosecond);
+                    tiles[FRow][FCol].Deg = tiles[FRow][FCol].Deg + degreeStep;
+                    tiles[SRow][SCol].Deg = tiles[SRow][SCol].Deg + degreeStep;
+                }
                 while (tiles[FRow][FCol].Deg >= 0 + degreeStep)
                 {
                     await Task.Delay(delayMicrosecond);

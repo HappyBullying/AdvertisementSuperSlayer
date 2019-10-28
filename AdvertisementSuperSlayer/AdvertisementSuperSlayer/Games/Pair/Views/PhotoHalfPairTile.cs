@@ -26,7 +26,7 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
             canvasView.PaintSurface += OnCanvasViewPaintSurface;
             TileBitmap = tile;
             SKImageInfo imageInfo = new SKImageInfo(250, 250);
-            FrontFaceBitmap = frontface.Resize(imageInfo, SKFilterQuality.High);
+            FrontFaceBitmap = frontface;
             Content = canvasView;
             CurrentBitmap = TileBitmap;
             canvasView.InvalidateSurface();

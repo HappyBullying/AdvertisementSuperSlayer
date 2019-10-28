@@ -17,22 +17,22 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
     {
         List<string> FrontfaceNames = new List<string>
             {
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose",
-                "blue_nose" };
+                "1",
+                "1",
+                "2",
+                "2",
+                "3",
+                "3",
+                "4",
+                "4",
+                "5",
+                "5",
+                "6",
+                "6",
+                "7",
+                "7",
+                "8",
+                "8" };
         public PairCards(int row, int col)
         {
             InitializeComponent();
@@ -52,16 +52,16 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
         private void Init()
         {
             BackG.Source = ImageSource.FromResource(PathToImages + "zirki-yarkie-na-fon.png");
-            
+            ImInfo = new SKImageInfo(150, 150);
             Random rnd = new Random(DateTime.Now.Millisecond);
             Assembly assembly = GetType().GetTypeInfo().Assembly;
-            string[] BackTilePics = { "rot" };
+            string[] BackTilePics = { "viol" };
             int backIndex = rnd.Next(BackTilePics.Length);
             Stream stream = assembly.GetManifestResourceStream(PathToImages + BackTilePics[backIndex] + ".png");
-            TileBitmap = SKBitmap.Decode(stream);
+            TileBitmap = SKBitmap.Decode(stream).Resize(ImInfo, SKFilterQuality.High);
             stream.Close();
             stream = assembly.GetManifestResourceStream(PathToImages + "zel-galka.png");
-            OkBitmap = SKBitmap.Decode(stream).Resize(new SKImageInfo(250, 250), SKFilterQuality.High);
+            OkBitmap = SKBitmap.Decode(stream).Resize(ImInfo, SKFilterQuality.High);
             stream.Close();
 
             for (int i = 0; i < Rows; i++)
@@ -72,11 +72,12 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
                     int elem = rnd.Next(FrontfaceNames.Count);
                     string name = FrontfaceNames[elem];
                     FrontfaceNames.RemoveAt(elem);
-                    stream = assembly.GetManifestResourceStream(PathToImages + name + ".png");
-                    SKBitmap front = SKBitmap.Decode(stream);
+                    stream = assembly.GetManifestResourceStream(PathToImages + "Front." + name + ".png");
+                    SKBitmap front = SKBitmap.Decode(stream).Resize(ImInfo, SKFilterQuality.High);
                     tiles[i][j] = new PhotoHalfPairTile(TileBitmap, front);
                     tiles[i][j].Row = i;
                     tiles[i][j].Col = j;
+                    tiles[i][j].FrontBitmapName = name;
                     TapGestureRecognizer tgr = new TapGestureRecognizer();
                     tgr.CommandParameter = tiles[i][j];
                     tgr.Command = new Command<PhotoHalfPairTile>(ExecuteRotation, CanExecuteRotation);
