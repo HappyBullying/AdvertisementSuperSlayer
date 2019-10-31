@@ -20,6 +20,7 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
         public int Col { set; get; }
         public bool IsRotating { get; set; }
         public string FrontBitmapName { get; set; }
+        public bool WasTapped { get; set; }
         public PhotoHalfPairTile(SKBitmap tile, SKBitmap frontface)
         {
             canvasView = new SKCanvasView();
@@ -31,6 +32,7 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
             CurrentBitmap = TileBitmap;
             canvasView.InvalidateSurface();
             IsRotating = false;
+            WasTapped = false;
         }
 
 

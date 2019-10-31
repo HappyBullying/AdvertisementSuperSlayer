@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AdvertisementSuperSlayer.Games.Pair.Views.PairCards">
+             x:Class="AdvertisementSuperSlayer.Games.Pair.Views.PairCards"
+             NavigationPage.HasNavigationBar="False">
     <ContentView SizeChanged="OnContentViewSizeChanged">
         <Grid  >
             <Image x:Name="BackG" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"></Image>

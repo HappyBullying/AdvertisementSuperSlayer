@@ -60,7 +60,7 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
             Stream stream = assembly.GetManifestResourceStream(PathToImages + BackTilePics[backIndex] + ".png");
             TileBitmap = SKBitmap.Decode(stream).Resize(ImInfo, SKFilterQuality.High);
             stream.Close();
-            stream = assembly.GetManifestResourceStream(PathToImages + "zel-galka.png");
+            stream = assembly.GetManifestResourceStream(PathToImages + "fiol-galka.png");
             OkBitmap = SKBitmap.Decode(stream).Resize(ImInfo, SKFilterQuality.High);
             stream.Close();
 

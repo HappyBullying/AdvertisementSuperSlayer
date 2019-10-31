@@ -16,10 +16,17 @@ namespace AdvertisementSuperSlayer.Browser
         {
             InitializeComponent();
             WebView webV = new WebView();
-            webV.Source = new UrlWebViewSource { Url = "http://google.com" };
+            webV.Source = new UrlWebViewSource { Url = "http://localhost:5000" };
             webV.VerticalOptions = LayoutOptions.FillAndExpand;
             webV.HorizontalOptions = LayoutOptions.FillAndExpand;
             Content = webV;
+            CountDown();
+        }
+
+        private async void CountDown()
+        {
+            await Task.Delay(6300);
+            await Navigation.PopAsync();
         }
     }
 }

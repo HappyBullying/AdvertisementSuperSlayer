@@ -138,7 +138,12 @@ namespace AdvertisementSuperSlayer.Games.Pair.Views
             });
             ////
             _Busy.Release();
-            await Navigation.PushAsync(new Browser.BrowserPage());
+            bool cond1 = tiles[FRow][FCol].WasTapped;
+            bool cond2 = tiles[SRow][SCol].WasTapped;
+            if (cond1 || cond2)
+                await Navigation.PushAsync(new Browser.BrowserPage());
+            tiles[FRow][FCol].WasTapped = true;
+            tiles[SRow][SCol].WasTapped = true;
         }
 
 

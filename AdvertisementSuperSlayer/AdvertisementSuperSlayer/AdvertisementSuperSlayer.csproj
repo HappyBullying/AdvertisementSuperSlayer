@@ -30,6 +30,9 @@
     <None Remove="Images\Front\7.png" />
     <None Remove="Images\Front\8.png" />
     <None Remove="Images\long_expan.png" />
+    <None Remove="Images\Menue\ekran-vybora.png" />
+    <None Remove="Images\Menue\knopka-1.png" />
+    <None Remove="Images\Menue\knopka-2.png" />
     <None Remove="Images\mops.png" />
     <None Remove="Images\open400x612.png" />
     <None Remove="Images\rot.png" />
@@ -54,6 +57,9 @@
     <EmbeddedResource Include="Images\Front\7.png" />
     <EmbeddedResource Include="Images\Front\8.png" />
     <EmbeddedResource Include="Images\long_expan.png" />
+    <EmbeddedResource Include="Images\Menue\ekran-vybora.png" />
+    <EmbeddedResource Include="Images\Menue\knopka-1.png" />
+    <EmbeddedResource Include="Images\Menue\knopka-2.png" />
     <EmbeddedResource Include="Images\mops.png" />
     <EmbeddedResource Include="Images\open400x612.png" />
     <EmbeddedResource Include="Images\rot.png" />
@@ -91,6 +97,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Games\Snake\SnakePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Menue\MainMenue.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
