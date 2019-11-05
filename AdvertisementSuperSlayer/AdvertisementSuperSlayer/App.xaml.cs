@@ -10,7 +10,7 @@ namespace AdvertisementSuperSlayer
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage( new Games.Pair.Views.PairCards(4, 4)); //new Games.Snake.SnakePage(); //new Games.Bitmap.Bmppage();//new MainPage();
+            MainPage = new Games.Puzzle.PuzzlePage(); //new NavigationPage( new Games.Pair.Views.PairCards(4, 4)); //new Games.Snake.SnakePage(); //new Games.Bitmap.Bmppage();//new MainPage();
         }
 
         protected override void OnStart()

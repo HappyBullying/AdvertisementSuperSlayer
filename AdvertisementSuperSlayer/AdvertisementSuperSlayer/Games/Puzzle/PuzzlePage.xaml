@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:helpers="clr-namespace:AdvertisementSuperSlayer.Helpers"
+             mc:Ignorable="d"
+             x:Class="AdvertisementSuperSlayer.Games.Puzzle.PuzzlePage">
+    <Grid x:Name="mGrid" BackgroundColor="Yellow">
+        <skia:SKCanvasView x:Name="canvasView" PaintSurface="OnCanvasViewPaintSurface"/>
+        <!--<Grid.Effects>
+            <helpers:TouchEffect Capture="True" TouchAction="OnTouchEffectAction"></helpers:TouchEffect>
+        </Grid.Effects>-->
+    </Grid>
+</ContentPage>

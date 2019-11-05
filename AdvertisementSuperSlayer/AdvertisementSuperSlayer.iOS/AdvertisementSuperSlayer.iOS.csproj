@@ -61,6 +61,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helpers\AudioService.cs" />
+    <Compile Include="Helpers\TouchEffectHelpers\TouchEffect.cs" />
+    <Compile Include="Helpers\TouchEffectHelpers\TouchRecognizer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -146,4 +148,5 @@
   <ItemGroup>
     <BundleResource Include="Resources\woo.mp3" />
   </ItemGroup>
+  <ItemGroup />
 </Project>
