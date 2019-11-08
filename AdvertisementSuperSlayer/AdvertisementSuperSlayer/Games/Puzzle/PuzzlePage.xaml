@@ -7,10 +7,12 @@
              xmlns:helpers="clr-namespace:AdvertisementSuperSlayer.Helpers"
              mc:Ignorable="d"
              x:Class="AdvertisementSuperSlayer.Games.Puzzle.PuzzlePage">
-    <Grid x:Name="mGrid" BackgroundColor="Yellow">
-        <skia:SKCanvasView x:Name="canvasView" PaintSurface="OnCanvasViewPaintSurface"/>
-        <!--<Grid.Effects>
+    <ContentView SizeChanged="OnContentViewSizeChanged">
+        <Grid x:Name="mGrid" BackgroundColor="Yellow">
+            <skia:SKCanvasView x:Name="canvasView" PaintSurface="OnCanvasViewPaintSurface"/>
+            <!--<Grid.Effects>
             <helpers:TouchEffect Capture="True" TouchAction="OnTouchEffectAction"></helpers:TouchEffect>
         </Grid.Effects>-->
-    </Grid>
+        </Grid>
+    </ContentView>
 </ContentPage>

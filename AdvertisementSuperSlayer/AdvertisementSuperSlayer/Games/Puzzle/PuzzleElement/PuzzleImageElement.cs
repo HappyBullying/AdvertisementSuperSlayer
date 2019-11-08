@@ -1,12 +1,18 @@
 ﻿using SkiaSharp;
 using System.Collections.Generic;
 using AdvertisementSuperSlayer.Helpers.TouchEffectHelpers;
+using Xamarin.Forms;
 
 namespace AdvertisementSuperSlayer.Games.Puzzle.PuzzleElement
 {
     class PuzzleImageElement
     {
+        public int ImageId { get; set; }
+        public SKPoint CurrentPosition { get; set; }
+
+
         SKBitmap bitmap;
+
 
         Dictionary<long, TouchManipulationInfo> touchDictionary = new Dictionary<long, TouchManipulationInfo>();
 
@@ -32,6 +38,15 @@ namespace AdvertisementSuperSlayer.Games.Puzzle.PuzzleElement
             canvas.Concat(ref matrix);
             canvas.DrawBitmap(bitmap, 0, 0);
             canvas.Restore();
+        }
+
+        public SKPoint GetBitmapLocation(SKPoint _location)
+        {
+            SKMatrix inverseMatrix;
+            Matrix.TryInvert(out inverseMatrix);
+            SKPoint transformedPoint = inverseMatrix.MapPoint(_location);
+            SKRect rect = new SKRect(0, 0, bitmap.Width, bitmap.Height);
+            return rect.Location;
         }
 
         public bool HitTest(SKPoint location)
