@@ -87,7 +87,7 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
 
             if (CanHandleEffect)
             {
-                CanHandleEffect = false;
+                CanHandleEffect = true;
                 Point pt = args.Location;
 
                 SKPoint point =

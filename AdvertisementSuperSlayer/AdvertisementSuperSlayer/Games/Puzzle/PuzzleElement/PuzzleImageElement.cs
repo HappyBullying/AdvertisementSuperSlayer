@@ -23,7 +23,7 @@ namespace AdvertisementSuperSlayer.Games.Puzzle.PuzzleElement
 
             TouchManager = new TouchManipulationManager
             {
-                Mode = TouchManipulationMode.ScaleRotate
+                Mode = TouchManipulationMode.PanOnly
             };
         }
 
@@ -79,6 +79,8 @@ namespace AdvertisementSuperSlayer.Games.Puzzle.PuzzleElement
                     break;
 
                 case TouchActionType.Moved:
+                    //check if added
+
                     TouchManipulationInfo info = touchDictionary[id];
                     info.NewPoint = location;
                     Manipulate();
