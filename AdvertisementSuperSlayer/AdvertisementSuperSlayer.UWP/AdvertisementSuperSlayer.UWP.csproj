@@ -108,6 +108,9 @@
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\lose1.mp3" />
+    <Content Include="Assets\lose2.mp3" />
+    <Content Include="Assets\lose3.mp3" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-200.png" />
     <Content Include="Assets\SmallTile.scale-400.png" />
@@ -132,6 +135,9 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\win1.mp3" />
+    <Content Include="Assets\win2.mp3" />
+    <Content Include="Assets\win3.mp3" />
     <Content Include="Assets\woo.mp3" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>

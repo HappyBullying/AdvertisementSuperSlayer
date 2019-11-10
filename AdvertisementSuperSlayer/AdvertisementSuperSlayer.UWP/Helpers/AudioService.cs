@@ -32,6 +32,11 @@ namespace AdvertisementSuperSlayer.UWP.Helpers
             Player?.Play();
         }
 
+        public async Task PlaySoundAsync()
+        {
+            await Task.Run(() => Player?.Play());
+        }
+
         public async void SetupAudioFile(string filename)
         {
             StorageFolder folder = await Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
@@ -53,7 +58,13 @@ namespace AdvertisementSuperSlayer.UWP.Helpers
 
         public void Dispose()
         {
-            this.Player = null;
+            Player.Dispose();
+            Player = null;
+        }
+
+        ~AudioService()
+        {
+            Dispose();
         }
     }
 }

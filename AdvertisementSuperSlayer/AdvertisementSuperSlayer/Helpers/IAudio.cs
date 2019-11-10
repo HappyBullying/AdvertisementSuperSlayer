@@ -11,5 +11,7 @@ namespace AdvertisementSuperSlayer.Helpers
         void SetupAudioFile(string filename, bool loop, double volume);
 
         void PlaySound();
+
+        Task PlaySoundAsync();
     }
 }

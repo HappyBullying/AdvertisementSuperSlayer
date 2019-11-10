@@ -45,9 +45,20 @@ namespace AdvertisementSuperSlayer.Droid.Helpers
             Player?.Start();
         }
 
+        public async Task PlaySoundAsync()
+        {
+            await Task.Run(() => Player?.Start());
+        }
+
         public void Dispose()
         {
-            this.Player = null;
+            Player.Dispose();
+            Player = null;
+        }
+
+        ~AudioService()
+        {
+            Dispose();
         }
     }
 }

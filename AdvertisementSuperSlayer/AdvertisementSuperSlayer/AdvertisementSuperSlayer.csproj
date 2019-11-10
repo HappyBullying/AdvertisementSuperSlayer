@@ -10,17 +10,191 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Media\Images\NegroidMale\q400x612\almost_closed400x612.png" />
-    <None Remove="Media\Images\NegroidMale\q400x612\closed400x612.png" />
-    <None Remove="Media\Images\NegroidMale\q400x612\extra_open400x612.png" />
-    <None Remove="Media\Images\NegroidMale\q400x612\open400x612.png" />
+    <None Remove="Images\Pair\CheckMarks\check_mark_blue.png" />
+    <None Remove="Images\Pair\CheckMarks\check_mark_green.png" />
+    <None Remove="Images\Pair\CheckMarks\check_mark_violet.png" />
+    <None Remove="Images\Pair\Covers\blue_empty.png" />
+    <None Remove="Images\Pair\Covers\blue_eyes.png" />
+    <None Remove="Images\Pair\Covers\blue_full.png" />
+    <None Remove="Images\Pair\Covers\blue_mouth.png" />
+    <None Remove="Images\Pair\Covers\blue_nose.png" />
+    <None Remove="Images\Pair\Covers\green_empty.png" />
+    <None Remove="Images\Pair\Covers\green_eyes.png" />
+    <None Remove="Images\Pair\Covers\green_full.png" />
+    <None Remove="Images\Pair\Covers\green_mouth.png" />
+    <None Remove="Images\Pair\Covers\green_nose.png" />
+    <None Remove="Images\Pair\Covers\violet_empty.png" />
+    <None Remove="Images\Pair\Covers\violet_eyes.png" />
+    <None Remove="Images\Pair\Covers\violet_full.png" />
+    <None Remove="Images\Pair\Covers\violet_mouth.png" />
+    <None Remove="Images\Pair\Covers\violet_nose.png" />
+    <None Remove="Images\Pair\Faces\lightblue\1.png" />
+    <None Remove="Images\Pair\Faces\lightblue\10.png" />
+    <None Remove="Images\Pair\Faces\lightblue\11.png" />
+    <None Remove="Images\Pair\Faces\lightblue\12.png" />
+    <None Remove="Images\Pair\Faces\lightblue\13.png" />
+    <None Remove="Images\Pair\Faces\lightblue\14.png" />
+    <None Remove="Images\Pair\Faces\lightblue\15.png" />
+    <None Remove="Images\Pair\Faces\lightblue\16.png" />
+    <None Remove="Images\Pair\Faces\lightblue\17.png" />
+    <None Remove="Images\Pair\Faces\lightblue\18.png" />
+    <None Remove="Images\Pair\Faces\lightblue\19.png" />
+    <None Remove="Images\Pair\Faces\lightblue\2.png" />
+    <None Remove="Images\Pair\Faces\lightblue\20.png" />
+    <None Remove="Images\Pair\Faces\lightblue\21.png" />
+    <None Remove="Images\Pair\Faces\lightblue\22.png" />
+    <None Remove="Images\Pair\Faces\lightblue\23.png" />
+    <None Remove="Images\Pair\Faces\lightblue\24.png" />
+    <None Remove="Images\Pair\Faces\lightblue\3.png" />
+    <None Remove="Images\Pair\Faces\lightblue\4.png" />
+    <None Remove="Images\Pair\Faces\lightblue\5.png" />
+    <None Remove="Images\Pair\Faces\lightblue\6.png" />
+    <None Remove="Images\Pair\Faces\lightblue\7.png" />
+    <None Remove="Images\Pair\Faces\lightblue\8.png" />
+    <None Remove="Images\Pair\Faces\lightblue\9.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\1.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\10.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\11.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\12.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\13.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\14.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\15.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\16.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\17.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\18.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\19.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\2.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\20.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\21.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\22.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\23.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\24.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\3.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\4.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\5.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\6.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\7.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\8.png" />
+    <None Remove="Images\Pair\Faces\lightgreen\9.png" />
+    <None Remove="Images\Pair\Faces\violet\1.png" />
+    <None Remove="Images\Pair\Faces\violet\10.png" />
+    <None Remove="Images\Pair\Faces\violet\11.png" />
+    <None Remove="Images\Pair\Faces\violet\12.png" />
+    <None Remove="Images\Pair\Faces\violet\13.png" />
+    <None Remove="Images\Pair\Faces\violet\14.png" />
+    <None Remove="Images\Pair\Faces\violet\15.png" />
+    <None Remove="Images\Pair\Faces\violet\16.png" />
+    <None Remove="Images\Pair\Faces\violet\17.png" />
+    <None Remove="Images\Pair\Faces\violet\18.png" />
+    <None Remove="Images\Pair\Faces\violet\19.png" />
+    <None Remove="Images\Pair\Faces\violet\2.png" />
+    <None Remove="Images\Pair\Faces\violet\20.png" />
+    <None Remove="Images\Pair\Faces\violet\21.png" />
+    <None Remove="Images\Pair\Faces\violet\22.png" />
+    <None Remove="Images\Pair\Faces\violet\23.png" />
+    <None Remove="Images\Pair\Faces\violet\24.png" />
+    <None Remove="Images\Pair\Faces\violet\3.png" />
+    <None Remove="Images\Pair\Faces\violet\4.png" />
+    <None Remove="Images\Pair\Faces\violet\5.png" />
+    <None Remove="Images\Pair\Faces\violet\6.png" />
+    <None Remove="Images\Pair\Faces\violet\7.png" />
+    <None Remove="Images\Pair\Faces\violet\8.png" />
+    <None Remove="Images\Pair\Faces\violet\9.png" />
+    <None Remove="Images\Pair\pair_background.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Media\Images\NegroidMale\q400x612\almost_closed400x612.png" />
-    <EmbeddedResource Include="Media\Images\NegroidMale\q400x612\closed400x612.png" />
-    <EmbeddedResource Include="Media\Images\NegroidMale\q400x612\extra_open400x612.png" />
-    <EmbeddedResource Include="Media\Images\NegroidMale\q400x612\open400x612.png" />
+    <EmbeddedResource Include="Images\Pair\CheckMarks\check_mark_blue.png" />
+    <EmbeddedResource Include="Images\Pair\CheckMarks\check_mark_green.png" />
+    <EmbeddedResource Include="Images\Pair\CheckMarks\check_mark_violet.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\blue_empty.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\blue_eyes.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\blue_full.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\blue_mouth.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\blue_nose.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\green_empty.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\green_eyes.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\green_full.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\green_mouth.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\green_nose.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\violet_empty.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\violet_eyes.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\violet_full.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\violet_mouth.png" />
+    <EmbeddedResource Include="Images\Pair\Covers\violet_nose.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\1.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\10.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\11.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\12.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\13.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\14.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\15.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\16.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\17.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\18.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\19.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\2.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\20.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\21.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\22.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\23.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\24.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\3.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\4.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\5.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\6.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\7.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\8.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightblue\9.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\1.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\10.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\11.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\12.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\13.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\14.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\15.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\16.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\17.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\18.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\19.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\2.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\20.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\21.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\22.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\23.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\24.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\3.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\4.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\5.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\6.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\7.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\8.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\lightgreen\9.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\1.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\10.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\11.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\12.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\13.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\14.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\15.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\16.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\17.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\18.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\19.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\2.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\20.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\21.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\22.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\23.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\24.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\3.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\4.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\5.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\6.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\7.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\8.png" />
+    <EmbeddedResource Include="Images\Pair\Faces\violet\9.png" />
+    <EmbeddedResource Include="Images\Pair\pair_background.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +207,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Browser\BrowserPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Games\Pair\PairCardsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Games\Puzzle\PuzzlePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Games\Snake\SnakePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

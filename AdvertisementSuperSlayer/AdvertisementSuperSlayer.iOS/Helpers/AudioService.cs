@@ -33,6 +33,11 @@ namespace AdvertisementSuperSlayer.iOS.Helpers
             Player?.Play();
         }
 
+        public async Task PlaySoundAsync()
+        {
+            await Task.Run(() => Player?.Play());
+        }
+
         public void SetupAudioFile(string filename)
         {
             string sFilePath = NSBundle.MainBundle.PathForResource(
@@ -55,7 +60,13 @@ namespace AdvertisementSuperSlayer.iOS.Helpers
 
         public void Dispose()
         {
-            this.Player = null;
+            Player.Dispose();
+            Player = null;
+        }
+
+        ~AudioService()
+        {
+            Dispose();
         }
     }
 }

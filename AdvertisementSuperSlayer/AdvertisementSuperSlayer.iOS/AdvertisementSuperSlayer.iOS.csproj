@@ -147,4 +147,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\woo.mp3" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lose3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\win1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\win2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\win3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lose1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lose2.mp3" />
+  </ItemGroup>
 </Project>

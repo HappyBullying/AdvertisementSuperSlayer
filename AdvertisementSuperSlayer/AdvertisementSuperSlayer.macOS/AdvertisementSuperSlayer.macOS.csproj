@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\..\packages\Xamarin.Forms.4.2.0.848062\build\Xamarin.Forms.props" Condition="Exists('..\..\packages\Xamarin.Forms.4.2.0.848062\build\Xamarin.Forms.props')" />
   <PropertyGroup>
@@ -30,14 +30,17 @@
     <UseRefCounting>true</UseRefCounting>
     <HttpClientHandler>HttpClientHandler</HttpClientHandler>
     <LinkMode>None</LinkMode>
-    <XamMacArch></XamMacArch>
+    <XamMacArch>
+    </XamMacArch>
     <AOTMode>None</AOTMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <DefineConstants></DefineConstants>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <EnableCodeSigning>false</EnableCodeSigning>
@@ -48,7 +51,8 @@
     <UseRefCounting>true</UseRefCounting>
     <LinkMode>SdkOnly</LinkMode>
     <HttpClientHandler>HttpClientHandler</HttpClientHandler>
-    <XamMacArch></XamMacArch>
+    <XamMacArch>
+    </XamMacArch>
     <AOTMode>None</AOTMode>
   </PropertyGroup>
   <ItemGroup>
@@ -184,10 +188,7 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512%402x.png" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
@@ -211,6 +212,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\woo.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lose1.mp3" />
+    <BundleResource Include="Resources\lose2.mp3" />
+    <BundleResource Include="Resources\lose3.mp3" />
+    <BundleResource Include="Resources\win1.mp3" />
+    <BundleResource Include="Resources\win2.mp3" />
+    <BundleResource Include="Resources\win3.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.4.2.0.848062\build\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.4.2.0.848062\build\Xamarin.Forms.targets')" />

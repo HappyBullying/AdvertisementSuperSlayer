@@ -18,7 +18,7 @@ namespace AdvertisementSuperSlayer
             string dbPath = DependencyService.Get<IDbPath>().GetDatabasePath(DBFILENAME);
             AppDbContext = new Data.ApplicationDbContext(dbPath);
             AppDbContext.Database.EnsureCreated();
-            MainPage = new Games.Snake.SnakePage(); //new MainPage();
+            MainPage = new Games.Pair.PairCardsPage(4, 4); //Snake.SnakePage(); //new MainPage();
         }
 
         protected override void OnStart()
