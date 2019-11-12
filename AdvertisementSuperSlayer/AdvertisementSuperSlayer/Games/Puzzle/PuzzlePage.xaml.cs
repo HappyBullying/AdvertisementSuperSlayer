@@ -15,12 +15,13 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
     {
         public double WindowWidth { get; set; }
         public double WindowHeight { get; set; }
-        
+
         private double tileSize;
         private readonly string pathToImages = "AdvertisementSuperSlayer.Images.";
         private int Rows;
         private int Cols;
         private PhotoPuzzleElement[][] PuzzleElements;
+        private string[][] right_combo;
         public PuzzlePage(int rows, int cols)
         {
             Rows = rows;
@@ -29,16 +30,19 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
             Cols = 8;
             InitializeComponent();
             Init();
-            HandleImage(pathToImages + "Pair.pair_background.png");
-            System.Collections.Generic.set
+            InitPuzzle(HandleImage(pathToImages + "Pair.pair_background.png"));
         }
 
 
         private void Init()
         {
             PuzzleElements = new PhotoPuzzleElement[Rows][];
+            right_combo = new string[Rows][];
             for (int i = 0; i < Rows; i++)
+            {
                 PuzzleElements[i] = new PhotoPuzzleElement[Cols];
+                right_combo[i] = new string[Cols];
+            }
         }
 
         void OnContentViewSizeChanged(object sender, EventArgs args)

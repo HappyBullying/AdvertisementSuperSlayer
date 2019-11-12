@@ -17,7 +17,7 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
         public SKBitmap bitmap2;
 
         public SKCanvasView canvasView;
-
+        public string PuzzleId { get; set; }
         public float Progress { get; set; }
 
         public PhotoPuzzleElement()
