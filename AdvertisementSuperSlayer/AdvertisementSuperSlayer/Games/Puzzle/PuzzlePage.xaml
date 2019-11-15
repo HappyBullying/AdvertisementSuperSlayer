@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AdvertisementSuperSlayer.Games.Puzzle.PuzzlePage">
+             x:Class="AdvertisementSuperSlayer.Games.Puzzle.PuzzlePage" NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
     <ContentView SizeChanged="OnContentViewSizeChanged">
         <Grid  >
             <!--<Image x:Name="BackG" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"></Image>-->
@@ -14,9 +15,9 @@
             <Image x:Name="Aimg3" BackgroundColor="Transparent"/>
             <Image x:Name="Aimg4" BackgroundColor="Transparent"/>-->
             <StackLayout x:Name="stackLayout">
-                <Button Opacity="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="2"></Button>
+                <Button Clicked="btn1_Clicked" Opacity="1" x:Name="btn1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="2"></Button>
                 <AbsoluteLayout x:Name="absoluteLayout"/>
-                <Button Opacity="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="2"></Button>
+                <!--<Button Opacity="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="2"></Button>-->
             </StackLayout>
         </Grid>
     </ContentView>

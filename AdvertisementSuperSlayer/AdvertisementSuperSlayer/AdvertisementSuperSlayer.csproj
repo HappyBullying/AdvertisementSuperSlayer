@@ -100,6 +100,7 @@
     <None Remove="Images\Pair\Faces\violet\7.png" />
     <None Remove="Images\Pair\Faces\violet\8.png" />
     <None Remove="Images\Pair\Faces\violet\9.png" />
+    <None Remove="Images\Pair\p2.png" />
     <None Remove="Images\Pair\pair_background.png" />
   </ItemGroup>
 
@@ -194,6 +195,7 @@
     <EmbeddedResource Include="Images\Pair\Faces\violet\7.png" />
     <EmbeddedResource Include="Images\Pair\Faces\violet\8.png" />
     <EmbeddedResource Include="Images\Pair\Faces\violet\9.png" />
+    <EmbeddedResource Include="Images\Pair\p2.png" />
     <EmbeddedResource Include="Images\Pair\pair_background.png" />
   </ItemGroup>
 
@@ -213,7 +215,13 @@
     <EmbeddedResource Update="Games\Pair\PairCardsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Games\Pair\ViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Games\Puzzle\PuzzlePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Games\SnakeEater\SnakePageMain.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Games\Snake\SnakePage.xaml">
