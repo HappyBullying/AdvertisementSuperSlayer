@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,12 +26,9 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         {
             InitializeComponent();
             snakeField = new SnakeField(rows, cols);
-            snakeField.HorizontalOptions = LayoutOptions.FillAndExpand;
-            snakeField.VerticalOptions = LayoutOptions.FillAndExpand;
             snakeField.Margin = new Thickness(5);
             Content = snakeField;
             snakeField.InvalidateSurface();
-            
         }
 
 
