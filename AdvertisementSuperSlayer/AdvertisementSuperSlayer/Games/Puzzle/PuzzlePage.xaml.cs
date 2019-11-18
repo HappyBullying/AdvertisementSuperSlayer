@@ -12,9 +12,13 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PuzzlePage : ContentPage
     {
-        public PuzzlePage()
+        private int Rows;
+        private int Cols;
+        public PuzzlePage(int rows, int cols)
         {
             InitializeComponent();
+            Rows = rows;
+            Cols = cols;
         }
     }
 }

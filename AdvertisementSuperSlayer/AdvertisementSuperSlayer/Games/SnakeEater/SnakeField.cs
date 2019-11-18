@@ -44,7 +44,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                 StrokeWidth = 4
             };
             advs = new List<SnakeAdvBitmap>();
-            ImgManager = new ImageGroupManager(2, 3);
+            ImgManager = new ImageGroupManager(2, 3, SquareWidth);
 
             SnDirection = SnakeDirection.Right;
 
@@ -64,10 +64,10 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
             SnAllBody = new List<Tuple<int, int>>()
             {
-                new Tuple<int, int>(0, 0),
-                new Tuple<int, int>(1, 0),
+                new Tuple<int, int>(3, 0),
                 new Tuple<int, int>(2, 0),
-                new Tuple<int, int>(3, 0)
+                new Tuple<int, int>(1, 0),
+                new Tuple<int, int>(0, 0)
             };
         }
 
