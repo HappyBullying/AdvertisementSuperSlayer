@@ -29,6 +29,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             snakeField.Margin = new Thickness(5);
             Content = snakeField;
             snakeField.InvalidateSurface();
+            
         }
 
 

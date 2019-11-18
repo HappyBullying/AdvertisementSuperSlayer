@@ -29,6 +29,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         private double ActualWidth;
         private double ActualHeight;
         private float dydx = 0;
+        private bool _TimerState = true;
         private ImageGroupManager ImgManager;
         public SnakeField(int rows, int cols)
         {
@@ -43,7 +44,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                 StrokeWidth = 4
             };
             advs = new List<SnakeAdvBitmap>();
-            ImgManager = new ImageGroupManager(6);
+            ImgManager = new ImageGroupManager(2, 3);
 
             SnDirection = SnakeDirection.Right;
 
@@ -56,6 +57,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
             SizeChanged += OnSnakeFieldSizeChanged;
             PaintSurface += OnCanvasViewPaintSurface;
+            InitDrawHelpers();
             InitGestures();
             InitCellInfos();
 
@@ -63,9 +65,9 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             SnAllBody = new List<Tuple<int, int>>()
             {
                 new Tuple<int, int>(0, 0),
-                new Tuple<int, int>(0, 1),
-                new Tuple<int, int>(0, 2),
-                new Tuple<int, int>(0, 3)
+                new Tuple<int, int>(1, 0),
+                new Tuple<int, int>(2, 0),
+                new Tuple<int, int>(3, 0)
             };
         }
 
@@ -82,10 +84,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
             DrawGrid(canvas);
 
-            for (int i = 0; i < SnAllBody.Count; i++)
-            {
-                DrawSnakeBodyElement(canvas, SnAllBody[i].Item1, SnAllBody[i].Item2);
-            }
+            DrawSnake(canvas);
         }
 
         public void DrawBitmaps(SKCanvas canvas)
@@ -109,10 +108,19 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             return false;
         }
 
-        public void DrawSnakeBodyElement(SKCanvas canvas, int row, int col)
+        private void DrawSnake(SKCanvas canvas)
         {
-            float pX = _rows_[row] + SquareWidth;
-            float pY = _cols_[col] + SquareWidth;
+            for (int i = 1; i < SnAllBody.Count; i++)
+            {
+                DrawSnakeBodyElement(canvas, SnAllBody[i].Item1, SnAllBody[i].Item2);
+            }
+        }
+        private void DrawSnakeBodyElement(SKCanvas canvas, int row, int col)
+        {
+            row++;
+            col++;
+            float pX = _rows_[row] + SquareWidth / 2.0f;
+            float pY = _cols_[col] + SquareWidth / 2.0f;
             float param = 0.45f;
             canvas.DrawCircle(pX, pY, param * SquareWidth, OutCircle);
             canvas.DrawCircle(pX, pY, param * 0.667f * SquareWidth, InnerCircle);
@@ -160,7 +168,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                     if (advs[_img].WasEaten)
                         count++;
                 }
-                if (count == ImgManager.ImagesCount)
+                if (count == ImgManager.ImageCols * ImgManager.ImageRows)
                 {
                     toRemove.AddLast(tmpArr[0]);
                 }
@@ -171,7 +179,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             {
                 ImgManager.Remove(rem);
                 
-                for (int i = rem; i < rem + ImgManager.ImagesCount; i++)
+                for (int i = rem; i < rem + ImgManager.ImageCols * ImgManager.ImageRows; i++)
                 {
                     int toDel = advs.FindIndex(pred => pred.OrderNumber == rem);
                     advs.RemoveAt(toDel);
@@ -243,6 +251,20 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             return true;
         }
 
+        private bool CheckSelfEat()
+        {
+            for (int i = 4; i < SnAllBody.Count; i++)
+            {
+                bool cond1 = SnAllBody[0].Item1 == SnAllBody[i].Item1;
+                bool cond2 = SnAllBody[0].Item2 == SnAllBody[i].Item2;
+
+                // If it's not
+                if (cond1 && cond2)
+                    return false;
+            }
+            return true;
+        }
+
         private void OnSnakeFieldSizeChanged(object sender, EventArgs args)
         {
             Xamarin.Essentials.DisplayInfo DInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
@@ -267,5 +289,20 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             InvalidateSurface();
         }
 
+        public void Play()
+        {
+            TimeSpan ts = TimeSpan.FromMilliseconds(200);
+            Device.StartTimer(ts, () =>
+            {
+                MakeStep();
+                InvalidateSurface();
+                return _TimerState;
+            });
+        }
+
+        public void Pause()
+        {
+            _TimerState = false;
+        }
     }
 }

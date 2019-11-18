@@ -8,12 +8,14 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
     {
         private int indCount = -1;
 
-        public int ImagesCount { get; private set; }
+        public int ImageRows { get; private set; }
+        public int ImageCols { get; private set; }
         public List<int[]> Collection { get; private set; }
         
-        public ImageGroupManager(int imagesCount)
+        public ImageGroupManager(int imageRows, int imageCols)
         {
-            ImagesCount = imagesCount;
+            ImageRows = imageRows;
+            ImageCols = imageCols;
             Collection = new List<int[]>();
         }
 
@@ -31,7 +33,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         /// </summary>
         public void AddImages(int first)
         {
-            int[] tmpInds = new int[ImagesCount];
+            int[] tmpInds = new int[ImageRows * ImageCols];
             for (int i = 0; i < tmpInds.Length; i++)
             {
                 tmpInds[i] = i + first;
