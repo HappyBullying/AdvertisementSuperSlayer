@@ -32,8 +32,16 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
         private void InitDrawHelpers()
         {
-            OutCircle = new SKPaint { Color = SKColors.Blue };
-            InnerCircle = new SKPaint { Color = SKColors.Yellow };
+            OutCircle = new SKPaint 
+            {
+                Color = SKColors.Blue,
+                IsAntialias = true
+            };
+            InnerCircle = new SKPaint
+            {
+                Color = SKColors.Yellow,
+                IsAntialias = true
+            };
         }
 
         private void InitGestures()

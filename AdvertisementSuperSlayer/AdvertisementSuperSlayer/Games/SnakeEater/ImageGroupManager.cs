@@ -17,6 +17,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         private Assembly asm;
         private Stream stream;
         private int _sqr;
+        private SKImageInfo imgInf;
         public ImageGroupManager(int imageRows, int imageCols, int sqr)
         {
             ImageRows = imageRows;
@@ -24,6 +25,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             Collection = new List<int[]>();
             asm = GetType().GetTypeInfo().Assembly;
             _sqr = sqr;
+            imgInf = new SKImageInfo(sqr * ImageCols, sqr * imageRows);
         }
 
         public int NextIndex
@@ -60,7 +62,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         public  SnakeAdvBitmap[] SplitAdvImage(string fileName)
         {
             stream = asm.GetManifestResourceStream(fileName);
-            SKBitmap fullBmp = SKBitmap.Decode(stream);
+            SKBitmap fullBmp = SKBitmap.Decode(stream).Resize(imgInf, SKFilterQuality.High);
             SnakeAdvBitmap[] imageADS = new SnakeAdvBitmap[ImageRows * ImageCols];
 
             for (int row = 0; row < ImageRows; row++)

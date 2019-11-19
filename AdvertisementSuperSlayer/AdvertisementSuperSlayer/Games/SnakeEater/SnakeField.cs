@@ -31,6 +31,8 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         private float dydx = 0;
         private bool _TimerState = true;
         private ImageGroupManager ImgManager;
+        private Random rnd;
+
         public SnakeField(int rows, int cols)
         {
             Cols = cols + 2;
@@ -47,6 +49,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             ImgManager = new ImageGroupManager(2, 3, SquareWidth);
 
             SnDirection = SnakeDirection.Right;
+            rnd = new Random(DateTime.Now.Millisecond);
 
             cellInfos = new CellInfo[Rows - 2][];
             for (int i = 0; i < Rows - 2; i++)
@@ -69,6 +72,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                 new Tuple<int, int>(1, 0),
                 new Tuple<int, int>(0, 0)
             };
+            Play();
         }
 
         
@@ -110,17 +114,17 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
         private void DrawSnake(SKCanvas canvas)
         {
-            for (int i = 1; i < SnAllBody.Count; i++)
+            for (int i = 0; i < SnAllBody.Count; i++)
             {
-                DrawSnakeBodyElement(canvas, SnAllBody[i].Item1, SnAllBody[i].Item2);
+                DrawSnakeBodyElement(canvas, SnAllBody[i].Item2, SnAllBody[i].Item1);
             }
         }
         private void DrawSnakeBodyElement(SKCanvas canvas, int row, int col)
         {
             row++;
             col++;
-            float pX = _rows_[row] + SquareWidth / 2.0f;
-            float pY = _cols_[col] + SquareWidth / 2.0f;
+            float pX = _cols_[col] + SquareWidth / 2.0f;
+            float pY = _rows_[row] + SquareWidth / 2.0f;
             float param = 0.45f;
             canvas.DrawCircle(pX, pY, param * SquareWidth, OutCircle);
             canvas.DrawCircle(pX, pY, param * 0.667f * SquareWidth, InnerCircle);
@@ -155,6 +159,18 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             canvas.DrawText(ActualWidth + "  " + ActualHeight, 400, 400, Thick);
         }
 
+
+        private void Eat()
+        {
+            foreach(SnakeAdvBitmap bmp in advs)
+            {
+                if (bmp.RowIndex == SnAllBody[0].Item2 && bmp.ColIndex == SnAllBody[0].Item1)
+                {
+                    bmp.WasEaten = true;
+                }
+            }
+        }
+
         public void CheckGroups()
         {
             LinkedList<int> toRemove = new LinkedList<int>();
@@ -177,7 +193,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             // Delete all SUBImages from collection
             foreach (int rem in toRemove)
             {
-                ImgManager.Remove(rem);
+                // ImgManager.Remove(rem);
                 
                 for (int i = rem; i < rem + ImgManager.ImageCols * ImgManager.ImageRows; i++)
                 {
@@ -189,11 +205,11 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
         private bool MakeStep()
         {
-            int f = SnAllBody[SnAllBody.Count - 1].Item1;
-            int s = SnAllBody[SnAllBody.Count - 1].Item2;
+            int s = SnAllBody[SnAllBody.Count - 1].Item1;
+            int f = SnAllBody[SnAllBody.Count - 1].Item2;
             cellInfos[f][s].State = ElementState.Free;
 
-            for (int i = SnAllBody.Count - 1; i > 1; i--)
+            for (int i = SnAllBody.Count - 1; i > 0; i--)
             {
                 SnAllBody[i] = SnAllBody[i - 1];
             }
@@ -229,15 +245,16 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             }
 
             bool cond1 = SnAllBody[0].Item1 < 0;
-            bool cond2 = SnAllBody[0].Item1 >= cellInfos.GetLength(0);
+            bool cond2 = SnAllBody[0].Item1 >= cellInfos.Length;
             bool cond3 = SnAllBody[0].Item2 < 0;
-            bool cond4 = SnAllBody[0].Item2 >= cellInfos.GetLength(1);
+            bool cond4 = SnAllBody[0].Item2 >= cellInfos[0].Length;
 
             if (cond1 || cond2 || cond3 || cond4)
             {
 
             }
 
+            Eat();
 
 
 
@@ -245,9 +262,11 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
 
 
-            f = SnAllBody[0].Item1;
-            s = SnAllBody[0].Item2;
+            s = SnAllBody[0].Item1;
+            f = SnAllBody[0].Item2;
             cellInfos[f][s].State = ElementState.SnakeHead;
+
+            // Check if it ate something
             return true;
         }
 
@@ -264,6 +283,22 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             }
             return true;
         }
+
+
+        private void DrawAdv(SKCanvas canvas)
+        {
+            // Problem MB here!!!!!!!!!!!!!!!!!!!!!!
+            foreach(SnakeAdvBitmap sadv in advs)
+            {
+                if (!sadv.WasEaten)
+                {
+                    int row = sadv.RowIndex + 1;
+                    int col = sadv.ColIndex + 1;
+                    canvas.DrawBitmap(sadv, _cols_[col], _rows_[row]);
+                }
+            }
+        }
+
 
         private void OnSnakeFieldSizeChanged(object sender, EventArgs args)
         {
@@ -287,6 +322,36 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
             SquareWidth = (int)Math.Round(dydx);
             InvalidateSurface();
+        }
+
+        private Tuple<int, int> GetAdvCoord()
+        {
+            LinkedList<Tuple<int, int>> free = new LinkedList<Tuple<int, int>>();
+            for (int r = 0; r < cellInfos.Length - ImgManager.ImageRows; r++)
+            {
+                for (int c = 0; c < cellInfos[0].Length - ImgManager.ImageCols; c++)
+                {
+                    bool skipState = false;
+                    for (int i = 0; i < ImgManager.ImageRows; i++)
+                    {
+                        for (int j = 0; j < ImgManager.ImageCols; j++)
+                        {
+
+                            if (!(cellInfos[r + i][c + j].State == ElementState.Free))
+                            {
+                                skipState = true;
+                                break;
+                            }
+                        }
+                        if (skipState)
+                            break;
+                    }
+                    if (!skipState)
+                        free.AddLast(new Tuple<int, int>(r, c));
+                }
+            }
+            int index = rnd.Next(free.Count);
+            return free.ElementAt(index);
         }
 
         public void Play()
