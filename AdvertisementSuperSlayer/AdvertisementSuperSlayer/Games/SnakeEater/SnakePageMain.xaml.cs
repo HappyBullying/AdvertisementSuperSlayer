@@ -28,8 +28,6 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             snakeField = new SnakeField(rows, cols);
             snakeField.Margin = new Thickness(5);
             Content = snakeField;
-            snakeField.InvalidateSurface();
-            
         }
 
 

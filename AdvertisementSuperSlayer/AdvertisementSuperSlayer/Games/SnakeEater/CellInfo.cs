@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SkiaSharp;
+using System;
 
 namespace AdvertisementSuperSlayer.Games.SnakeEater
 {
@@ -10,5 +9,10 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         public int RowIndex { get; set; }
         public int ColIndex { get; set; }
 
+        public int OrderNum { get; set; }
+
+        public bool WasEaten { get; set; }
+
+        public SKBitmap Bmp { get; set; }
     }
 }

@@ -102,6 +102,7 @@
     <None Remove="Images\Pair\Faces\violet\9.png" />
     <None Remove="Images\Pair\p2.png" />
     <None Remove="Images\Pair\pair_background.png" />
+    <None Remove="Images\Snake\Advs\rak.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -197,6 +198,7 @@
     <EmbeddedResource Include="Images\Pair\Faces\violet\9.png" />
     <EmbeddedResource Include="Images\Pair\p2.png" />
     <EmbeddedResource Include="Images\Pair\pair_background.png" />
+    <EmbeddedResource Include="Images\Snake\Advs\rak.png" />
   </ItemGroup>
 
   <ItemGroup>

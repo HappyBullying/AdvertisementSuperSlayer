@@ -1,6 +1,7 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using System;
+using System.IO;
 using Xamarin.Forms;
 
 namespace AdvertisementSuperSlayer.Games.SnakeEater
@@ -28,6 +29,36 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                 }
             }
 
+        }
+
+
+        private void DrawGrid(SKCanvas canvas)
+        {
+
+            // Horizontal lines
+            for (int i = 0; i < _rows_.Length; i++)
+            {
+                canvas.DrawLine(0, _rows_[i], _cols_[_cols_.Length - 1], _rows_[i], Thick);
+            }
+
+            // Vertical lines
+            for (int i = 0; i < _cols_.Length; i++)
+            {
+                canvas.DrawLine(_cols_[i], 0, _cols_[i], _rows_[_rows_.Length - 1], Thick);
+            }
+
+            Thick.Style = SKPaintStyle.StrokeAndFill;
+            SKRect rect = new SKRect(0, 0, dydx, (float)ActualHeight);
+            canvas.DrawRect(rect, Thick);
+            rect = new SKRect(0, 0, _cols_[_cols_.Length - 1], dydx);
+            canvas.DrawRect(rect, Thick);
+            rect = new SKRect(_cols_[_cols_.Length - 2], 0, _cols_[_cols_.Length - 1], _rows_[_rows_.Length - 1]);
+            canvas.DrawRect(rect, Thick);
+            rect = new SKRect(0, _rows_[_rows_.Length - 2], _cols_[_cols_.Length - 1], _rows_[_rows_.Length - 1]);
+            canvas.DrawRect(rect, Thick);
+            Thick.Style = SKPaintStyle.Stroke;
+            Thick.TextSize = 50;
+            canvas.DrawText(ActualWidth + "  " + ActualHeight, 400, 400, Thick);
         }
 
         private void InitDrawHelpers()
@@ -83,6 +114,80 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             GestureRecognizers.Add(swpDown);
             GestureRecognizers.Add(swpLeft);
             GestureRecognizers.Add(swpRight);
+        }
+
+        private void OnSnakeFieldSizeChanged(object sender, EventArgs args)
+        {
+            Xamarin.Essentials.DisplayInfo DInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+            double scale = DInfo.Width / Width;
+            ActualHeight = Height * scale;
+            ActualWidth = Width * scale;
+
+            Thick.StrokeWidth = (int)((float)(ActualWidth * 0.0017));
+
+            dydx = (float)(ActualHeight / Rows);
+
+            for (int i = 0; i < _rows_.Length; i++)
+            {
+                _rows_[i] = i * dydx;
+            }
+            for (int i = 0; i < _cols_.Length; i++)
+            {
+                _cols_[i] = i * dydx;
+            }
+
+            SquareWidth = (int)Math.Round(dydx);
+            InvalidateSurface();
+        }
+
+
+        private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
+        {
+            SKImageInfo info = args.Info;
+            SKSurface surface = args.Surface;
+            SKCanvas canvas = surface.Canvas;
+
+            canvas.Clear();
+            SKRect rect = new SKRect(_cols_[1], _rows_[1], _cols_[_cols_.Length - 2], _rows_[_rows_.Length - 2]);
+            canvas.DrawRect(rect, EmptyCellPaint);
+
+            DrawGrid(canvas);
+
+            DrawSnake(canvas);
+            //DrawBitmaps(canvas);
+
+            if (bmps == null)
+                bmps = SplitBitmap("AdvertisementSuperSlayer.Images.Snake.Advs.rak.png");
+
+            Tuple<int, int> tmp = GetPointForImage();
+
+            for (int row = 0; row < advRows; row++)
+            {
+                for (int col = 0; col < advCols; col++)
+                {
+                    float x = _cols_[col + tmp.Item1 + 1];
+                    float y = _rows_[row + tmp.Item2 + 1];
+                    canvas.DrawBitmap(bmps[row * advCols + col], x, y);
+                }
+            }
+        }
+
+
+
+        public void Play()
+        {
+            TimeSpan ts = TimeSpan.FromMilliseconds(200);
+            Device.StartTimer(ts, () =>
+            {
+                MakeStep();
+                InvalidateSurface();
+                return _TimerState;
+            });
+        }
+
+        public void Pause()
+        {
+            _TimerState = false;
         }
     }
 }
