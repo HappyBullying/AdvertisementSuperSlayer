@@ -25,7 +25,7 @@ namespace AdvertisementSuperSlayer.Games.Pair
             _Busy = new BusyBehavior();
             RightConfiguration += OnRightConfiguration;
             WrongConfiguration += OnWrongConfiguration;
-            BackG.Source = ImageSource.FromResource(PathToImages + "pair_background.png");
+            BackG.Source = ImageSource.FromResource(App.PathToImages + "Pair.pair_background.png");
             Init();
             
             //AnimateBackground();
@@ -98,7 +98,7 @@ namespace AdvertisementSuperSlayer.Games.Pair
 
         private void InitCheckMark(Assembly asm, string color)
         {
-            string pathTochckM = PathToImages + "CheckMarks.check_mark_";
+            string pathTochckM = App.PathToImages + "Pair.CheckMarks.check_mark_";
             switch (color)
             {
                 case "violet":

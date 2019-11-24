@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\GameSelection\comingsoon.png" />
+    <None Remove="Images\GameSelection\findpair.png" />
+    <None Remove="Images\GameSelection\gameselection.png" />
+    <None Remove="Images\GameSelection\puzzle.png" />
+    <None Remove="Images\GameSelection\snake.png" />
+    <None Remove="Images\Menue\menu.png" />
+    <None Remove="Images\Menue\play.png" />
     <None Remove="Images\Pair\CheckMarks\check_mark_blue.png" />
     <None Remove="Images\Pair\CheckMarks\check_mark_green.png" />
     <None Remove="Images\Pair\CheckMarks\check_mark_violet.png" />
@@ -100,12 +107,18 @@
     <None Remove="Images\Pair\Faces\violet\7.png" />
     <None Remove="Images\Pair\Faces\violet\8.png" />
     <None Remove="Images\Pair\Faces\violet\9.png" />
-    <None Remove="Images\Pair\p2.png" />
     <None Remove="Images\Pair\pair_background.png" />
     <None Remove="Images\Snake\Advs\rak.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\GameSelection\comingsoon.png" />
+    <EmbeddedResource Include="Images\GameSelection\findpair.png" />
+    <EmbeddedResource Include="Images\GameSelection\gameselection.png" />
+    <EmbeddedResource Include="Images\GameSelection\puzzle.png" />
+    <EmbeddedResource Include="Images\GameSelection\snake.png" />
+    <EmbeddedResource Include="Images\Menue\menu.png" />
+    <EmbeddedResource Include="Images\Menue\play.png" />
     <EmbeddedResource Include="Images\Pair\CheckMarks\check_mark_blue.png" />
     <EmbeddedResource Include="Images\Pair\CheckMarks\check_mark_green.png" />
     <EmbeddedResource Include="Images\Pair\CheckMarks\check_mark_violet.png" />
@@ -196,7 +209,6 @@
     <EmbeddedResource Include="Images\Pair\Faces\violet\7.png" />
     <EmbeddedResource Include="Images\Pair\Faces\violet\8.png" />
     <EmbeddedResource Include="Images\Pair\Faces\violet\9.png" />
-    <EmbeddedResource Include="Images\Pair\p2.png" />
     <EmbeddedResource Include="Images\Pair\pair_background.png" />
     <EmbeddedResource Include="Images\Snake\Advs\rak.png" />
   </ItemGroup>
@@ -212,6 +224,9 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Browser\BrowserPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Games\GameSelectMenue.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Games\Pair\PairCardsPage.xaml">

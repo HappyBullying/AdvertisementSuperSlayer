@@ -5,12 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="AdvertisementSuperSlayer.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Obama fuck ur mama dont touch donbas zlobny pidoras" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
-
+    <Grid>
+        <ImageButton x:Name="Play"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Scale="0.5"
+                AnchorY="0.7"
+                Clicked="OnPlayed"/>
+    </Grid>
 </ContentPage>

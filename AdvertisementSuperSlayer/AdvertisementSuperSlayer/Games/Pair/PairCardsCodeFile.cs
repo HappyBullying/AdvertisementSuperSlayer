@@ -16,7 +16,6 @@ namespace AdvertisementSuperSlayer.Games.Pair
         private BusyBehavior _Busy;
         private double tileSize;
         private PhotoHalfPairTile[][] tiles;
-        private readonly string PathToImages = "AdvertisementSuperSlayer.Images.Pair.";
         private event EventHandler<ConfigEventArgs> RightConfiguration;
         private event EventHandler<ConfigEventArgs> WrongConfiguration;
         private SKImageInfo ImInfo;

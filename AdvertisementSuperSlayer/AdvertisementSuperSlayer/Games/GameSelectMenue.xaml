@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AdvertisementSuperSlayer.Games.GameSelectMenue">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ImageButton x:Name="Snake"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                Scale="0.5"
+                Clicked="Snake_Clicked"
+                Grid.Row="0" Grid.Column="0"/>
+        <ImageButton x:Name="FindPair"
+                VerticalOptions="End"
+                HorizontalOptions="Start"
+                Scale="0.5"
+                Clicked="FindPair_Clicked"
+                Grid.Row="0" Grid.Column="1"/>
+        <ImageButton x:Name="Puzzle"
+                VerticalOptions="Start"
+                HorizontalOptions="End"
+                Scale="0.5"
+                Clicked="Puzzle_Clicked"
+                Grid.Row="1" Grid.Column="0"/>
+        <ImageButton x:Name="ComingSoon"
+                VerticalOptions="Start"
+                HorizontalOptions="Start"
+                Scale="0.5"
+                Grid.Row="1" Grid.Column="1"/>
+    </Grid>
+</ContentPage>

@@ -9,6 +9,7 @@ namespace AdvertisementSuperSlayer
     public partial class App : Application
     {
         public const string DBFILENAME = "ASSDB.db";
+        public static readonly string PathToImages = "AdvertisementSuperSlayer.Images.";
 
         public static Data.ApplicationDbContext AppDbContext { get; private set; }
 
@@ -18,7 +19,7 @@ namespace AdvertisementSuperSlayer
             string dbPath = DependencyService.Get<IDbPath>().GetDatabasePath(DBFILENAME);
             AppDbContext = new Data.ApplicationDbContext(dbPath);
             AppDbContext.Database.EnsureCreated();
-            MainPage = new NavigationPage(new Games.SnakeEater.SnakePageMain(20, 32));  //new Games.Puzzle.PuzzlePage(4, 4); // Pair.PairCardsPage(4, 4); //Snake.SnakePage(); //new MainPage();
+            MainPage = new NavigationPage(new MainPage()); 
         }
 
         protected override void OnStart()
