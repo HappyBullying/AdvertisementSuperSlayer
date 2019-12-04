@@ -9,5 +9,7 @@ namespace AdvertisementSuperSlayer.DbModels
         public int Id { get; set; }
 
         public DateTime FirstEnter { get; set;  }
+
+        public bool AutoLogin { get; set; }
     }
 }

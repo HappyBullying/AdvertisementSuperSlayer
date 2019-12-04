@@ -19,7 +19,7 @@ namespace AdvertisementSuperSlayer
             string dbPath = DependencyService.Get<IDbPath>().GetDatabasePath(DBFILENAME);
             AppDbContext = new Data.ApplicationDbContext(dbPath);
             AppDbContext.Database.EnsureCreated();
-            MainPage = new NavigationPage(new MainPage()); 
+            MainPage = new Account.RegisterPage(); //new NavigationPage(new MainPage()); 
         }
 
         protected override void OnStart()

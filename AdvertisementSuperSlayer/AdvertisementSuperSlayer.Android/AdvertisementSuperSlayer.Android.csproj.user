@@ -3,5 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>LENOVO Z90a40</SelectedDevice>
     <DefaultDevice>my_device</DefaultDevice>
+    <AndroidDesignerPreferredTheme>Theme.AppCompat.Light.NoActionBar</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>

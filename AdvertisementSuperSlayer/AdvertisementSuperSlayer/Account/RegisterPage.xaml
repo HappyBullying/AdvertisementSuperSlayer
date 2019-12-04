@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             mc:Ignorable="d"
+             x:Class="AdvertisementSuperSlayer.Account.RegisterPage">
+    <ContentPage.Content>
+        <Grid>
+            <skia:SKCanvasView x:Name="canvasView" PaintSurface="canvasView_PaintSurface" />
+            <StackLayout SizeChanged="StackLayout_SizeChanged" 
+                     VerticalOptions="End" HorizontalOptions="Fill"
+                     Padding="5">
+                <Image x:Name="logo_image" />
+                <Frame Margin="15, 0, 15, 0"  HasShadow="True"
+                   CornerRadius="8" BorderColor="Black">
+                    <Entry BackgroundColor="Transparent" TextColor="Black"
+                           FontAttributes="Bold"
+                           Placeholder="Username"></Entry>
+                </Frame>
+                <Frame Margin="15, 0, 15, 0" HasShadow="True"
+                   CornerRadius="8" BorderColor="Black">
+                    <Entry BackgroundColor="Transparent" TextColor="Black"
+                           FontAttributes="Bold" 
+                        Placeholder="Email"></Entry>
+                </Frame>
+                <Frame Margin="15, 0, 15, 0" HasShadow="True"
+                   CornerRadius="8" BorderColor="Black">
+                    <Entry BackgroundColor="Transparent" TextColor="Black"
+                           FontAttributes="Bold" 
+                        Placeholder="Password" IsPassword="True"></Entry>
+                </Frame>
+                <Frame Margin="15, 0, 15, 0" HasShadow="True"
+                   CornerRadius="8" BorderColor="Black">
+                    <Entry BackgroundColor="Transparent" TextColor="Black"
+                           FontAttributes="Bold"
+                        Placeholder="Confirm Password" IsPassword="True"></Entry>
+                </Frame>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label Text="Remember me" VerticalOptions="Center"></Label>
+                    <Switch IsToggled="False"></Switch>
+                </StackLayout>
+                <Button CornerRadius="25" Text="Register"></Button>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
