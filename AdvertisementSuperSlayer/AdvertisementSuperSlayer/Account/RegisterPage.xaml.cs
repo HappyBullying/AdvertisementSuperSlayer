@@ -125,7 +125,7 @@ namespace AdvertisementSuperSlayer.Account
             };
             string jsonContent = JsonConvert.SerializeObject(toSend);
             StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-            string url = "http://localhost:5000/api/account/register";
+            string url = "http://10.192.214.177:5000/api/account/register";
             HttpResponseMessage response = await client.PostAsync(url, data);
 
 
