@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SQLite;
 
 namespace AdvertisementSuperSlayer.DbModels
 {
     public class User
     {
-        [Key]
+        [PrimaryKey]
         public int UserId { get; set; }
 
         public string Username { get; set; }

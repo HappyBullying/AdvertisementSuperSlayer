@@ -1,11 +1,11 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using SQLite;
+using System;
 
 namespace AdvertisementSuperSlayer.DbModels
 {
     public class Token
     {
-        [Key]
+        [PrimaryKey]
         public int TokenId { get; set; }
 
         public string AccessToken { get; set; }

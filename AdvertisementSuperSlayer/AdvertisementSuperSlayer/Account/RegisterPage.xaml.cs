@@ -1,13 +1,14 @@
 ﻿using SkiaSharp;
 using System;
 using System.Diagnostics;
-using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Net.Http;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Text;
+using AdvertisementSuperSlayer.DbModels;
 
 namespace AdvertisementSuperSlayer.Account
 {
@@ -40,6 +41,7 @@ namespace AdvertisementSuperSlayer.Account
             infinityPath.LineTo(0, 1000f);
             infinityPath.LineTo(0, 0);
 
+            sbmButton.IsEnabled = false;
 
             // Calculate path information 
             pathBounds = infinityPath.Bounds;
@@ -53,13 +55,21 @@ namespace AdvertisementSuperSlayer.Account
             isAnimating = true;
             stopwatch = new Stopwatch();
             stopwatch.Start();
-            Device.StartTimer(TimeSpan.FromMilliseconds(20), OnTimerTick);
+            Device.StartTimer(TimeSpan.FromMilliseconds(35), OnTimerTick);
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            isAnimating = false;
+            stopwatch.Stop();
         }
 
         private void StackLayout_SizeChanged(object sender, EventArgs e)
         {
             StackLayout st = sender as StackLayout;
-            st.WidthRequest = Width * 0.3;
+            double side = (Width - 370) / 2.0d;
+            st.Margin = new Thickness(side, 0, side, 15);
         }
 
         private void canvasView_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
@@ -102,6 +112,91 @@ namespace AdvertisementSuperSlayer.Account
             canvasView.InvalidateSurface();
 
             return isAnimating;
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            HttpClient client = new HttpClient();
+            object toSend = new
+            {
+                Username = username.Text,
+                Email = email.Text,
+                Password = password.Text
+            };
+            string jsonContent = JsonConvert.SerializeObject(toSend);
+            StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            string url = "http://localhost:5000/api/account/register";
+            HttpResponseMessage response = await client.PostAsync(url, data);
+
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                await DisplayAlert("Login Error", await response.Content.ReadAsStringAsync(), response.StatusCode.ToString());
+            }
+            else
+            {
+                await DisplayAlert("Login", "Success", response.StatusCode.ToString());
+                User usr = new User
+                {
+                    Username = username.Text,
+                    Password = password.Text,
+                };
+                
+                //if (App.AppDbContext.Users.Count(u => u.Username == username.Text) == 0)
+                //{
+                //    await App.AppDbContext.Users.AddAsync(usr);
+                //}
+
+                await Navigation.PushAsync(new Games.GameSelectMenue());
+            }
+        }
+
+        private void cpassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (cpassword.Text == password.Text)
+            {
+                sbmButton.IsEnabled = true;
+            }
+            else
+            {
+                sbmButton.IsEnabled = false;
+            }
+        }
+
+        private void password_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (password.Text.Length == 0)
+            {
+                sbmButton.IsEnabled = false;
+            }
+            else
+            {
+                sbmButton.IsEnabled = true;
+            }
+        }
+
+        private void email_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (email.Text.Length == 0)
+            {
+                sbmButton.IsEnabled = false;
+            }
+            else
+            {
+                sbmButton.IsEnabled = true;
+            }
+        }
+
+        private void username_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (username.Text.Length == 0)
+            {
+                sbmButton.IsEnabled = false;
+            }
+            else
+            {
+                sbmButton.IsEnabled = true;
+            }
         }
     }
 }

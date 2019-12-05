@@ -1,11 +1,11 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using SQLite;
+using System;
 
 namespace AdvertisementSuperSlayer.DbModels
 {
     public class FirstTime
     {
-        [Key]
+        [PrimaryKey]
         public int Id { get; set; }
 
         public DateTime FirstEnter { get; set;  }

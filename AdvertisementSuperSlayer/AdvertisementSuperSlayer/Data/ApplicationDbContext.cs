@@ -1,32 +1,22 @@
 ﻿using AdvertisementSuperSlayer.DbModels;
-using Microsoft.EntityFrameworkCore;
+using SQLite;
 
 namespace AdvertisementSuperSlayer.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext
     {
         private string _dbPath;
+        public SQLiteConnection database;
 
-        public static ApplicationDbContext Create(string databasePath)
-        {
-            ApplicationDbContext dbContext = new ApplicationDbContext(databasePath);
-            dbContext.Database.EnsureCreated();
-            dbContext.Database.Migrate();
-            return dbContext;
-        }
 
         public ApplicationDbContext(string dbPath)
         {
             this._dbPath = dbPath;
+            database = new SQLiteConnection(dbPath);
+            database.CreateTable<User>();
+            database.CreateTable<Token>();
+            database.CreateTable<FirstTime>();
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Filename=" + _dbPath);
-        }
-
-        public DbSet<FirstTime> FirstTime { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Token> Tokens { get; set; }
     }
 }

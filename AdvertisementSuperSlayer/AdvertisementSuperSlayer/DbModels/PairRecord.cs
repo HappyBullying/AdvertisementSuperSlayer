@@ -1,11 +1,11 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using SQLite;
+using System;
 
 namespace AdvertisementSuperSlayer.DbModels
 {
     public class PairRecord
     {
-        [Key]
+        [PrimaryKey]
         public int Id { get; set; }
 
         public TimeSpan GameDuration { get; set; }
