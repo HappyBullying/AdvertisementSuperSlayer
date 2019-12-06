@@ -8,59 +8,61 @@ using AdvertisementSuperSlayer.DbModels;
 using AdvertisementSuperSlayer.Helpers;
 using Newtonsoft.Json;
 using System.Text;
+using SQLite;
+using AdvertisementSuperSlayer.Account;
 
 namespace AdvertisementSuperSlayer
 {
     public partial class App : Application
     {
-        public const string DBFILENAME = "ASSDB.db";
         public static readonly string PathToImages = "AdvertisementSuperSlayer.Images.";
+        public static RestService Rest { get; private set; }
 
-        public static Data.ApplicationDbContext AppDbContext { get; private set; }
 
         public App()
         {
             InitializeComponent();
-            string dbPath = DependencyService.Get<IDbPath>().GetDatabasePath(DBFILENAME);
-            AppDbContext = new ApplicationDbContext(dbPath);
-
-            MainPage = new NavigationPage(new Account.RegisterPage());
-            //StartupNavigation();
+            Rest = new RestService();
+            //MainPage = new NavigationPage(new Account.RegisterPage());
+            StartupNavigation();
         }
 
-        private async void StartupNavigation()
+        private void StartupNavigation()
         {
-            if (AppDbContext.database.Table<User>().Count() > 0)
+            // islogged in must check refresh token
+            if (!Rest.IsLoggedIn)
             {
-                User usr = AppDbContext.database.Table<User>().FirstOrDefault();
-                HttpClient client = new HttpClient();
-                object toSend = new
-                {
-                    Username = usr.Username,
-                    Password = usr.Password
-                };
-                string jsonContent = JsonConvert.SerializeObject(toSend);
-                StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-                string url = "http://10.192.214.177:5000/api/account/login";
-                HttpResponseMessage response = await client.PostAsync(url, data);
+                User usr = Rest.Db.GetUser();
 
-                
-                var definition = new { token = "", expiration = DateTime.Now, username = "", userrole = "" };
-                var desAnon = JsonConvert.DeserializeAnonymousType(await response.Content.ReadAsStringAsync(), definition);
-                Token tk = new Token
+                if (usr != null)
                 {
-                    AccessToken = desAnon.token,
-                    ExpireDate = desAnon.expiration
-                };
-                AppDbContext.database.Table<Token>().Delete();
-                //AppDbContext.database.Table<Token>().
-                //MainPage = new NavigationPage(new Games.GameSelectMenue());
+                    MainPage = new NavigationPage(new LoginPage());
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new RegisterPage());
+                }
             }
             else
             {
-                MainPage = new NavigationPage(new Account.RegisterPage());
+                MainPage = new NavigationPage(new Games.GameSelectMenue());
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         protected override void OnStart()
         {

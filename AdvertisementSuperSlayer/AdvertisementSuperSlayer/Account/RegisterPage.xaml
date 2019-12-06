@@ -15,7 +15,7 @@
                      VerticalOptions="End" HorizontalOptions="Fill"
                      Padding="5">
                 <Image x:Name="logo_image" />
-                <Frame Margin="15, 0, 10, 0" Padding="10"
+                <Frame Margin="15, 0, 10, 0" Padding="5"
                        HasShadow="True"
                    CornerRadius="8" BorderColor="Black">
                     <Entry BackgroundColor="Transparent"
@@ -26,7 +26,7 @@
                            Margin="0, 0, 0 ,0"
                            Placeholder="Username"></Entry>
                 </Frame>
-                <Frame Margin="15, 0, 10, 0" Padding="10"
+                <Frame Margin="15, 0, 10, 0" Padding="5"
                        HasShadow="True"
                    CornerRadius="8" BorderColor="Black">
                     <Entry BackgroundColor="Transparent" 
@@ -36,7 +36,7 @@
                            FontAttributes="Bold" 
                         Placeholder="Email"></Entry>
                 </Frame>
-                <Frame Margin="15, 0, 10, 0" Padding="10"
+                <Frame Margin="15, 0, 10, 0" Padding="5"
                        HasShadow="True"
                    CornerRadius="8" BorderColor="Black">
                     <Entry BackgroundColor="Transparent"
@@ -46,7 +46,7 @@
                            FontAttributes="Bold" 
                         Placeholder="Password" IsPassword="True"></Entry>
                 </Frame>
-                <Frame Margin="15, 0, 10, 0" Padding="10"
+                <Frame Margin="15, 0, 10, 0" Padding="5"
                        HasShadow="True"
                    CornerRadius="8" BorderColor="Black">
                     <Entry BackgroundColor="Transparent" 
@@ -57,8 +57,7 @@
                         Placeholder="Confirm Password" IsPassword="True"></Entry>
                 </Frame>
                 <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                    <Label Text="Remember me" VerticalOptions="Center"></Label>
-                    <Switch x:Name="remember" Margin="15, 0, 15, 0" IsToggled="False"></Switch>
+                    <Label/>
                 </StackLayout>
                 <Button CornerRadius="25" x:Name="sbmButton" Clicked="Button_Clicked" Text="Register"></Button>
             </StackLayout>

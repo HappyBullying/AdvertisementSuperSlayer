@@ -35,7 +35,7 @@ namespace AdvertisementSuperSlayer.Account
 
 
             infinityPath = new SKPath();
-            infinityPath.MoveTo(0, 0);           
+            infinityPath.MoveTo(0, 0);
             infinityPath.LineTo(1000f, 0);
             infinityPath.LineTo(1000f, 1000f);
             infinityPath.LineTo(0, 1000f);
@@ -87,7 +87,7 @@ namespace AdvertisementSuperSlayer.Account
                          info.Height / (pathBounds.Height + STROKE_WIDTH)));
 
 
-           
+
             using (SKPaint paint = new SKPaint())
             {
                 paint.Style = SKPaintStyle.Stroke;
@@ -116,39 +116,20 @@ namespace AdvertisementSuperSlayer.Account
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            HttpClient client = new HttpClient();
-            object toSend = new
+            User usr = new User
             {
                 Username = username.Text,
-                Email = email.Text,
                 Password = password.Text
             };
-            string jsonContent = JsonConvert.SerializeObject(toSend);
-            StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-            string url = "http://10.192.214.177:5000/api/account/register";
-            HttpResponseMessage response = await client.PostAsync(url, data);
 
-
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            bool reg = await App.Rest.Register(usr, email.Text);
+            if (!reg)
             {
-                await DisplayAlert("Login Error", await response.Content.ReadAsStringAsync(), response.StatusCode.ToString());
+                await DisplayAlert("Register", "Invalid details supplied", "");
+                return;
             }
-            else
-            {
-                await DisplayAlert("Login", "Success", response.StatusCode.ToString());
-                User usr = new User
-                {
-                    Username = username.Text,
-                    Password = password.Text,
-                };
-                
-                //if (App.AppDbContext.Users.Count(u => u.Username == username.Text) == 0)
-                //{
-                //    await App.AppDbContext.Users.AddAsync(usr);
-                //}
 
-                await Navigation.PushAsync(new Games.GameSelectMenue());
-            }
+            await Navigation.PushAsync(new Games.GameSelectMenue());
         }
 
         private void cpassword_TextChanged(object sender, TextChangedEventArgs e)
