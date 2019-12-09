@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using AdvertisementSuperSlayer.Droid.Helpers;
 using AdvertisementSuperSlayer.Helpers;
-using Android.App;
-using Android.Content;
 using Android.Gms.Ads;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 
+[assembly: Dependency(typeof(AdmobInterstitial))]
 namespace AdvertisementSuperSlayer.Droid.Helpers
 {
     class AdmobInterstitial : AdmobHelper

@@ -1,14 +1,5 @@
-﻿using System;
-using System.Linq;
-using Xamarin.Forms;
-using System.Net.Http;
-using Xamarin.Forms.Xaml;
-using AdvertisementSuperSlayer.Data;
+﻿using Xamarin.Forms;
 using AdvertisementSuperSlayer.DbModels;
-using AdvertisementSuperSlayer.Helpers;
-using Newtonsoft.Json;
-using System.Text;
-using SQLite;
 using AdvertisementSuperSlayer.Account;
 
 namespace AdvertisementSuperSlayer

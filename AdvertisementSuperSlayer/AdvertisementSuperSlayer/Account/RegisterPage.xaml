@@ -59,6 +59,19 @@
                 <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
                     <Label/>
                 </StackLayout>
+                <Label HorizontalOptions="Center" Margin="0, -15, 0, 10" VerticalOptions="StartAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Login now"
+                                TextColor="Blue"
+                                TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding LoginNavigateCommand}" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
                 <Button CornerRadius="25" x:Name="sbmButton" Clicked="Button_Clicked" Text="Register"></Button>
             </StackLayout>
         </Grid>

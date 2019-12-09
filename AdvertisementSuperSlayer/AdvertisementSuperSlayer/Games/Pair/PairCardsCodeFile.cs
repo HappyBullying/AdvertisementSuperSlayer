@@ -148,7 +148,17 @@ namespace AdvertisementSuperSlayer.Games.Pair
             bool cond1 = tiles[FRow][FCol].WasTapped;
             bool cond2 = tiles[SRow][SCol].WasTapped;
             if (cond1 || cond2)
-                await Navigation.PushAsync(new Browser.BrowserPage());
+            {
+                if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
+                {
+                    await DependencyService.Get<AdmobHelper>().Display("ca-app-pub-3940256099942544/6300978111");
+                }
+                else
+                {
+                    await Navigation.PushAsync(new Browser.BrowserPage());
+                }
+            }
+                
             tiles[FRow][FCol].WasTapped = true;
             tiles[SRow][SCol].WasTapped = true;
 

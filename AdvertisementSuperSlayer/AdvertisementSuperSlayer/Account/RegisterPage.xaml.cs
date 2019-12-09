@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Text;
 using AdvertisementSuperSlayer.DbModels;
+using System.Windows.Input;
 
 namespace AdvertisementSuperSlayer.Account
 {
@@ -20,6 +21,13 @@ namespace AdvertisementSuperSlayer.Account
         private float gradientCycleLength;
         private bool isAnimating;
 
+
+        private bool usernameReady = false;
+        private bool passwordReady = false;
+        private bool emailReady = false;
+        private bool cpasswordReady = false;
+
+
         private SKRect pathBounds;
         private SKPath infinityPath;
         private SKColor[] colors;
@@ -28,6 +36,8 @@ namespace AdvertisementSuperSlayer.Account
         public RegisterPage()
         {
             InitializeComponent();
+            BindingContext = this;
+
             colors = new SKColor[3];
             colors[0] = SKColor.Parse("FFC3A0");
             colors[1] = SKColor.Parse("FFAFBD");
@@ -49,6 +59,113 @@ namespace AdvertisementSuperSlayer.Account
                 pathBounds.Height * pathBounds.Height / pathBounds.Width;
         }
 
+        
+
+        /*************************************************************************************************************/
+        /* LOGIC START*/
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            User usr = new User
+            {
+                Username = username.Text,
+                Password = password.Text
+            };
+
+            bool reg = await App.Rest.Register(usr, email.Text);
+            if (!reg)
+            {
+                await DisplayAlert("Register", "Invalid details supplied", "");
+                return;
+            }
+
+            await Navigation.PushAsync(new Games.GameSelectMenue());
+        }
+
+        private void cpassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (cpassword.Text == password.Text)
+            {
+                cpasswordReady = true;
+            }
+            else
+            {
+                cpasswordReady = false;
+            }
+            EnableButton();
+        }
+
+        private void password_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (password.Text.Length == 0)
+            {
+                passwordReady = false;
+            }
+            else
+            {
+                passwordReady = true;
+            }
+            EnableButton();
+        }
+
+        private void email_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (email.Text.Length == 0)
+            {
+                emailReady = false;
+            }
+            else
+            {
+                emailReady = true;
+            }
+            EnableButton();
+        }
+
+        private void username_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (username.Text.Length == 0)
+            {
+                usernameReady = false;
+            }
+            else
+            {
+                usernameReady = true;
+            }
+            EnableButton();
+        }
+
+        private void EnableButton()
+        {
+            if (emailReady && usernameReady && passwordReady && cpasswordReady)
+            {
+                sbmButton.IsEnabled = true;
+            }
+            else
+            {
+                sbmButton.IsEnabled = false;
+            }
+        }
+
+        public ICommand LoginNavigateCommand => new Command(async () =>
+        {
+            if (Navigation.NavigationStack.Count > 1 && Navigation.NavigationStack.ElementAt(Navigation.NavigationStack.Count - 2) is LoginPage)
+            {
+                await Navigation.PopAsync();
+            }
+            else
+            {
+                await Navigation.PushAsync(new LoginPage());
+            }
+        });
+        /* LOGIC END */
+        /*************************************************************************************************************/
+
+
+
+
+
+
+        /*************************************************************************************************************/
+        /* FOR BACKGROUND ANIMATION START*/
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -113,71 +230,7 @@ namespace AdvertisementSuperSlayer.Account
 
             return isAnimating;
         }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            User usr = new User
-            {
-                Username = username.Text,
-                Password = password.Text
-            };
-
-            bool reg = await App.Rest.Register(usr, email.Text);
-            if (!reg)
-            {
-                await DisplayAlert("Register", "Invalid details supplied", "");
-                return;
-            }
-
-            await Navigation.PushAsync(new Games.GameSelectMenue());
-        }
-
-        private void cpassword_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (cpassword.Text == password.Text)
-            {
-                sbmButton.IsEnabled = true;
-            }
-            else
-            {
-                sbmButton.IsEnabled = false;
-            }
-        }
-
-        private void password_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (password.Text.Length == 0)
-            {
-                sbmButton.IsEnabled = false;
-            }
-            else
-            {
-                sbmButton.IsEnabled = true;
-            }
-        }
-
-        private void email_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (email.Text.Length == 0)
-            {
-                sbmButton.IsEnabled = false;
-            }
-            else
-            {
-                sbmButton.IsEnabled = true;
-            }
-        }
-
-        private void username_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (username.Text.Length == 0)
-            {
-                sbmButton.IsEnabled = false;
-            }
-            else
-            {
-                sbmButton.IsEnabled = true;
-            }
-        }
+        /* FOR BACKGROUND ANIMATION END*/
+        /*************************************************************************************************************/
     }
 }
