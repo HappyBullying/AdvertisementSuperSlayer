@@ -16,6 +16,8 @@
     <None Remove="Images\GameSelection\gameselection.png" />
     <None Remove="Images\GameSelection\puzzle.png" />
     <None Remove="Images\GameSelection\snake.png" />
+    <None Remove="Images\Leaderboard\all.png" />
+    <None Remove="Images\Leaderboard\leaderboard.png" />
     <None Remove="Images\Menue\menu.png" />
     <None Remove="Images\Menue\play.png" />
     <None Remove="Images\Pair\CheckMarks\check_mark_blue.png" />
@@ -121,6 +123,8 @@
     <EmbeddedResource Include="Images\GameSelection\gameselection.png" />
     <EmbeddedResource Include="Images\GameSelection\puzzle.png" />
     <EmbeddedResource Include="Images\GameSelection\snake.png" />
+    <EmbeddedResource Include="Images\Leaderboard\all.png" />
+    <EmbeddedResource Include="Images\Leaderboard\leaderboard.png" />
     <EmbeddedResource Include="Images\Menue\menu.png" />
     <EmbeddedResource Include="Images\Menue\play.png" />
     <EmbeddedResource Include="Images\Pair\CheckMarks\check_mark_blue.png" />
@@ -248,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Games\SnakeEater\SnakePageMain.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Leaderboard\GameList.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

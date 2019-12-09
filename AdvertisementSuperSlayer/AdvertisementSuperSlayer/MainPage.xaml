@@ -12,5 +12,13 @@
                 Scale="0.5"
                 AnchorY="0.7"
                 Clicked="OnPlayed"/>
+        <ImageButton x:Name="LeaderboardButton"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                BackgroundColor="Blue"
+                AnchorX="1"
+                AnchorY="1"
+                Scale="0.5"
+                Clicked="OnLeaderboard"/>
     </Grid>
 </ContentPage>

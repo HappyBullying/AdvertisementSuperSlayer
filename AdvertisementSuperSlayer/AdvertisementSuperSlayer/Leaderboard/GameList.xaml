@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AdvertisementSuperSlayer.Leaderboard.GameList">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ImageButton x:Name="All" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Clicked="All_Clicked"/>
+            <ImageButton x:Name="Snake" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Clicked="Snake_Clicked"/>
+            <ImageButton x:Name="FindPair" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="2" Clicked="FindPair_Clicked"/>
+
+            <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="White">
+                <Grid x:Name="Headers">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <BoxView Grid.Row="0" Grid.Column="0" BackgroundColor="Blue"/>
+                        <Label Text="Имя" Grid.Row="0" Grid.Column="0" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White"/>
+                    <BoxView Grid.Row="0" Grid.Column="1" BackgroundColor="Blue"/>
+                        <Label Text="Счёт" Grid.Row="0" Grid.Column="1" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White"/>
+                    <BoxView Grid.Row="0" Grid.Column="2" BackgroundColor="Blue"/>
+                        <Label Text="Дата рекорда" Grid.Row="0" Grid.Column="2" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White"/>
+
+                </Grid>
+                <ScrollView>
+                    <Grid x:Name="Data"/>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

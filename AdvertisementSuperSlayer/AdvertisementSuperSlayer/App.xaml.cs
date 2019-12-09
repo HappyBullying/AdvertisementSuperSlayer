@@ -14,8 +14,8 @@ namespace AdvertisementSuperSlayer
         {
             InitializeComponent();
             Rest = new RestService();
-            //MainPage = new NavigationPage(new Account.RegisterPage());
-            StartupNavigation();
+            //StartupNavigation();
+            MainPage = new NavigationPage(new Leaderboard.GameList());
         }
 
         private void StartupNavigation()
@@ -36,7 +36,7 @@ namespace AdvertisementSuperSlayer
             }
             else
             {
-                MainPage = new NavigationPage(new Games.GameSelectMenue());
+                MainPage = new NavigationPage(new MainPage());
             }
         }
 

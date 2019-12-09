@@ -7,17 +7,22 @@ namespace AdvertisementSuperSlayer
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        private readonly string PathToImages = App.PathToImages + "Menue.";
         public MainPage()
         {
             InitializeComponent();
-            Play.Source = ImageSource.FromResource(PathToImages + "play.png");
-            this.BackgroundImageSource = ImageSource.FromResource(PathToImages + "menu.png");
+            Play.Source = ImageSource.FromResource(App.PathToImages + "Menue.play.png");
+            LeaderboardButton.Source = ImageSource.FromResource(App.PathToImages + "Leaderboard.leaderboardbutton.png");
+            this.BackgroundImageSource = ImageSource.FromResource(App.PathToImages + "Menue.menu.png");
         }
 
         private async void OnPlayed(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Games.GameSelectMenue());
+        }
+
+        private void OnLeaderboard(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Leaderboard.GameList());
         }
     }
 }
