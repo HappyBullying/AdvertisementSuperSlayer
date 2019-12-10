@@ -26,13 +26,13 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         private Random rnd;
         private Assembly asm;
         private SKBitmap[][] AllAdvBitmaps;
-        SKBitmap[] bmps;
 
 
         private double ActualWidth;
         private double ActualHeight;
         private float dydx = 0;
         private bool _TimerState = true;
+        private bool ImagesReady = false;
         private float[] _rows_;
         private float[] _cols_;
         private int advRows;
@@ -41,6 +41,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
         public SnakeField(int rows, int cols)
         {
+            asm = GetType().GetTypeInfo().Assembly;
             SizeChanged += OnSnakeFieldSizeChanged;
             advRows = 3;
             advCols = advRows * 3;
@@ -65,6 +66,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             PaintSurface += OnCanvasViewPaintSurface;
             InitDrawHelpers();
             InitGestures();
+            
             InitCellInfos();
 
 
@@ -75,18 +77,9 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                 new Tuple<int, int>(1, 0),
                 new Tuple<int, int>(0, 0)
             };
-
-            //InitAdvImages();
             //Play();            
         }
 
-        
-        
-
-        public void DrawBitmaps(SKCanvas canvas)
-        {
-            
-        }
 
         public bool CheckFreeForImage(int row, int col)
         {

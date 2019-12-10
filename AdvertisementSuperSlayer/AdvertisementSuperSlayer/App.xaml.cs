@@ -15,7 +15,7 @@ namespace AdvertisementSuperSlayer
             InitializeComponent();
             Rest = new RestService();
             //StartupNavigation();
-            MainPage = new NavigationPage(new Leaderboard.GameList());
+            MainPage = new Games.SnakeEater.SnakePageMain(20, 32); //new NavigationPage(new Leaderboard.GameList());
         }
 
         private void StartupNavigation()

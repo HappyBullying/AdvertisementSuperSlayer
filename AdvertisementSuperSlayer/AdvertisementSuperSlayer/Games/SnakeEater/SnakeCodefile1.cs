@@ -2,6 +2,7 @@
 using SkiaSharp.Views.Forms;
 using System;
 using System.IO;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace AdvertisementSuperSlayer.Games.SnakeEater
@@ -137,8 +138,27 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             }
 
             SquareWidth = (int)Math.Round(dydx);
+
+            if (!ImagesReady)
+            {
+                InitAdvImages();
+                ImagesReady = true;
+            }
+
             InvalidateSurface();
         }
+
+
+
+
+        /// <summary>
+        /// Draws all cells according to their cellinfo
+        /// </summary>
+        private void DrawAll(SKCanvas canvas)
+        {
+
+        }
+
 
 
         private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
@@ -154,10 +174,15 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             DrawGrid(canvas);
 
             DrawSnake(canvas);
-            //DrawBitmaps(canvas);
+            
 
-            if (bmps == null)
-                bmps = SplitBitmap("AdvertisementSuperSlayer.Images.Snake.Advs.rak.png");
+
+
+
+
+
+
+            int bmpId = rnd.Next(AllAdvBitmaps.Length);
 
             Tuple<int, int> tmp = GetPointForImage();
 
@@ -165,9 +190,9 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             {
                 for (int col = 0; col < advCols; col++)
                 {
-                    float x = _cols_[col + tmp.Item1 + 1];
-                    float y = _rows_[row + tmp.Item2 + 1];
-                    canvas.DrawBitmap(bmps[row * advCols + col], x, y);
+                    float x = _cols_[col + tmp.Item2 + 1];
+                    float y = _rows_[row + tmp.Item1 + 1];
+                    canvas.DrawBitmap(AllAdvBitmaps[bmpId][row * advCols + col], x, y);
                 }
             }
         }
