@@ -172,6 +172,12 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                                 canvas.DrawBitmap(cellInfos[i][j].Bmp, _cols_[j + 1], _rows_[i + 1]);
                                 break;
                             }
+                        case ElementState.SnakeHead:
+                            {
+                                //drawhead
+                                DrawSnakeBodyElement(canvas, i, j);
+                                break;
+                            }
                         default:
                             break;
                     }

@@ -177,13 +177,13 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             }
 
             bool cond1 = SnAllBody[0].Item1 < 0;
-            bool cond2 = SnAllBody[0].Item1 >= cellInfos.Length;
+            bool cond2 = SnAllBody[0].Item1 >= cellInfos[0].Length;
             bool cond3 = SnAllBody[0].Item2 < 0;
-            bool cond4 = SnAllBody[0].Item2 >= cellInfos[0].Length;
+            bool cond4 = SnAllBody[0].Item2 >= cellInfos.Length;
 
             if (cond1 || cond2 || cond3 || cond4)
             {
-
+                Pause();
             }
 
             
@@ -193,7 +193,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             f = SnAllBody[0].Item2;
             cellInfos[f][s].State = ElementState.SnakeHead;
              
-            if (!Eat(s, f))
+            if (!Eat(f, s))
             {
                 s = SnAllBody[SnAllBody.Count - 1].Item1;
                 f = SnAllBody[SnAllBody.Count - 1].Item2;
