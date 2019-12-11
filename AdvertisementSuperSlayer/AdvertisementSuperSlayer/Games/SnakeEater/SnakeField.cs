@@ -77,7 +77,14 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                 new Tuple<int, int>(1, 0),
                 new Tuple<int, int>(0, 0)
             };
-            //Play();            
+
+            cellInfos[0][3].State = ElementState.SnakeBody;
+            cellInfos[0][2].State = ElementState.SnakeBody;
+            cellInfos[0][1].State = ElementState.SnakeBody;
+            cellInfos[0][0].State = ElementState.SnakeBody;
+
+
+            Play();            
         }
 
 
@@ -88,6 +95,8 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             return false;
         }
 
+
+
         private void DrawSnake(SKCanvas canvas)
         {
             // Draw head
@@ -96,6 +105,9 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                 DrawSnakeBodyElement(canvas, SnAllBody[i].Item2, SnAllBody[i].Item1);
             }
         }
+
+
+
         private void DrawSnakeBodyElement(SKCanvas canvas, int row, int col)
         {
             row++;
@@ -109,15 +121,16 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
 
 
-        private void Eat()
+        private bool Eat(int x, int y)
         {
-            //foreach(SnakeAdvBitmap bmp in advs)
-            //{
-            //    if (bmp.RowIndex == SnAllBody[0].Item2 && bmp.ColIndex == SnAllBody[0].Item1)
-            //    {
-            //        bmp.WasEaten = true;
-            //    }
-            //}
+            if (cellInfos[x][y].State == ElementState.Adv)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 
@@ -173,14 +186,22 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
             }
 
-            Eat();
+            
 
 
             s = SnAllBody[0].Item1;
             f = SnAllBody[0].Item2;
             cellInfos[f][s].State = ElementState.SnakeHead;
-
+             
+            if (!Eat(s, f))
+            {
+                s = SnAllBody[SnAllBody.Count - 1].Item1;
+                f = SnAllBody[SnAllBody.Count - 1].Item2;
+                cellInfos[f][s].State = ElementState.SnakeBody;
+            }
             // Check if it ate something
+
+
             return true;
         }
 

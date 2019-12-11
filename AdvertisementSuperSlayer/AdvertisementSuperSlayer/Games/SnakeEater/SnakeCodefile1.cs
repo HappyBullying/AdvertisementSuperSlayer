@@ -58,8 +58,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             rect = new SKRect(0, _rows_[_rows_.Length - 2], _cols_[_cols_.Length - 1], _rows_[_rows_.Length - 1]);
             canvas.DrawRect(rect, Thick);
             Thick.Style = SKPaintStyle.Stroke;
-            Thick.TextSize = 50;
-            canvas.DrawText(ActualWidth + "  " + ActualHeight, 400, 400, Thick);
+
         }
 
         private void InitDrawHelpers()
@@ -142,6 +141,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             if (!ImagesReady)
             {
                 InitAdvImages();
+                SetAdvInfo();
                 ImagesReady = true;
             }
 
@@ -156,7 +156,27 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         /// </summary>
         private void DrawAll(SKCanvas canvas)
         {
-
+            for (int i = 0; i < cellInfos.Length; i++)
+            {
+                for (int j = 0; j < cellInfos[i].Length; j++)
+                {
+                    switch(cellInfos[i][j].State)
+                    {
+                        case ElementState.SnakeBody:
+                            {
+                                DrawSnakeBodyElement(canvas, i, j);
+                                break;
+                            }
+                        case ElementState.Adv:
+                            {
+                                canvas.DrawBitmap(cellInfos[i][j].Bmp, _cols_[j + 1], _rows_[i + 1]);
+                                break;
+                            }
+                        default:
+                            break;
+                    }
+                }
+            }
         }
 
 
@@ -173,15 +193,14 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
             DrawGrid(canvas);
 
-            DrawSnake(canvas);
-            
+            //DrawSnake(canvas);
+            DrawAll(canvas);
+
+        }
 
 
-
-
-
-
-
+        private void SetAdvInfo()
+        {
             int bmpId = rnd.Next(AllAdvBitmaps.Length);
 
             Tuple<int, int> tmp = GetPointForImage();
@@ -190,12 +209,12 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             {
                 for (int col = 0; col < advCols; col++)
                 {
-                    float x = _cols_[col + tmp.Item2 + 1];
-                    float y = _rows_[row + tmp.Item1 + 1];
-                    canvas.DrawBitmap(AllAdvBitmaps[bmpId][row * advCols + col], x, y);
+                    cellInfos[row + tmp.Item1][col + tmp.Item2].Bmp = AllAdvBitmaps[bmpId][row * advCols + col];
+                    cellInfos[row + tmp.Item1][col + tmp.Item2].State = ElementState.Adv;
                 }
             }
         }
+
 
 
 
