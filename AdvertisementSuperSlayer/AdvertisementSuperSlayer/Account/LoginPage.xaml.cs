@@ -77,7 +77,7 @@ namespace AdvertisementSuperSlayer.Account
             }
             else
             {
-                await Navigation.PushAsync(new Games.GameSelectMenue());
+                await Navigation.PushAsync(new MainPage());
             }
         }
 

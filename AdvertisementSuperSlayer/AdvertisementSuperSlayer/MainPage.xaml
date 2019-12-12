@@ -4,6 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
              x:Class="AdvertisementSuperSlayer.MainPage">
     <Grid>
         <ImageButton x:Name="Play"

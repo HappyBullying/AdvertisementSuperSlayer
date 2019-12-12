@@ -137,7 +137,7 @@ namespace AdvertisementSuperSlayer
                 if (tk == null)
                     return false;
 
-                if (tk.ExpireDate > DateTime.Now)
+                if (tk.ExpireDate > DateTime.UtcNow)
                 {
                     return true;
                 }
