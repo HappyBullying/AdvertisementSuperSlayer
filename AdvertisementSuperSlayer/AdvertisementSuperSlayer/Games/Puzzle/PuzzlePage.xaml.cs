@@ -1,14 +1,15 @@
-﻿using AdvertisementSuperSlayer.TouchTracking;
+﻿using AdvertisementSuperSlayer.Helpers;
+using AdvertisementSuperSlayer.TouchTracking;
 using AdvertisementSuperSlayer.TouchTracking.Transforms;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.IO;
+using AdvertisementSuperSlayer.DbModels;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,19 +17,23 @@ using Xamarin.Forms.Xaml;
 namespace AdvertisementSuperSlayer.Games.Puzzle
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PuzzlePage : ContentPage
+    public partial class PuzzlePage : ContentPage, ISaveResult
     {
         private List<TouchManipulationBitmap> bitmapCollection;
         private Dictionary<long, TouchManipulationBitmap> bitmapDictionary = new Dictionary<long, TouchManipulationBitmap>();
         private List<SKBitmap> Bitmaps = new List<SKBitmap>();
         private List<SKPoint> BoundPoints = new List<SKPoint>();
+        private Stopwatch Timer;
         private Random rnd;
         private int Rows;
         private int Cols;
         private int QuadSize;
+        private int Count;
+        private bool canProcessTouchEvent = false;
+        private bool timerIsVisible = true;
         private const float StartOffset = 50;
         private bool picturesReady = false;
-        
+
         public PuzzlePage(int rows)
         {
             InitializeComponent();
@@ -38,8 +43,12 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
         }
 
 
-        private void OnTouchEffectAction(object sender, TouchActionEventArgs args)
+        private async void OnTouchEffectAction(object sender, TouchActionEventArgs args)
         {
+            if (!canProcessTouchEvent)
+            {
+                return;
+            }
             // Convert Xamarin.Forms point to pixels
             Point pt = args.Location;
             SKPoint point =
@@ -84,7 +93,13 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
                         bitmap.ProcessTouchEvent(args.Id, args.Type, point);
                         bitmapDictionary.Remove(args.Id);
                         CheckAndMoveLanding(bitmap);
+                        bool check = CheckRightCombination();
                         canvasView.InvalidateSurface();
+                        if (check)
+                        {
+                            await DisplayAlert("Victory", "You have won", "Ok");
+                            SaveResult();
+                        }
                     }
                     break;
             }
@@ -94,20 +109,217 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
 
         private void CheckAndMoveLanding(TouchManipulationBitmap bmp)
         {
-            float xcol = (bmp.Matrix.TransX) / QuadSize;
-            float yrow = (bmp.Matrix.TransY) / QuadSize;
+            float xcol = (bmp.Matrix.TransX - StartOffset) / QuadSize;
+            float yrow = (bmp.Matrix.TransY - StartOffset) / QuadSize;
 
             int col = (int)Math.Round(xcol);
             int row = (int)Math.Round(yrow);
 
-            if (col > Cols - 1) { col = Cols - 1; }
-            if (col < 0) { col = 0; }
-            if(row > Rows - 1) { row = Rows - 1; }
-            if (row < 0) { row = 0; }
+            if (!(col > Cols + 1 || col < -1 || row > row + 1 || row < -1))
+            {
+                if (col > Cols - 1) { col = Cols - 1; }
+                if (col < 0) { col = 0; }
+                if (row > Rows - 1) { row = Rows - 1; }
+                if (row < 0) { row = 0; }
+                SKPoint pt = BoundPoints[row * Cols + col];
+                bmp.Matrix = SKMatrix.MakeTranslation(pt.X, pt.Y);
+            }
+        }
 
 
-            SKPoint pt = BoundPoints[row * Cols + col];
-            bmp.Matrix = SKMatrix.MakeTranslation(pt.X, pt.Y);
+
+        private bool CheckRightCombination()
+        {
+            List<SKPoint> pts = new List<SKPoint>();
+            for (int i = 0; i < bitmapCollection.Count; i++)
+            {
+                pts.Add(new SKPoint { X = bitmapCollection[i].Matrix.TransX, Y = bitmapCollection[i].Matrix.TransY });
+            }
+
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Cols; j++)
+                {
+                    int xI = (int)Math.Round(bitmapCollection[i * Cols + j].Matrix.TransX);
+                    int yI = (int)Math.Round(bitmapCollection[i * Cols + j].Matrix.TransY);
+
+                    int index = bitmapCollection[i * Cols + j].ImageId;
+
+                    int xR = (int)Math.Round(BoundPoints[index].X);
+                    int yR = (int)Math.Round(BoundPoints[index].Y);
+
+                    if (!(xI == xR && yI == yR))
+                    {
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+        }
+
+
+
+
+
+
+
+        private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
+        {
+            SKCanvas canvas = args.Surface.Canvas;
+            canvas.Clear();
+            DrawGrid(canvas);
+            DrawCounter(canvas);
+
+            foreach (TouchManipulationBitmap bitmap in bitmapCollection)
+            {
+                SKPoint pt = new SKPoint(bitmap.Matrix.TransX, bitmap.Matrix.TransY);
+                canvas.DrawBitmap(bitmap.bitmap, pt);
+            }
+        }
+
+        private void DrawCounter(SKCanvas canvas)
+        {
+            if (timerIsVisible)
+            {
+
+                const float offset = 30;
+                const float height = 100;
+                const float width = 80;
+                SKPaint paint = new SKPaint
+                {
+                    Color = SKColors.Orange,
+                    IsAntialias = true,
+                    Style = SKPaintStyle.Fill,
+                    StrokeWidth = 4,
+                    TextSize = height
+                };
+                canvas.DrawText(Count.ToString(), (float)(Width - 2 * width - offset), height, paint);
+            }
+        }
+
+
+        private void DrawGrid(SKCanvas canvas)
+        {
+            int thikness = 5;
+            // Draw grid
+            float leftTopX = BoundPoints[0].X - 2;
+            float leftTopY = BoundPoints[0].Y - 2;
+            float width = BoundPoints[BoundPoints.Count - 1].X - leftTopX + QuadSize + 2;
+            float height = BoundPoints[BoundPoints.Count - 1].Y - leftTopY + QuadSize + 2;
+
+            SKPaint paint = new SKPaint
+            {
+                Color = SKColors.Gray,
+                IsAntialias = true,
+                Style = SKPaintStyle.Stroke,
+                StrokeWidth = thikness
+            };
+            canvas.DrawRect(leftTopX, leftTopY, width, height, paint);
+
+
+
+            paint.StrokeWidth = 2;
+            int top = 0;
+            int bot = BoundPoints.Count - Cols;
+            for (int i = 0; i < Cols; i++)
+            {
+                SKPoint pt = new SKPoint(BoundPoints[bot + i].X, BoundPoints[bot + i].Y + QuadSize);
+                canvas.DrawLine(BoundPoints[top + i], pt, paint);
+            }
+            int left = 0;
+            int right = Cols - 1;
+            for (int i = 0; i < Rows; i++)
+            {
+                SKPoint pt = new SKPoint(BoundPoints[right + i * Cols].X + QuadSize, BoundPoints[right + i * Cols].Y);
+                canvas.DrawLine(BoundPoints[left + i * Cols], pt, paint);
+            }
+        }
+
+
+
+        private void StartGame()
+        {
+            timerIsVisible = true;
+            Count = 201;
+            Device.StartTimer(TimeSpan.FromSeconds(1), GameTimerCallback);
+            Timer = Stopwatch.StartNew();
+        }
+
+
+        private bool GameTimerCallback()
+        {
+            Count--;
+            if (Count < 0)
+            {
+                timerIsVisible = false;
+                canvasView.InvalidateSurface();
+                DisplayAlert("Defeat", "You have lost", "Ok").GetAwaiter().OnCompleted(async () => { 
+                    //await Navigation.PushAsync(new Account.RegisterPage());
+                });
+                
+                return false;
+            }
+            else
+            {
+                canvasView.InvalidateSurface();
+                return true;
+            }
+        }
+
+
+
+
+        private void ShowInitialImage()
+        {
+            Count = 10;
+            Device.StartTimer(TimeSpan.FromSeconds(1), InitialImageCallback);
+        }
+
+
+        private bool InitialImageCallback()
+        {
+            canvasView.InvalidateSurface();
+            Count--;
+            if (Count < 0)
+            {
+                MixImages();
+                canProcessTouchEvent = true;
+                timerIsVisible = false;
+                canvasView.InvalidateSurface();
+                StartGame();
+                return false;
+            }
+
+            return true;
+        }
+
+
+        private void MixImages()
+        {
+            List<SKMatrix> matrixes = new List<SKMatrix>();
+            for (int i = 0; i < bitmapCollection.Count; i++)
+            {
+                matrixes.Add(bitmapCollection[i].Matrix);
+            }
+            for (int i = 0; i < bitmapCollection.Count; i++)
+            {
+                int randVal = rnd.Next(matrixes.Count);
+                bitmapCollection[i].Matrix = matrixes[randVal];
+                matrixes.RemoveAt(randVal);
+            }
+        }
+
+
+        private void canvasView_SizeChanged(object sender, EventArgs e)
+        {
+            QuadSize = (int)(Height * 0.8 / Rows);
+            if (!picturesReady)
+            {
+                picturesReady = true;
+                InitializePictures();
+                ShowInitialImage();
+            }
         }
 
 
@@ -131,8 +343,6 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
                     Bitmaps.Add(bitmap);
                 }
             }
-
-
 
 
             inf = new SKImageInfo(QuadSize, QuadSize);
@@ -173,43 +383,16 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
             }
         }
 
-
-        private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
+        public void SaveResult()
         {
-            SKCanvas canvas = args.Surface.Canvas;
-            canvas.Clear();
-
-            int thikness = 5;
-            // Draw grid
-            float leftTopX = BoundPoints[0].X - thikness;
-            float leftTopY = BoundPoints[0].Y - thikness;
-            float width = BoundPoints[BoundPoints.Count - 1].X - leftTopX + QuadSize + thikness;
-            float height = BoundPoints[BoundPoints.Count - 1].Y - leftTopY + QuadSize + thikness;
-
-            SKPaint paint = new SKPaint
+            Timer.Stop();
+            PuzzleRecord record = new PuzzleRecord
             {
-                Color = SKColors.Gray,
-                IsAntialias = true,
-                Style = SKPaintStyle.Stroke,
-                StrokeWidth = thikness
+                GameTime = TimeSpan.FromMilliseconds(Timer.ElapsedMilliseconds),
+                LastModified = DateTime.UtcNow
             };
-            canvas.DrawRect(leftTopX, leftTopY, width, height, paint);
 
-            foreach (TouchManipulationBitmap bitmap in bitmapCollection)
-            {
-                SKPoint pt = new SKPoint(bitmap.Matrix.TransX, bitmap.Matrix.TransY);
-                canvas.DrawBitmap(bitmap.bitmap, pt);
-            }
-        }
-
-        private void canvasView_SizeChanged(object sender, EventArgs e)
-        {
-            QuadSize = (int)(Height * 0.8 / Rows);
-            if (!picturesReady)
-            {
-                picturesReady = true;
-                InitializePictures();
-            }
+            App.Rest.UpdatePuzzle(record);
         }
     }
 }

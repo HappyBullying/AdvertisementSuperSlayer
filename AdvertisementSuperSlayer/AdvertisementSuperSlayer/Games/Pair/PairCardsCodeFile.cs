@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using AdvertisementSuperSlayer.Helpers;
+using System.Diagnostics;
 
 namespace AdvertisementSuperSlayer.Games.Pair
 {
@@ -11,6 +12,7 @@ namespace AdvertisementSuperSlayer.Games.Pair
         private double WindowWidth { get; set; }
         private double WindowHeight { get; set; }
         private int Rows, Cols;
+        private int ErrorCounter = 0;
         private SKBitmap TileBitmap;
         private SKBitmap CheckMark;
         private BusyBehavior _Busy;
@@ -22,6 +24,7 @@ namespace AdvertisementSuperSlayer.Games.Pair
         private IAudio[] wins;
         private IAudio[] defeats;
         private Random rnd;
+        private Stopwatch Timer;
 
         private async void ExecuteRotation(PhotoHalfPairTile tmp)
         {
@@ -149,6 +152,7 @@ namespace AdvertisementSuperSlayer.Games.Pair
             bool cond2 = tiles[SRow][SCol].WasTapped;
             if (cond1 || cond2)
             {
+                ErrorCounter++;
                 if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
                 {
                     //await DependencyService.Get<AdmobHelper>().Display("ca-app-pub-3940256099942544/6300978111");

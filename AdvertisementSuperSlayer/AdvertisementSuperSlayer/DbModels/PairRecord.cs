@@ -6,6 +6,7 @@ namespace AdvertisementSuperSlayer.DbModels
     public class PairRecord
     {
         [PrimaryKey]
+        [AutoIncrement]
         public int Id { get; set; }
 
         public TimeSpan GameDuration { get; set; }

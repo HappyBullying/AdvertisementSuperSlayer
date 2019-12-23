@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace AdvertisementSuperSlayer
 {
@@ -17,6 +18,11 @@ namespace AdvertisementSuperSlayer
 
         private readonly string loginUrl = "http://192.168.0.105:5000/api/account/login";
         private readonly string registerUrl = "http://192.168.0.105:5000/api/account/register";
+        private readonly string deviceInfoUrl = "http://192.168.0.105:5000/api/account/register";
+        private readonly string pairRecordUrl = "http://192.168.0.105:5000/api/rating/postpairdata";
+        private readonly string puzzleRecordUrl = "http://192.168.0.105:5000/api/rating/postpuzzledata";
+        private readonly string snakeRecordUrl = "http://192.168.0.105:5000/api/rating/postsnakedata";
+
 
         public RestService()
         {
@@ -41,6 +47,7 @@ namespace AdvertisementSuperSlayer
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 Db.SaveUser(usr);
+                await SendDeviceInfo();
                 return true;
             }
             else
@@ -49,6 +56,32 @@ namespace AdvertisementSuperSlayer
             }
 
         }
+
+
+        public async Task<bool> SendDeviceInfo()
+        {
+            object deviceInfo = new
+            {
+                ProcessorCount = Environment.ProcessorCount,
+                OSVersion = Environment.OSVersion,
+                MachineName = Environment.MachineName,
+                LTOTDevice = DateTime.UtcNow,
+            };
+
+            string jsonContent = JsonConvert.SerializeObject(deviceInfo);
+            StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync(deviceInfoUrl, data);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
 
 
         public async Task<bool> Login(User usr)
@@ -128,6 +161,68 @@ namespace AdvertisementSuperSlayer
                 return false;
             }
         }
+
+
+
+        public async void UpdatePair(PairRecord record)
+        {
+            bool needsUpdate = Db.SavePairRating(record);
+            
+            if (needsUpdate)
+            {
+                object toSend = new
+                {
+                    GameTime = record.GameDuration,
+                    FailsNumber = record.Errors,
+                };
+                string jsonContent = JsonConvert.SerializeObject(toSend);
+                StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(pairRecordUrl, data);
+            }
+        }
+
+
+
+        public async void UpdateSnake(SnakeRecord record)
+        {
+            bool needsUpdate = Db.SaveSnakeRating(record);
+
+            if (needsUpdate)
+            {
+                object toSend = new
+                {
+                    MaxScore = record.MaxScore,
+                    GameTime = record.GameTime
+                };
+                string jsonContent = JsonConvert.SerializeObject(toSend);
+                StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(snakeRecordUrl, data);
+            }
+        }
+
+
+
+        public async void UpdatePuzzle(PuzzleRecord record)
+        {
+            bool needsUpdate = Db.SavePuzzleRating(record);
+
+            if (needsUpdate)
+            {
+                object toSend = new
+                {
+                    GameTime = record.GameTime,
+                    LastModified = record.LastModified
+                };
+                string jsonContent = JsonConvert.SerializeObject(toSend);
+                StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(puzzleRecordUrl, data);
+            }
+        }
+
+
+
+
+
 
         public bool IsLoggedIn
         {

@@ -111,12 +111,17 @@
     <None Remove="Images\Pair\Faces\violet\8.png" />
     <None Remove="Images\Pair\Faces\violet\9.png" />
     <None Remove="Images\Pair\pair_background.png" />
+    <None Remove="Images\Puzzle\mops.png" />
     <None Remove="Images\Puzzle\shampoo.png" />
     <None Remove="Images\Snake\Advs\rak.png" />
     <None Remove="Images\Snake\Head\open_down.png" />
     <None Remove="Images\Snake\Head\open_left.png" />
     <None Remove="Images\Snake\Head\open_right.png" />
     <None Remove="Images\Snake\Head\open_up.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Puzzle\mops.png" />
   </ItemGroup>
 
   <ItemGroup>

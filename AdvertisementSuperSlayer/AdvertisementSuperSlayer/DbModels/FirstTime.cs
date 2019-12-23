@@ -6,6 +6,7 @@ namespace AdvertisementSuperSlayer.DbModels
     public class FirstTime
     {
         [PrimaryKey]
+        [AutoIncrement]
         public int Id { get; set; }
 
         public DateTime FirstEnter { get; set;  }

@@ -2,6 +2,7 @@
 using AdvertisementSuperSlayer.DbModels;
 using AdvertisementSuperSlayer.Account;
 using Xamarin.Auth;
+using System.Collections.Generic;
 
 namespace AdvertisementSuperSlayer
 {
@@ -16,21 +17,9 @@ namespace AdvertisementSuperSlayer
             InitializeComponent();
             Rest = new RestService();
             //StartupNavigation();
-            Browser.BrowserPage page = new Browser.BrowserPage();
-            page.Navigate("http://192.168.0.105:5000/home/login");
-            OAuth2Authenticator authenticator = new OAuth2Authenticator(
-               "666426372827-mfsinhpd7km8lf7uoqal65c15tsnm8f1.apps.googleusercontent.com",
-               null,
-               "https://www.googleapis.com/auth/userinfo.email",
-               new System.Uri("https://accounts.google.com/o/oauth2/auth"),
-               new System.Uri("https://vk.com"),
-               new System.Uri("https://www.googleapis.com/oauth2/v4/token"),
-               null, true);
-            ///var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
-            //presenter.Login(authenticator);
-            //MainPage = page; //new Games.SnakeEater.SnakePageMain(20, 32);
-            MainPage = new Games.Puzzle.PuzzlePage(6);
-            //MainPage = new NavigationPage(new LoginPage()) ; //new Games.SnakeEater.SnakePageMain(20, 32); //
+
+            //MainPage = new NavigationPage(new Games.Puzzle.PuzzlePage(6));
+            MainPage = new Page1();
         }
 
         private void StartupNavigation()

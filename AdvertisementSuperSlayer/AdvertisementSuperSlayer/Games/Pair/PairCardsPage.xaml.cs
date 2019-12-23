@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using AdvertisementSuperSlayer.Helpers;
-using System.Text;
+using AdvertisementSuperSlayer.DbModels;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -14,7 +14,7 @@ using Xamarin.Forms.Xaml;
 namespace AdvertisementSuperSlayer.Games.Pair
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PairCardsPage : ContentPage
+    public partial class PairCardsPage : ContentPage, ISaveResult
     {
         public PairCardsPage(int row, int col)
         {
@@ -27,10 +27,6 @@ namespace AdvertisementSuperSlayer.Games.Pair
             WrongConfiguration += OnWrongConfiguration;
             BackG.Source = ImageSource.FromResource(App.PathToImages + "Pair.pair_background.png");
             Init();
-            
-            //AnimateBackground();
-
-
         }
 
 
@@ -206,52 +202,19 @@ namespace AdvertisementSuperSlayer.Games.Pair
                 defeats[2].SetupAudioFile("lose3.mp3", false, 1);
             });
         }
-        private void AnimateBackground()
+
+        public void SaveResult()
         {
-            //AnimateBackgroundLayer1();
-            //AnimateBackgroundLayer2();
-            //AnimateBackgroundLayer3();
-            //AnimateBackgroundLayer4();
+            Timer.Stop();
+            long mills = Timer.ElapsedMilliseconds;
+            PairRecord record = new PairRecord
+            {
+                Errors = ErrorCounter,
+                GameDuration = TimeSpan.FromMilliseconds(mills),
+                RecordSetDate = DateTime.UtcNow
+            };
+
+            App.Rest.UpdatePair(record);
         }
-
-        //private async void AnimateBackgroundLayer1()
-        //{
-        //    while (true)
-        //    {
-        //        await BackgroundLayer1.ScaleTo(0.9, 2500, Easing.SinOut);
-        //        await BackgroundLayer1.ScaleTo(1.2, 1750, Easing.SinInOut);
-        //    }
-        //}
-
-        //private async void AnimateBackgroundLayer2()
-        //{
-        //    while (true)
-        //    {
-        //        await img1.TranslateTo((WindowWidth / 2.0) * 0.1, 0, 3000);
-
-        //        //await img1.ScaleTo(0.8, 2750, Easing.SinOut);
-        //        await img1.TranslateTo(-(WindowWidth / 2.0) * 0.1, 0, 3000);
-        //        //await img1.ScaleTo(1, 2250, Easing.SinInOut);
-
-        //    }
-        //}
-
-        //private async void AnimateBackgroundLayer3()
-        //{
-        //    while (true)
-        //    {
-        //        await BackgroundLayer3.ScaleTo(0.7, 3000, Easing.SinInOut);
-        //        await BackgroundLayer3.ScaleTo(0.9, 2500, Easing.SinOut);
-        //    }
-        //}
-
-        //private async void AnimateBackgroundLayer4()
-        //{
-        //    while (true)
-        //    {
-        //        await BackgroundLayer4.ScaleTo(0.6, 1750, Easing.SinOut);
-        //        await BackgroundLayer4.ScaleTo(0.8, 2000, Easing.SinInOut);
-        //    }
-        //}
     }
 }

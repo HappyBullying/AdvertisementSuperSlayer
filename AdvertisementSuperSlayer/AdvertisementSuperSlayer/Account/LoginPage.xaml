@@ -41,7 +41,7 @@
                     <Label Text="Remember me" VerticalOptions="Center"></Label>
                     <Switch x:Name="remember" Margin="15, 0, 15, 0" IsToggled="False"></Switch>
                     
-                        <ImageButton VerticalOptions="Center" Margin="25, 0, 0, 0" x:Name="googleBtn" Clicked="googleBtn_Clicked" BackgroundColor="Transparent" />
+                        <ImageButton VerticalOptions="Center" Margin="25, 0, 0, 0" x:Name="googleBtn" Opacity="0" Clicked="googleBtn_Clicked" BackgroundColor="Transparent" />
                    
                 </StackLayout>
                 <Label HorizontalOptions="Center" Margin="0, 15, 0, 15" VerticalOptions="StartAndExpand">

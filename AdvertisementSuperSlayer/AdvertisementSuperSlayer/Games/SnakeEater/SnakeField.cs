@@ -139,21 +139,6 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         private bool MakeStep()
         {
             int f, s;
-
-
-
-
-            //int s = SnAllBody[SnAllBody.Count - 1].Item1;
-            //int f = SnAllBody[SnAllBody.Count - 1].Item2;
-            //cellInfos[f][s].State = ElementState.Free;
-
-            //Tuple<int, int> toAppend = new Tuple<int, int>(SnAllBody[SnAllBody.Count - 1].Item1, SnAllBody[SnAllBody.Count - 1].Item2);
-
-            //for (int i = SnAllBody.Count - 1; i > 0; i--)
-            //{
-            //    SnAllBody[i] = SnAllBody[i - 1];
-            //}
-
             switch (SnDirection)
             {
                 case SnakeDirection.Up:
@@ -186,10 +171,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             f = SnAllBody[0].Item2;
             s = SnAllBody[0].Item1;
             
-            
-            
-
-
+           
             if (!Eat(f, s))
             {
                 f = SnAllBody[SnAllBody.Count - 1].Item2;
@@ -207,29 +189,6 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             cellInfos[f][s].State = ElementState.SnakeBody;
 
 
-            //if (Eat(f, s))
-            //{
-            //    for (int i = SnAllBody.Count - 2; i > 0; i--)
-            //    {
-            //        SnAllBody[i] = SnAllBody[i - 1];
-            //    }
-            //    int tmp1 = SnAllBody[SnAllBody.Count - 1].Item1;
-            //    int tmp2 = SnAllBody[SnAllBody.Count - 1].Item2;
-            //    SnAllBody.Add(new Tuple<int, int>(tmp1, tmp2));
-            //}
-            //else
-            //{
-            //    f = SnAllBody[SnAllBody.Count - 1].Item2;
-            //    s = SnAllBody[SnAllBody.Count - 1].Item1;
-
-            //    for (int i = SnAllBody.Count - 1; i > 0; i--)
-            //    {
-            //        SnAllBody[i] = SnAllBody[i - 1];
-            //    }
-            //    cellInfos[f][s].State = ElementState.Free;
-            //}
-
-
             bool cond1 = SnAllBody[0].Item1 < 0;
             bool cond2 = SnAllBody[0].Item1 >= cellInfos[0].Length;
             bool cond3 = SnAllBody[0].Item2 < 0;
@@ -239,25 +198,6 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             {
                 Pause();
             }
-
-
-
-            
-            //if (Eat(f, s))
-            //{
-            //    s = toAppend.Item1;
-            //    f = toAppend.Item2;
-            //    cellInfos[f][s].State = ElementState.SnakeBody;
-            //    SnAllBody.Add(toAppend);
-            //}
-
-
-
-
-
-
-            // Check if it ate something
-
 
             return true;
         }
