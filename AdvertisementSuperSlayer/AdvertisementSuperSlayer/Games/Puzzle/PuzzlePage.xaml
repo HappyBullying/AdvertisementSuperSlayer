@@ -4,12 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:tt="clr-namespace:AdvertisementSuperSlayer.TouchTracking"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              x:Class="AdvertisementSuperSlayer.Games.Puzzle.PuzzlePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <skia:SKCanvasView SizeChanged="canvasView_SizeChanged"
+                x:Name="canvasView" PaintSurface="OnCanvasViewPaintSurface" />
+            <Grid.Effects>
+                <tt:TouchEffect Capture="True" TouchAction="OnTouchEffectAction" />
+            </Grid.Effects>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

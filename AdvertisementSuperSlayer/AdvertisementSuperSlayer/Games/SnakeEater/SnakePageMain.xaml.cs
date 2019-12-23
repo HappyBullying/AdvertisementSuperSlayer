@@ -14,13 +14,13 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SnakePageMain : ContentPage
     {
-        private double tileSize;
-        private readonly int Rows, Cols;
-        private SKBitmap[][] advBitmaps;
-        private SnakeDirection snakeDirection;
-        private SKColor EmptyCellColor;
-        private SKPaint OutCircle;
-        private SKPaint InnerCircle;
+        //private double tileSize;
+        //private readonly int Rows, Cols;
+        //private SKBitmap[][] advBitmaps;
+        //private SnakeDirection snakeDirection;
+        //private SKColor EmptyCellColor;
+        //private SKPaint OutCircle;
+        //private SKPaint InnerCircle;
         private SnakeField snakeField;
         public SnakePageMain(int rows, int cols)
         {
@@ -28,6 +28,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             snakeField = new SnakeField(rows, cols);
             snakeField.Margin = new Thickness(5);
             Content = snakeField;
+            BackgroundColor = Color.Bisque;
         }
 
 

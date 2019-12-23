@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Helpers\AudioService.cs" />
     <Compile Include="Helpers\DbProvider.cs" />
+    <Compile Include="Helpers\TouchEffect.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

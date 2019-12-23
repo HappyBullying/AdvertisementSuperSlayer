@@ -66,6 +66,8 @@
     <Compile Include="Helpers\AdmobInterstitial.cs" />
     <Compile Include="Helpers\AudioService.cs" />
     <Compile Include="Helpers\DbProvider.cs" />
+    <Compile Include="Helpers\TouchEffect.cs" />
+    <Compile Include="Helpers\TouchRecognizer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />

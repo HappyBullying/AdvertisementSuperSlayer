@@ -15,6 +15,7 @@ using Android.App;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
+[assembly: MetaData("com.google.android.gms.ads.APPLICATION_ID", Value = "ca-app-pub-3940256099942544/6300978111")]
 
 // Version information for an assembly consists of the following four values:
 //

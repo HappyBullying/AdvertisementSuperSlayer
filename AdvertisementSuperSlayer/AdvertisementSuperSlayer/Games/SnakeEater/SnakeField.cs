@@ -26,6 +26,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         private Random rnd;
         private Assembly asm;
         private SKBitmap[][] AllAdvBitmaps;
+        private SKBitmap[] Head;
 
 
         private double ActualWidth;
@@ -201,6 +202,10 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             s = SnAllBody[0].Item1;
             cellInfos[f][s].State = ElementState.SnakeHead;
 
+            f = SnAllBody[1].Item2;
+            s = SnAllBody[1].Item1;
+            cellInfos[f][s].State = ElementState.SnakeBody;
+
 
             //if (Eat(f, s))
             //{
@@ -256,6 +261,41 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
             return true;
         }
+
+
+
+
+        private void DrawSnakeHead(SKCanvas canvas, int i, int j)
+        {
+            i++;
+            j++;
+
+            switch(SnDirection)
+            {
+                case SnakeDirection.Left:
+                    {
+                        canvas.DrawBitmap(Head[0], _cols_[j], _rows_[i]);
+                        break;
+                    }
+                case SnakeDirection.Up:
+                    {
+                        canvas.DrawBitmap(Head[1], _cols_[j], _rows_[i]);
+                        break;
+                    }
+                case SnakeDirection.Right:
+                    {
+                        canvas.DrawBitmap(Head[2], _cols_[j], _rows_[i]);
+                        break;
+                    }
+                case SnakeDirection.Down:
+                    {
+                        canvas.DrawBitmap(Head[3], _cols_[j], _rows_[i]);
+                        break;
+                    }
+            }
+        }
+
+
 
         private bool CheckSelfEat()
         {

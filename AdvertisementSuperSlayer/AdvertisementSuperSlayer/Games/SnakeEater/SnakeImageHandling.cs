@@ -3,7 +3,6 @@ using SkiaSharp.Views.Forms;
 using System.Linq;
 using System.IO;
 using System.Reflection;
-using Xamarin.Forms;
 using System.Collections.Generic;
 using System;
 
@@ -15,7 +14,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         private Tuple<int, int> GetPointForImage()
         {
             List<Tuple<int, int>> freeCells = new List<Tuple<int, int>>();
-            
+
 
             int i, j, m, n;
             bool _break = false;
@@ -66,7 +65,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                     SKRect dest = new SKRect(0, 0, SquareWidth, SquareWidth);
                     SKRect source = new SKRect(col * scl, row * scl, (col + 1) * scl, (row + 1) * scl);
 
-                    using(SKCanvas canvas = new SKCanvas(skBitmaps[row * advCols + col]))
+                    using (SKCanvas canvas = new SKCanvas(skBitmaps[row * advCols + col]))
                     {
                         canvas.Clear();
                         canvas.DrawBitmap(fullBitmap, source, dest);
@@ -74,6 +73,30 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                 }
             }
             return skBitmaps;
+        }
+
+
+        private void InitSnakeHead()
+        {
+            string path = App.PathToImages + "Snake.Head.";
+            string[] images =
+            {
+                path + "open_left.png",
+                path + "open_up.png",
+                path + "open_right.png",
+                path + "open_down.png"
+            };
+
+            Head = new SKBitmap[images.Length];
+    
+            for (int i = 0; i < images.Length; i++)
+            {
+                SKImageInfo inf = new SKImageInfo(SquareWidth, SquareWidth);
+                using(Stream stream = asm.GetManifestResourceStream(images[i]))
+                {
+                    Head[i] = SKBitmap.Decode(stream).Resize(inf, SKFilterQuality.High);
+                }
+            }
         }
 
         private void InitAdvImages()

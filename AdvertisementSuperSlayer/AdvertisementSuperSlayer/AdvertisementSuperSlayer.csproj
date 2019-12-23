@@ -111,7 +111,12 @@
     <None Remove="Images\Pair\Faces\violet\8.png" />
     <None Remove="Images\Pair\Faces\violet\9.png" />
     <None Remove="Images\Pair\pair_background.png" />
+    <None Remove="Images\Puzzle\shampoo.png" />
     <None Remove="Images\Snake\Advs\rak.png" />
+    <None Remove="Images\Snake\Head\open_down.png" />
+    <None Remove="Images\Snake\Head\open_left.png" />
+    <None Remove="Images\Snake\Head\open_right.png" />
+    <None Remove="Images\Snake\Head\open_up.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -218,7 +223,12 @@
     <EmbeddedResource Include="Images\Pair\Faces\violet\8.png" />
     <EmbeddedResource Include="Images\Pair\Faces\violet\9.png" />
     <EmbeddedResource Include="Images\Pair\pair_background.png" />
+    <EmbeddedResource Include="Images\Puzzle\shampoo.png" />
     <EmbeddedResource Include="Images\Snake\Advs\rak.png" />
+    <EmbeddedResource Include="Images\Snake\Head\open_down.png" />
+    <EmbeddedResource Include="Images\Snake\Head\open_left.png" />
+    <EmbeddedResource Include="Images\Snake\Head\open_right.png" />
+    <EmbeddedResource Include="Images\Snake\Head\open_up.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -227,6 +237,7 @@
     <PackageReference Include="SkiaSharp.Views" Version="1.68.0" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
+    <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
   </ItemGroup>

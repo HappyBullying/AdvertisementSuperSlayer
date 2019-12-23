@@ -141,6 +141,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             if (!ImagesReady)
             {
                 InitAdvImages();
+                InitSnakeHead();
                 SetAdvInfo();
                 ImagesReady = true;
             }
@@ -175,7 +176,8 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                         case ElementState.SnakeHead:
                             {
                                 //drawhead
-                                DrawSnakeBodyElement(canvas, i, j);
+                                DrawSnakeHead(canvas, i, j);
+                                //DrawSnakeBodyElement(canvas, i, j);
                                 break;
                             }
                         default:

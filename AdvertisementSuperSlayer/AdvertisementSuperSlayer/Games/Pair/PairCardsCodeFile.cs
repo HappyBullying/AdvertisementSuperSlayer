@@ -151,7 +151,7 @@ namespace AdvertisementSuperSlayer.Games.Pair
             {
                 if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
                 {
-                    await DependencyService.Get<AdmobHelper>().Display("ca-app-pub-3940256099942544/6300978111");
+                    //await DependencyService.Get<AdmobHelper>().Display("ca-app-pub-3940256099942544/6300978111");
                 }
                 else
                 {
