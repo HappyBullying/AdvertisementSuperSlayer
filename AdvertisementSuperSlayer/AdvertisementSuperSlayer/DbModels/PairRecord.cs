@@ -10,7 +10,9 @@ namespace AdvertisementSuperSlayer.DbModels
         public int Id { get; set; }
 
         public TimeSpan GameDuration { get; set; }
-        public DateTime RecordSetDate { get; set; }
+        public DateTime LasModified { get; set; }
+
+        public string Username { get; set; }
         public int Errors { get; set; }
     }
 }

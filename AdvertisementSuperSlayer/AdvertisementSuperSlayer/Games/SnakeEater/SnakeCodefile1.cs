@@ -1,6 +1,7 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Xamarin.Forms;
@@ -200,11 +201,28 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             canvas.DrawRect(rect, EmptyCellPaint);
 
             DrawGrid(canvas);
-
-            //DrawSnake(canvas);
+            DrawScore(canvas);
             DrawAll(canvas);
-
         }
+
+
+
+        private void DrawScore(SKCanvas canvas)
+        {
+            const float offset = 30;
+            const float height = 100;
+            const float width = 80;
+            SKPaint paint = new SKPaint
+            {
+                Color = SKColors.Orange,
+                IsAntialias = true,
+                Style = SKPaintStyle.Fill,
+                StrokeWidth = 4,
+                TextSize = height
+            };
+            canvas.DrawText(BlockCount.ToString(), (float)(ActualWidth - 2 * width - offset), height, paint);
+        }
+
 
 
         private void SetAdvInfo()
@@ -228,6 +246,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
         public void Play()
         {
+            Timer = Stopwatch.StartNew();
             TimeSpan ts = TimeSpan.FromMilliseconds(200);
             Device.StartTimer(ts, () =>
             {

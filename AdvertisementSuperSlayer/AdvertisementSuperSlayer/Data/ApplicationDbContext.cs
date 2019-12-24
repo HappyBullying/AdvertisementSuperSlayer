@@ -20,6 +20,7 @@ namespace AdvertisementSuperSlayer.Data
             dbConnection.CreateTable<FirstTime>();
             dbConnection.CreateTable<PairRecord>();
             dbConnection.CreateTable<PuzzleRecord>();
+            dbConnection.CreateTable<SnakeRecord>();
         }
 
         public User GetUser()

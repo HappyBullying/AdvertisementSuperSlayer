@@ -6,9 +6,10 @@
              mc:Ignorable="d"
              xmlns:tt="clr-namespace:AdvertisementSuperSlayer.TouchTracking"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
-             x:Class="AdvertisementSuperSlayer.Games.Puzzle.PuzzlePage">
+             x:Class="AdvertisementSuperSlayer.Games.Puzzle.PuzzlePage"
+             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="Bisque">
             <skia:SKCanvasView SizeChanged="canvasView_SizeChanged"
                 x:Name="canvasView" PaintSurface="OnCanvasViewPaintSurface" />
             <Grid.Effects>

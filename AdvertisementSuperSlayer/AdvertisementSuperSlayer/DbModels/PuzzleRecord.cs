@@ -11,6 +11,8 @@ namespace AdvertisementSuperSlayer.DbModels
 
         public TimeSpan GameTime { get; set; }
 
+        public string Username { get; set; }
+
         public DateTime LastModified { get; set; }
     }
 }

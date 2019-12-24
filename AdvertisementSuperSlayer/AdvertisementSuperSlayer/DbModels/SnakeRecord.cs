@@ -11,6 +11,8 @@ namespace AdvertisementSuperSlayer.DbModels
 
         public int MaxScore { get; set; }
 
+        public string Username { get; set; }
+
         public TimeSpan GameTime { get; set; }
 
         public DateTime LastModified { get; set; }

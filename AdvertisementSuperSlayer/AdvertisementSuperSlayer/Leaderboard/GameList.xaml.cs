@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using AdvertisementSuperSlayer.DbModels;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,14 +16,20 @@ namespace AdvertisementSuperSlayer.Leaderboard
 
         public enum Filter
         {
-            All, Snake, FindPair
+            Puzzle, Snake, FindPair
         };
 
         public class GameResult
         {
-            public string Username;
-            public int Result;
-            public DateTime RecordDate;
+            public GameResult(string Username, int Result, DateTime RecordDate)
+            {
+                this.Username = Username;
+                this.Result = Result;
+                this.RecordDate = RecordDate;
+            }
+            public string Username { get; set; }
+            public int Result { get; set; }
+            public DateTime RecordDate { get; set; }
         };
 
         public List<GameResult> Results = new List<GameResult>();
@@ -31,104 +37,69 @@ namespace AdvertisementSuperSlayer.Leaderboard
         public GameList()
         {
             InitializeComponent();
-            All.Source = ImageSource.FromResource(PathToImages + "all.png");
+            Puzzle.Source = ImageSource.FromResource(App.PathToImages + "GameSelection.puzzle.png");
             Snake.Source = ImageSource.FromResource(App.PathToImages + "GameSelection.snake.png");
-            FindPair.Source = ImageSource.FromResource(App.PathToImages + "GemaSelection.findpair.png");
+            FindPair.Source = ImageSource.FromResource(App.PathToImages + "GameSelection.findpair.png");
 
+            GetDataFromTable(Filter.Puzzle);
 
-            ListView tableData = new ListView
-            {
-                // Source of data items.
-                ItemsSource = Results,
-
-                // Define template for displaying each item.
-                // (Argument of DataTemplate constructor is called for 
-                //      each item; it must return a Cell derivative.)
-                ItemTemplate = new DataTemplate(() =>
-                {
-                    // Create views with bindings for displaying each property.
-                    Label usernameLabel = new Label();
-                    usernameLabel.SetBinding(Label.TextProperty, "Username");
-
-                    Label resultLabel = new Label();
-                    resultLabel.SetBinding(Label.TextProperty,
-                        new Binding("Birthday", BindingMode.OneWay,
-                            null, null, "Born {0:d}"));
-
-                    BoxView boxView = new BoxView();
-                    boxView.SetBinding(BoxView.ColorProperty, "FavoriteColor");
-
-                    // Return an assembled ViewCell.
-                    return new ViewCell
-                    {
-                        View = new Grid
-                        {
-                            
-                            Children =
-                                {
-                                    boxView,
-                                    new StackLayout
-                                    {
-                                        VerticalOptions = LayoutOptions.Center,
-                                        Spacing = 0,
-                                        Children =
-                                        {
-                                            usernameLabel,
-                                            resultLabel
-                                        }
-                                        }
-                                }
-                        }
-                    };
-                })
-            };
-
-            for (int i = 1; i <= ResultsAmount; i++)
-                for (int j = 0; j < CellsAmount; j++)
-                {
-
-                    //Headers.Children.Add(new BoxView {BackgroundColor = Color.Blue}, j, i);
-                    //Headers.Children.Add(new Label {TextColor = Color.White, VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Center}, j, i);
-                }
-            GetDataFromTable(0);
-
+            LeaderboardTable.ItemsSource = Results;
             this.BackgroundImageSource = ImageSource.FromResource(PathToImages + "leaderboard.png");
         }
 
-        private void GetDataFromTable(Filter filter)
+        private async void GetDataFromTable(Filter filter)
         {
             switch (filter)
             {
                 //insert filtering by game here
-                case Filter.All:
-                    break;
+                case Filter.Puzzle:
+                    {
+                        List<PuzzleRecord> records = await App.Rest.GetPuzzleData();
+                        foreach(PuzzleRecord rec in records)
+                        {
+                            Results.Add(new GameResult(rec.Username, (int)(rec.GameTime.TotalSeconds), rec.LastModified));
+                        }
+                        break;
+                    }
                 case Filter.Snake:
-                    break;
+                    {
+                        List<SnakeRecord> records = await App.Rest.GetSnakeData();
+                        foreach(SnakeRecord rec in records)
+                        {
+                            Results.Add(new GameResult(rec.Username, rec.MaxScore, rec.LastModified));
+                        }
+                        break;
+                    }
                 case Filter.FindPair:
-                    break;
+                    {
+                        List<PairRecord> records = await App.Rest.GetPairData();
+                        foreach (PairRecord rec in records)
+                        {
+                            Results.Add(new GameResult(rec.Username, (int)(rec.GameDuration.TotalSeconds), rec.LasModified));
+                        }
+                        break;
+                    }
             }
+            LeaderboardTable.ItemsSource = Results;
+            
 
-            for (int i = 1; i <= ResultsAmount; i++)
-                for (int j = 0; j < CellsAmount; j+=2)
-                {
-                    int ind = i * (int)CellsAmount + j;
-                    ((Label)Headers.Children.ElementAt(ind)).Text = "Test";
-                }
-                    
         }
 
-        private void All_Clicked(object sender, EventArgs e)
+        private void Puzzle_Clicked(object sender, EventArgs e)
         {
-            GetDataFromTable(Filter.All);
+            Results.Clear();
+            GetDataFromTable(Filter.Puzzle);
         }
 
         private void Snake_Clicked(object sender, EventArgs e)
         {
+            Results.Clear();
             GetDataFromTable(Filter.Snake);
         }
 
         private void FindPair_Clicked(object sender, EventArgs e)
         {
+            Results.Clear();
             GetDataFromTable(Filter.FindPair);
         }
     }

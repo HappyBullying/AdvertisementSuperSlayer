@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Google.MobileAds;
 using UIKit;
 
 namespace AdvertisementSuperSlayer.iOS
@@ -20,11 +21,13 @@ namespace AdvertisementSuperSlayer.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
+        [Obsolete]
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
 
+            MobileAds.Configure("ca-app-pub-7942157002969778~6442001066");
+            LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
     }

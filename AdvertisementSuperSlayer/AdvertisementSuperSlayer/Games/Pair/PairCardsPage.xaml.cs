@@ -211,7 +211,7 @@ namespace AdvertisementSuperSlayer.Games.Pair
             {
                 Errors = ErrorCounter,
                 GameDuration = TimeSpan.FromMilliseconds(mills),
-                RecordSetDate = DateTime.UtcNow
+                LasModified = DateTime.UtcNow
             };
 
             App.Rest.UpdatePair(record);

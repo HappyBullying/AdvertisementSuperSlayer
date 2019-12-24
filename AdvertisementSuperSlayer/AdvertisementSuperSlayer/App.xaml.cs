@@ -18,8 +18,8 @@ namespace AdvertisementSuperSlayer
             Rest = new RestService();
             //StartupNavigation();
 
-            //MainPage = new NavigationPage(new Games.Puzzle.PuzzlePage(6));
-            MainPage = new Page1();
+            MainPage = new Games.Puzzle.PuzzlePage(6); //new Games.SnakeEater.SnakePageMain(20, 32); //new NavigationPage(new Games.Puzzle.PuzzlePage(6));
+            //MainPage = new Page1();
         }
 
         private void StartupNavigation()

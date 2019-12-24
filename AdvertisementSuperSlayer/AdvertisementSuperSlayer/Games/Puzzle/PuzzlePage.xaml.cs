@@ -29,6 +29,8 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
         private int Cols;
         private int QuadSize;
         private int Count;
+        private double ActualWidth;
+        private double ActualHeight;
         private bool canProcessTouchEvent = false;
         private bool timerIsVisible = true;
         private const float StartOffset = 50;
@@ -194,7 +196,7 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
                     StrokeWidth = 4,
                     TextSize = height
                 };
-                canvas.DrawText(Count.ToString(), (float)(Width - 2 * width - offset), height, paint);
+                canvas.DrawText(Count.ToString(), (float)(ActualWidth - 2 * width - offset), height, paint);
             }
         }
 
@@ -313,7 +315,12 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
 
         private void canvasView_SizeChanged(object sender, EventArgs e)
         {
-            QuadSize = (int)(Height * 0.8 / Rows);
+            Xamarin.Essentials.DisplayInfo DInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+            double scale = DInfo.Width / Width;
+            ActualHeight = Height * scale;
+            ActualWidth = Width * scale;
+
+            QuadSize = (int)(ActualHeight * 0.8 / Rows);
             if (!picturesReady)
             {
                 picturesReady = true;
@@ -332,7 +339,7 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
                                     where tmp.Contains(".Puzzle.")
                                     select tmp).ToArray();
 
-            SKImageInfo inf = new SKImageInfo((int)(Height * 1.2), (int)(Height * 0.8));
+            SKImageInfo inf = new SKImageInfo((int)(ActualHeight * 1.2), (int)(ActualHeight * 0.8));
 
             for (int i = 0; i < resourceIDs.Length; i++)
             {

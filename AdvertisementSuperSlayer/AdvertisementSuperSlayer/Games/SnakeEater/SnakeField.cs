@@ -1,14 +1,17 @@
-﻿using SkiaSharp;
+﻿using AdvertisementSuperSlayer.DbModels;
+using AdvertisementSuperSlayer.Helpers;
+using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using Xamarin.Forms;
 
 namespace AdvertisementSuperSlayer.Games.SnakeEater
 {
-    partial class SnakeField : SKCanvasView
+    partial class SnakeField : SKCanvasView, ISaveResult
     {
         public int Rows { get; private set; }
         public int Cols { get; private set; }
@@ -27,6 +30,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         private Assembly asm;
         private SKBitmap[][] AllAdvBitmaps;
         private SKBitmap[] Head;
+        private Stopwatch Timer;
 
 
         private double ActualWidth;
@@ -38,6 +42,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
         private float[] _cols_;
         private int advRows;
         private int advCols;
+        private int BlockCount = 0;
         
 
         public SnakeField(int rows, int cols)
@@ -138,6 +143,17 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
         private bool MakeStep()
         {
+            bool cond0 = CheckSelfEat();
+            bool cond1 = SnAllBody[0].Item1 < 0;
+            bool cond2 = SnAllBody[0].Item1 >= cellInfos[0].Length;
+            bool cond3 = SnAllBody[0].Item2 < 0;
+            bool cond4 = SnAllBody[0].Item2 >= cellInfos.Length;
+
+            if (cond1 || cond2 || cond3 || cond4 || cond0)
+            {
+                Pause();
+                SaveResult();
+            }
             int f, s;
             switch (SnDirection)
             {
@@ -178,8 +194,10 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
                 s = SnAllBody[SnAllBody.Count - 1].Item1;
                 cellInfos[f][s].State = ElementState.Free;
                 SnAllBody.RemoveAt(SnAllBody.Count - 1);
+                BlockCount--;
             }
 
+            BlockCount++;
             f = SnAllBody[0].Item2;
             s = SnAllBody[0].Item1;
             cellInfos[f][s].State = ElementState.SnakeHead;
@@ -187,21 +205,34 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             f = SnAllBody[1].Item2;
             s = SnAllBody[1].Item1;
             cellInfos[f][s].State = ElementState.SnakeBody;
-
-
-            bool cond1 = SnAllBody[0].Item1 < 0;
-            bool cond2 = SnAllBody[0].Item1 >= cellInfos[0].Length;
-            bool cond3 = SnAllBody[0].Item2 < 0;
-            bool cond4 = SnAllBody[0].Item2 >= cellInfos.Length;
-
-            if (cond1 || cond2 || cond3 || cond4)
-            {
-                Pause();
-            }
-
+            SpawnNew();
             return true;
         }
 
+
+        private void SpawnNew()
+        {
+            // There is no AD
+            bool check = false;
+            for (int i = 0; i < cellInfos.Length; i++)
+            {
+                for (int j = 0; j < cellInfos[i].Length; j++)
+                {
+                    if (cellInfos[i][j].State == ElementState.Adv)
+                    {
+                        check = true;
+                        break;
+                    }
+                }
+                if (check)
+                    break;
+            }
+
+            if (!check)
+            {
+                SetAdvInfo();
+            }
+        }
 
 
 
@@ -239,16 +270,29 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
 
         private bool CheckSelfEat()
         {
-            for (int i = 4; i < SnAllBody.Count; i++)
+            for (int i = 1; i < SnAllBody.Count; i++)
             {
                 bool cond1 = SnAllBody[0].Item1 == SnAllBody[i].Item1;
                 bool cond2 = SnAllBody[0].Item2 == SnAllBody[i].Item2;
 
-                // If it's not
                 if (cond1 && cond2)
-                    return false;
+                    return true;
             }
-            return true;
+            return false;
+        }
+
+        public void SaveResult()
+        {
+            Timer.Stop();
+            long mills = Timer.ElapsedMilliseconds;
+            SnakeRecord record = new SnakeRecord
+            {
+                GameTime =  TimeSpan.FromMilliseconds(mills),
+                LastModified = DateTime.UtcNow,
+                MaxScore = BlockCount
+            };
+            App.Rest.UpdateSnake(record);
+            //Navigation.
         }
     }
 }

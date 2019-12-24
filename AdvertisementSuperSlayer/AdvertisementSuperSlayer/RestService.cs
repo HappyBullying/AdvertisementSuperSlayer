@@ -22,6 +22,9 @@ namespace AdvertisementSuperSlayer
         private readonly string pairRecordUrl = "http://192.168.0.105:5000/api/rating/postpairdata";
         private readonly string puzzleRecordUrl = "http://192.168.0.105:5000/api/rating/postpuzzledata";
         private readonly string snakeRecordUrl = "http://192.168.0.105:5000/api/rating/postsnakedata";
+        private readonly string getSnakeRecord = "http://192.168.0.105:5000/api/rating/getsnakedata";
+        private readonly string getPuzzleRecord = "http://192.168.0.105:5000/api/rating/getpuzzledata";
+        private readonly string getPairRecord = "http://192.168.0.105:5000/api/rating/getpairdata";
 
 
         public RestService()
@@ -167,7 +170,7 @@ namespace AdvertisementSuperSlayer
         public async void UpdatePair(PairRecord record)
         {
             bool needsUpdate = Db.SavePairRating(record);
-            
+
             if (needsUpdate)
             {
                 object toSend = new
@@ -180,6 +183,51 @@ namespace AdvertisementSuperSlayer
                 HttpResponseMessage response = await client.PostAsync(pairRecordUrl, data);
             }
         }
+
+
+
+        public async Task<List<PuzzleRecord>> GetPuzzleData()
+        {
+            HttpResponseMessage msg = await client.GetAsync(getPuzzleRecord);
+            if (msg.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                string strConent = await msg.Content.ReadAsStringAsync();
+                List<PuzzleRecord> records = JsonConvert.DeserializeObject<List<PuzzleRecord>>(strConent);
+                return records;
+            }
+            return null;
+        }
+
+
+
+
+
+        public async Task<List<PairRecord>> GetPairData()
+        {
+            HttpResponseMessage msg = await client.GetAsync(getPairRecord);
+            if (msg.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                string strConent = await msg.Content.ReadAsStringAsync();
+                List<PairRecord> records = JsonConvert.DeserializeObject<List<PairRecord>>(strConent);
+                return records;
+            }
+            return null;
+        }
+
+
+
+        public async Task<List<SnakeRecord>> GetSnakeData()
+        {
+            HttpResponseMessage msg = await client.GetAsync(getSnakeRecord);
+            if (msg.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                string strConent = await msg.Content.ReadAsStringAsync();
+                List<SnakeRecord> records = JsonConvert.DeserializeObject<List<SnakeRecord>>(strConent);
+                return records;
+            }
+            return null;
+        }
+            
 
 
 
