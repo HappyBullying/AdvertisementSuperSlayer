@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using AdvertisementSuperSlayer.Helpers;
 using System.Diagnostics;
+using AdvertisementSuperSlayer.Browser;
 
 namespace AdvertisementSuperSlayer.Games.Pair
 {
@@ -13,6 +14,7 @@ namespace AdvertisementSuperSlayer.Games.Pair
         private double WindowHeight { get; set; }
         private int Rows, Cols;
         private int ErrorCounter = 0;
+        private int RightCount = 0;
         private SKBitmap TileBitmap;
         private SKBitmap CheckMark;
         private BusyBehavior _Busy;
@@ -95,6 +97,7 @@ namespace AdvertisementSuperSlayer.Games.Pair
 
         private async void OnRightConfiguration(object sender, ConfigEventArgs args)
         {
+            RightCount++;
             int FRow = args.FRow;
             int FCol = args.FCol;
             int SRow = args.SRow;
@@ -113,6 +116,13 @@ namespace AdvertisementSuperSlayer.Games.Pair
             tiles[FRow][FCol].SetOk(CheckMark);
             tiles[SRow][SCol].SetOk(CheckMark);
             _Busy.Release();
+
+            if (RightCount == Rows * Cols / 2)
+            {
+                SaveResult();
+                await DisplayAlert("Victory", "You have won", "Ok");
+                await Navigation.PopAsync();
+            }
         }
 
         private async void OnWrongConfiguration(object sender, ConfigEventArgs args)
@@ -155,14 +165,16 @@ namespace AdvertisementSuperSlayer.Games.Pair
                 ErrorCounter++;
                 if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
                 {
-                    //await DependencyService.Get<AdmobHelper>().Display("ca-app-pub-3940256099942544/6300978111");
+                    await Navigation.PushAsync(new AdvPage());
                 }
                 else
                 {
-                    await Navigation.PushAsync(new Browser.BrowserPage());
+                    BrowserPage browser = new BrowserPage();
+                    await Navigation.PushAsync(browser);
+                    browser.Navigate(App.Rest.advUrl);
                 }
             }
-                
+
             tiles[FRow][FCol].WasTapped = true;
             tiles[SRow][SCol].WasTapped = true;
 

@@ -25,7 +25,7 @@ namespace AdvertisementSuperSlayer.Data
 
         public User GetUser()
         {
-            lock(locker)
+            lock (locker)
             {
                 if (dbConnection.Table<User>().Count() == 0)
                 {
@@ -38,24 +38,17 @@ namespace AdvertisementSuperSlayer.Data
             }
         }
 
-        public int SaveUser (User usr)
+        public int SaveUser(User usr)
         {
             lock (locker)
             {
-                if (dbConnection.Table<User>().Count() != 0)
-                {
-                    usr.UserId = dbConnection.Table<User>().Where(u => u.Username == usr.Username).FirstOrDefault().UserId;
-                    return dbConnection.Update(usr);
-                }
-                else
-                {
-                    return dbConnection.Insert(usr);
-                }
+                dbConnection.DeleteAll<User>();
+                return dbConnection.Insert(usr);
             }
         }
 
 
-        public Token  GetToken()
+        public Token GetToken()
         {
             lock (locker)
             {
@@ -110,7 +103,7 @@ namespace AdvertisementSuperSlayer.Data
 
         public bool SaveSnakeRating(SnakeRecord record)
         {
-            lock(locker)
+            lock (locker)
             {
                 SnakeRecord old = dbConnection.Table<SnakeRecord>().FirstOrDefault();
 
@@ -137,7 +130,7 @@ namespace AdvertisementSuperSlayer.Data
 
         public bool SavePairRating(PairRecord record)
         {
-            lock(locker)
+            lock (locker)
             {
                 PairRecord old = dbConnection.Table<PairRecord>().FirstOrDefault();
                 if (old == null)
@@ -155,7 +148,7 @@ namespace AdvertisementSuperSlayer.Data
                     }
                     else
                     {
-                        if (record.Errors == old.Errors && (record.GameDuration < old.GameDuration))
+                        if (record.Errors == old.Errors && (record.GameTime < old.GameTime))
                         {
                             record.Id = old.Id;
                             dbConnection.Update(record, typeof(PairRecord));

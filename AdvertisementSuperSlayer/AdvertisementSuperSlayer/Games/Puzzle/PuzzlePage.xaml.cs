@@ -13,6 +13,7 @@ using System.Reflection;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AdvertisementSuperSlayer.Browser;
 
 namespace AdvertisementSuperSlayer.Games.Puzzle
 {
@@ -101,6 +102,7 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
                         {
                             await DisplayAlert("Victory", "You have won", "Ok");
                             SaveResult();
+                            await Navigation.PopAsync();
                         }
                     }
                     break;
@@ -256,8 +258,17 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
             {
                 timerIsVisible = false;
                 canvasView.InvalidateSurface();
-                DisplayAlert("Defeat", "You have lost", "Ok").GetAwaiter().OnCompleted(async () => { 
-                    //await Navigation.PushAsync(new Account.RegisterPage());
+                DisplayAlert("Defeat", "You have lost", "Ok").GetAwaiter().OnCompleted(async () => {
+                    if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
+                    {
+                        await Navigation.PushAsync(new AdvPage());
+                    }
+                    else
+                    {
+                        BrowserPage browser = new BrowserPage();
+                        await Navigation.PushAsync(browser);
+                        browser.Navigate(App.Rest.advUrl);
+                    }
                 });
                 
                 return false;
@@ -395,7 +406,7 @@ namespace AdvertisementSuperSlayer.Games.Puzzle
             Timer.Stop();
             PuzzleRecord record = new PuzzleRecord
             {
-                GameTime = TimeSpan.FromMilliseconds(Timer.ElapsedMilliseconds),
+                GameTime = Timer.ElapsedMilliseconds,
                 LastModified = DateTime.UtcNow
             };
 

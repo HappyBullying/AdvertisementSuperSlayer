@@ -1,11 +1,11 @@
-﻿using AdvertisementSuperSlayer.DbModels;
+﻿using AdvertisementSuperSlayer.Browser;
+using AdvertisementSuperSlayer.DbModels;
 using AdvertisementSuperSlayer.Helpers;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
 using Xamarin.Forms;
 
@@ -153,6 +153,7 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             {
                 Pause();
                 SaveResult();
+                ShowAd();
             }
             int f, s;
             switch (SnDirection)
@@ -209,6 +210,20 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             return true;
         }
 
+
+        private async void ShowAd()
+        {
+            if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
+            {
+                await Navigation.PushAsync(new AdvPage());
+            }
+            else
+            {
+                BrowserPage browser = new BrowserPage();
+                await Navigation.PushAsync(browser);
+                browser.Navigate(App.Rest.advUrl);
+            }
+        }
 
         private void SpawnNew()
         {
@@ -287,12 +302,11 @@ namespace AdvertisementSuperSlayer.Games.SnakeEater
             long mills = Timer.ElapsedMilliseconds;
             SnakeRecord record = new SnakeRecord
             {
-                GameTime =  TimeSpan.FromMilliseconds(mills),
+                GameTime = mills,
                 LastModified = DateTime.UtcNow,
                 MaxScore = BlockCount
             };
             App.Rest.UpdateSnake(record);
-            //Navigation.
         }
     }
 }

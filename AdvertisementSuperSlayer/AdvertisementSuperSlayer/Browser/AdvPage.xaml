@@ -4,8 +4,20 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
              x:Class="AdvertisementSuperSlayer.Browser.AdvPage">
     <ContentPage.Content>
-        <Image x:Name="AdvImg"/>
+        <Grid>
+
+            <Image x:Name="AdvImg"/>
+            <Button HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    Opacity="0"
+                    Clicked="Button_Clicked"
+                    Text="X"></Button>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

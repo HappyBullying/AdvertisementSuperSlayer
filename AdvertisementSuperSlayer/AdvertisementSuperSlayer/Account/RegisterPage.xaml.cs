@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using System.Text;
 using AdvertisementSuperSlayer.DbModels;
 using System.Windows.Input;
+using System.Text.RegularExpressions;
 
 namespace AdvertisementSuperSlayer.Account
 {
@@ -109,13 +110,16 @@ namespace AdvertisementSuperSlayer.Account
 
         private void email_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (email.Text.Length == 0)
+            Match m = Regex.Match(email.Text, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$");
+            
+            
+            if (m.Success)
             {
-                emailReady = false;
+                emailReady = true;
             }
             else
             {
-                emailReady = true;
+                emailReady = false;
             }
             EnableButton();
         }

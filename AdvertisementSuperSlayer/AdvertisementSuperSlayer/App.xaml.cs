@@ -16,10 +16,10 @@ namespace AdvertisementSuperSlayer
         {
             InitializeComponent();
             Rest = new RestService();
-            //StartupNavigation();
+            StartupNavigation();
 
-            MainPage = new Games.Puzzle.PuzzlePage(6); //new Games.SnakeEater.SnakePageMain(20, 32); //new NavigationPage(new Games.Puzzle.PuzzlePage(6));
-            //MainPage = new Page1();
+            //MainPage = new Games.Puzzle.PuzzlePage(6); //new Games.SnakeEater.SnakePageMain(20, 32); //new NavigationPage(new Games.Puzzle.PuzzlePage(6));
+            //MainPage = new NavigationPage(new Browser.AdvPage());
         }
 
         private void StartupNavigation()

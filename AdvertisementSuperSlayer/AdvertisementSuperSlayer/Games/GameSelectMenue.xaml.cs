@@ -31,7 +31,7 @@ namespace AdvertisementSuperSlayer.Games
 
         private async void Puzzle_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new Puzzle.PuzzlePage(6));
         }
     }
 }

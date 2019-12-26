@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using AdvertisementSuperSlayer.DbModels;
 
 using Xamarin.Forms;
@@ -32,11 +33,12 @@ namespace AdvertisementSuperSlayer.Leaderboard
             public DateTime RecordDate { get; set; }
         };
 
-        public List<GameResult> Results = new List<GameResult>();
+        public ObservableCollection<GameResult> Results = new ObservableCollection<GameResult>();
 
         public GameList()
         {
             InitializeComponent();
+            BindingContext = this;
             Puzzle.Source = ImageSource.FromResource(App.PathToImages + "GameSelection.puzzle.png");
             Snake.Source = ImageSource.FromResource(App.PathToImages + "GameSelection.snake.png");
             FindPair.Source = ImageSource.FromResource(App.PathToImages + "GameSelection.findpair.png");
@@ -57,7 +59,7 @@ namespace AdvertisementSuperSlayer.Leaderboard
                         List<PuzzleRecord> records = await App.Rest.GetPuzzleData();
                         foreach(PuzzleRecord rec in records)
                         {
-                            Results.Add(new GameResult(rec.Username, (int)(rec.GameTime.TotalSeconds), rec.LastModified));
+                            Results.Add(new GameResult(rec.Username, (int)(rec.GameTime), rec.LastModified));
                         }
                         break;
                     }
@@ -75,14 +77,14 @@ namespace AdvertisementSuperSlayer.Leaderboard
                         List<PairRecord> records = await App.Rest.GetPairData();
                         foreach (PairRecord rec in records)
                         {
-                            Results.Add(new GameResult(rec.Username, (int)(rec.GameDuration.TotalSeconds), rec.LasModified));
+                            Results.Add(new GameResult(rec.Username, (int)(rec.GameTime), rec.LasModified));
                         }
                         break;
                     }
             }
+            LeaderboardTable.BeginRefresh();
             LeaderboardTable.ItemsSource = Results;
-            
-
+            LeaderboardTable.EndRefresh();
         }
 
         private void Puzzle_Clicked(object sender, EventArgs e)

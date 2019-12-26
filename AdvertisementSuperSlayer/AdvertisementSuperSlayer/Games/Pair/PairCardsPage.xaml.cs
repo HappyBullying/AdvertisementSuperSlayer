@@ -210,7 +210,7 @@ namespace AdvertisementSuperSlayer.Games.Pair
             PairRecord record = new PairRecord
             {
                 Errors = ErrorCounter,
-                GameDuration = TimeSpan.FromMilliseconds(mills),
+                GameTime = mills,
                 LasModified = DateTime.UtcNow
             };
 

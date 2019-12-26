@@ -18,13 +18,14 @@ namespace AdvertisementSuperSlayer
 
         private readonly string loginUrl = "http://192.168.0.105:5000/api/account/login";
         private readonly string registerUrl = "http://192.168.0.105:5000/api/account/register";
-        private readonly string deviceInfoUrl = "http://192.168.0.105:5000/api/account/register";
+        private readonly string deviceInfoUrl = "http://192.168.0.105:5000/api/account/postdevicedata";
         private readonly string pairRecordUrl = "http://192.168.0.105:5000/api/rating/postpairdata";
         private readonly string puzzleRecordUrl = "http://192.168.0.105:5000/api/rating/postpuzzledata";
         private readonly string snakeRecordUrl = "http://192.168.0.105:5000/api/rating/postsnakedata";
         private readonly string getSnakeRecord = "http://192.168.0.105:5000/api/rating/getsnakedata";
         private readonly string getPuzzleRecord = "http://192.168.0.105:5000/api/rating/getpuzzledata";
         private readonly string getPairRecord = "http://192.168.0.105:5000/api/rating/getpairdata";
+        public readonly string advUrl = "http://192.168.0.105:5000/advertisement/advertisement";
 
 
         public RestService()
@@ -49,8 +50,20 @@ namespace AdvertisementSuperSlayer
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                string retContent = await response.Content.ReadAsStringAsync();
+                var anon = new
+                {
+                    username = "",
+                    email = "",
+                    status = "",
+                    message = "",
+                    ReturnableId = ""
+                };
+
+                var AnonNew = JsonConvert.DeserializeAnonymousType(retContent, anon);
+                usr.ReturnableUser = AnonNew.ReturnableId;
                 Db.SaveUser(usr);
-                await SendDeviceInfo();
+                await SendDeviceInfo(AnonNew.ReturnableId);
                 return true;
             }
             else
@@ -61,14 +74,15 @@ namespace AdvertisementSuperSlayer
         }
 
 
-        public async Task<bool> SendDeviceInfo()
+        public async Task<bool> SendDeviceInfo(string ReturnableId)
         {
-            object deviceInfo = new
+            var deviceInfo = new
             {
                 ProcessorCount = Environment.ProcessorCount,
-                OSVersion = Environment.OSVersion,
+                OSVersion = Environment.OSVersion.ToString(),
                 MachineName = Environment.MachineName,
                 LTOTDevice = DateTime.UtcNow,
+                PlayerId = ReturnableId
             };
 
             string jsonContent = JsonConvert.SerializeObject(deviceInfo);
@@ -106,7 +120,8 @@ namespace AdvertisementSuperSlayer
                     token = "",
                     expiration = DateTime.Now,
                     username = "",
-                    userrole = ""
+                    userrole = "",
+                    ReturnableUser = ""
                 };
                 var token = JsonConvert.DeserializeAnonymousType(await response.Content.ReadAsStringAsync(), define);
 
@@ -115,6 +130,7 @@ namespace AdvertisementSuperSlayer
                     AccessToken = token.token,
                     ExpireDate = token.expiration,
                 };
+                usr.ReturnableUser = token.ReturnableUser;
                 Db.SaveUser(usr);
                 Db.SaveToken(tk);
                 return true;
@@ -146,7 +162,8 @@ namespace AdvertisementSuperSlayer
                     token = "",
                     expiration = DateTime.Now,
                     username = "",
-                    userrole = ""
+                    userrole = "",
+                    ReturnableUser = ""
                 };
                 var token = JsonConvert.DeserializeAnonymousType(await response.Content.ReadAsStringAsync(), define);
 
@@ -155,7 +172,8 @@ namespace AdvertisementSuperSlayer
                     AccessToken = token.token,
                     ExpireDate = token.expiration,
                 };
-
+                usr.ReturnableUser = token.ReturnableUser;
+                Db.SaveUser(usr);
                 Db.SaveToken(tk);
                 return true;
             }
@@ -175,8 +193,11 @@ namespace AdvertisementSuperSlayer
             {
                 object toSend = new
                 {
-                    GameTime = record.GameDuration,
+                    PairPlayerRatingId = 0,
+                    GameTime = record.GameTime,
                     FailsNumber = record.Errors,
+                    LastModified = DateTime.UtcNow,
+                    PlayerId = Db.GetUser().ReturnableUser
                 };
                 string jsonContent = JsonConvert.SerializeObject(toSend);
                 StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");
@@ -239,8 +260,11 @@ namespace AdvertisementSuperSlayer
             {
                 object toSend = new
                 {
+                    SnakeRtId = 0,
                     MaxScore = record.MaxScore,
-                    GameTime = record.GameTime
+                    GameTime = record.GameTime,
+                    LastModified = DateTime.UtcNow,
+                    PlayerId = Db.GetUser().ReturnableUser
                 };
                 string jsonContent = JsonConvert.SerializeObject(toSend);
                 StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");
@@ -258,8 +282,10 @@ namespace AdvertisementSuperSlayer
             {
                 object toSend = new
                 {
+                    PuzzlePlayerRatingId = 0,
                     GameTime = record.GameTime,
-                    LastModified = record.LastModified
+                    LastModified = record.LastModified,
+                    PlayerId = Db.GetUser().ReturnableUser
                 };
                 string jsonContent = JsonConvert.SerializeObject(toSend);
                 StringContent data = new StringContent(jsonContent, Encoding.UTF8, "application/json");

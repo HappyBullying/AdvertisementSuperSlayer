@@ -13,7 +13,7 @@ namespace AdvertisementSuperSlayer.DbModels
 
         public string Username { get; set; }
 
-        public TimeSpan GameTime { get; set; }
+        public long GameTime { get; set; }
 
         public DateTime LastModified { get; set; }
     }

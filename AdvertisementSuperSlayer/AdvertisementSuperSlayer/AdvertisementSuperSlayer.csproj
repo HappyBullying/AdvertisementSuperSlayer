@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Common\ad\ad.png" />
     <None Remove="Images\Common\google_logo.png" />
     <None Remove="Images\GameSelection\comingsoon.png" />
     <None Remove="Images\GameSelection\findpair.png" />
@@ -18,6 +19,7 @@
     <None Remove="Images\GameSelection\snake.png" />
     <None Remove="Images\Leaderboard\all.png" />
     <None Remove="Images\Leaderboard\leaderboard.png" />
+    <None Remove="Images\Leaderboard\leaderboardbutton.png" />
     <None Remove="Images\Menue\menu.png" />
     <None Remove="Images\Menue\play.png" />
     <None Remove="Images\Pair\CheckMarks\check_mark_blue.png" />
@@ -121,6 +123,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\Common\ad\ad.png" />
+    <EmbeddedResource Include="Images\Leaderboard\leaderboardbutton.png" />
     <EmbeddedResource Include="Images\Puzzle\mops.png" />
   </ItemGroup>
 

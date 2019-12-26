@@ -9,7 +9,7 @@ namespace AdvertisementSuperSlayer.DbModels
         [AutoIncrement]
         public int PuzzlePlayerRatingId { get; set; }
 
-        public TimeSpan GameTime { get; set; }
+        public long GameTime { get; set; }
 
         public string Username { get; set; }
 

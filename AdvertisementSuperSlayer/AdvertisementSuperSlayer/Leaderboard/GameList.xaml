@@ -4,6 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
              x:Class="AdvertisementSuperSlayer.Leaderboard.GameList">
     <ContentPage.Content>
         <Grid>
@@ -38,7 +40,7 @@
                 <BoxView Grid.Row="0" Grid.Column="2" BackgroundColor="Blue"/>
                 <Label Text="Дата рекорда" Grid.Row="0" Grid.Column="2" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White"/>
 
-                <ListView x:Name="LeaderboardTable"  HeightRequest="200" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+                <ListView x:Name="LeaderboardTable" ItemsSource="{Binding Results}" HeightRequest="200" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
